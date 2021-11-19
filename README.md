@@ -1,8 +1,6 @@
-# doan
+# ĐỒ ÁN LT DI ĐỘNG - CDTH19PMB - CDKT CAO THANG
 
-ĐỒ ÁN LT DI ĐỘNG - CDTH19PMB
-
-Nguyễn Ngọc Quân, Nguyễn Quốc Anh, Trương Minh Hiếu
+Sinh viên: Nguyễn Ngọc Quân, Nguyễn Quốc Anh, Trương Minh Hiếu
 
 Figma: https://www.figma.com/file/CkiBQisKYbRLIIkali90Oq/0306191102-0306191120-0306191158
 
