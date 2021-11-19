@@ -1,5 +1,13 @@
 # doan
 
+QHA_SHOP
+
+ĐỒ ÁN LT DI ĐỘNG - CDTH19PMB
+
+Nguyễn Ngọc Quân, Nguyễn Quốc Anh, Trương Minh Hiếu
+
+Figma: https://www.figma.com/file/CkiBQisKYbRLIIkali90Oq/0306191102-0306191120-0306191158
+
 A new Flutter project.
 
 ## Getting Started
