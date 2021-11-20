@@ -1,6 +1,7 @@
+import 'package:doan/screens/homeScreen/home_screen.dart';
+import 'package:doan/screens/loginScreen/login_screen.dart';
 import "package:flutter/material.dart";
 import 'package:doan/constants.dart';
-import "package:doan/screens/loginScreen/login_screen.dart";
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
                   color: MyColor.grayClr,
                   letterSpacing: defaultSpacing,
                   fontSize: MyTextSize.normalText))),
-      home: const LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }
