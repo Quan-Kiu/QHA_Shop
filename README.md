@@ -1,8 +1,12 @@
-# doan
+# ĐỒ ÁN LT DI ĐỘNG - CDTH19PMB - CDKT CAO THANG
 
-A new Flutter project.
+Sinh viên: Nguyễn Ngọc Quân, Nguyễn Quốc Anh, Trương Minh Hiếu
+
+Figma: https://www.figma.com/file/CkiBQisKYbRLIIkali90Oq/0306191102-0306191120-0306191158
 
 ## Getting Started
+
+clone,open project and run "flutter pub get"
 
 This project is a starting point for a Flutter application.
 
