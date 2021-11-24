@@ -20,13 +20,20 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Container(
-            child:Row(
-              children: <Widget>[
-                Image.asset('assets/images/PromotionImage.png')
-              ],
-            )
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
+            child: Container(
+              child:Row(
+                children: <Widget>[
+                  Image.asset('assets/images/PromotionImage.png'),
+                  
+                ],
+                
+              )
+            ),
+            
           ),
+
           Padding(
             padding: const EdgeInsets.only(left:defaultPaddingLeft),
             child: Container(
