@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const defaultSpacing = 0.5;
+const defaultPaddingLeft = 16.0;
 
 // Color
 class MyColor {
