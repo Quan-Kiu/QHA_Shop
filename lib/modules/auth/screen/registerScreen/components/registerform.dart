@@ -1,8 +1,7 @@
-import 'package:doan/components/mybutton_widget.dart';
-import 'package:doan/components/mytextformfield_widget.dart';
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/widget/mybutton_widget.dart';
+import 'package:doan/widget/mytextformfield_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -32,8 +31,10 @@ class _RegisterFormState extends State<RegisterForm> {
           MyButtonWidget(
             padding: const EdgeInsets.only(top: 47.0),
             text: "Đăng ký",
+            textStyle: const TextStyle(
+                color: AppColors.whiteClr, fontWeight: FontWeight.bold),
             onPress: () {},
-            color: MyColor.blueClr,
+            color: AppColors.blueClr,
           ),
         ],
       ),

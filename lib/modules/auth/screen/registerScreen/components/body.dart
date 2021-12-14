@@ -1,9 +1,10 @@
-import 'package:doan/components/myheaderauth_widget.dart';
-import 'package:doan/constants.dart';
-import 'package:doan/screens/MyScreen.dart';
-import 'package:doan/screens/registerScreen/components/registerform.dart';
+import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/constants/themes/app_text_styles.dart';
+import 'package:doan/widget/myheaderauth_widget.dart';
+import 'package:doan/widget/mytext_widget.dart';
+import './registerform.dart';
 import 'package:flutter/material.dart';
-import 'package:doan/components/mytext_widget.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -33,15 +34,10 @@ class Body extends StatelessWidget {
                   const Text("Bạn có một tài khoản ?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyScreen.loginScreen));
+                        Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
                       },
-                      child: const MyTextWidget(
-                          text: "Đăng nhập",
-                          isBold: true,
-                          color: MyColor.blueClr)),
+                      child: const Text("Đăng nhập",
+                          style: AppTextStyles.largeLinkText))
                 ],
               )
             ],
