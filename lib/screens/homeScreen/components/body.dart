@@ -23,14 +23,19 @@ class Body extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),
             child: Container(
-                child: Row(
-              children: <Widget>[
-                Image.asset('assets/images/PromotionImage.png'),
-              ],
-            )),
+              child:Row(
+                children: <Widget>[
+                  Image.asset('assets/images/PromotionImage.png'),
+                  
+                ],
+                
+              )
+            ),
+            
           ),
+
           Padding(
-            padding: const EdgeInsets.only(left: defaultPaddingLeft),
+            padding: const EdgeInsets.only(left:defaultPaddingLeft),
             child: Container(
               child: Row(
                 children: <Widget>[
@@ -59,23 +64,25 @@ class Body extends StatelessWidget {
                     return MyButtonCategory(buttonCate: buttonCate[index]);
                   })),
           Padding(
-            padding: const EdgeInsets.only(
-                left: defaultPaddingLeft, right: defaultPaddingLeft),
+
+            padding: const EdgeInsets.only(left:defaultPaddingLeft,right: defaultPaddingLeft),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('Giá sốc',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.blue.shade900)),
-                  const Text('Xem thêm',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.blue))
+
+                  style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                            color: Colors.blue.shade900)),
+                  Text('Xem thêm',
+                  style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                            color: Colors.blue))
                 ],
+                
               ),
             ),
           )
