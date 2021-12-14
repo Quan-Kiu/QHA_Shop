@@ -1,5 +1,6 @@
+import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../constants/assets/app_assets_path.dart';
 import 'mytext_widget.dart';
 
 class MyHeaderAuth extends StatelessWidget {
@@ -13,9 +14,9 @@ class MyHeaderAuth extends StatelessWidget {
     return Column(
       children: [
         const Padding(
-          padding: const EdgeInsets.only(bottom: 27),
+          padding: EdgeInsets.only(bottom: 27),
           child: Image(
-            image: AssetImage(MyImages.logoImage),
+            image: AssetImage(AppAssetsPath.logoImage),
             width: 72,
             height: 72,
           ),
@@ -24,7 +25,7 @@ class MyHeaderAuth extends StatelessWidget {
           text: title,
           isBold: true,
           fontSize: 16,
-          color: MyColor.darkClr,
+          color: AppColors.darkClr,
         ),
         const SizedBox(
           height: 10,

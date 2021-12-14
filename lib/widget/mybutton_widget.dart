@@ -1,5 +1,6 @@
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/constants/themes/app_text_styles.dart';
 import "package:flutter/material.dart";
-import 'package:doan/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
@@ -9,7 +10,7 @@ class MyButtonWidget extends StatelessWidget {
   final String text;
   final Function onPress;
   final Color color;
-  final Color textColor;
+  final TextStyle textStyle;
   final bool isSocial;
   // ignore: prefer_typing_uninitialized_variables
   var icon;
@@ -22,7 +23,7 @@ class MyButtonWidget extends StatelessWidget {
       required this.color,
       this.isSocial = false,
       this.icon = "",
-      this.textColor = MyColor.whiteClr,
+      this.textStyle = AppTextStyles.normalText,
       required this.padding})
       : super(key: key);
 
@@ -47,14 +48,8 @@ class MyButtonWidget extends StatelessWidget {
           child: Row(children: [
             isSocial ? icon : const Text(""),
             Expanded(
-                child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: textColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: MyTextSize.mediumText),
-            ))
+                child:
+                    Text(text, textAlign: TextAlign.center, style: textStyle))
           ]),
         ));
   }

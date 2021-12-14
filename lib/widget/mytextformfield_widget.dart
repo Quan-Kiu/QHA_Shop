@@ -1,5 +1,6 @@
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/constants/themes/app_text_styles.dart';
 import "package:flutter/material.dart";
-import 'package:doan/constants.dart';
 
 // ignore: must_be_immutable
 class MyTextFormField extends StatelessWidget {
@@ -22,8 +23,7 @@ class MyTextFormField extends StatelessWidget {
         child: TextFormField(
             focusNode: myFocusNode,
             obscureText: obscureText,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold, color: MyColor.grayClr),
+            style: AppTextStyles.normalTextBold,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 20),
                 hintText: hintText,
@@ -35,7 +35,7 @@ class MyTextFormField extends StatelessWidget {
                   ),
                 ),
                 focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: MyColor.blueClr, width: 2.0),
+                  borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
                 ),
                 enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(

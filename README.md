@@ -4,6 +4,8 @@ Sinh viên: Nguyễn Ngọc Quân, Nguyễn Quốc Anh, Trương Minh Hiếu
 
 Figma: https://www.figma.com/file/CkiBQisKYbRLIIkali90Oq/0306191102-0306191120-0306191158
 
+Link Github PHP: https://github.com/minhhieu2505/QHAShopPHP.git
+
 ## Getting Started
 
 clone,open project and run "flutter pub get"

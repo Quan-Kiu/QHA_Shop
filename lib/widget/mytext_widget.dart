@@ -1,5 +1,5 @@
+import 'package:doan/constants/themes/app_colors.dart';
 import "package:flutter/material.dart";
-import 'package:doan/constants.dart';
 
 class MyTextWidget extends StatelessWidget {
   final String text;
@@ -10,8 +10,8 @@ class MyTextWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.isBold = false,
-    this.fontSize = MyTextSize.normalText,
-    this.color = MyColor.grayClr,
+    this.fontSize = 12,
+    this.color = AppColors.grayClr,
   }) : super(key: key);
 
   @override

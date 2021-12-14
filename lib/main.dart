@@ -1,7 +1,9 @@
-import 'package:doan/screens/homeScreen/home_screen.dart';
-import 'package:doan/screens/loginScreen/login_screen.dart';
+import 'package:doan/config/routes/router.dart';
+import 'package:doan/config/routes/routes_name.dart';
 import "package:flutter/material.dart";
-import 'package:doan/constants.dart';
+import 'package:doan/constants/assets/app_assets_path.dart';
+
+import 'constants/themes/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,13 +19,11 @@ class MyApp extends StatelessWidget {
       title: "QHAShop",
       theme: ThemeData(
           fontFamily: "Poppins",
-          scaffoldBackgroundColor: MyColor.whiteClr,
+          scaffoldBackgroundColor: AppColors.whiteClr,
           textTheme: const TextTheme(
-              bodyText2: TextStyle(
-                  color: MyColor.grayClr,
-                  letterSpacing: defaultSpacing,
-                  fontSize: MyTextSize.normalText))),
-      home: const HomeScreen(),
+              bodyText2: TextStyle(color: AppColors.grayClr, fontSize: 12))),
+      onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: RoutesName.PAGE_LIST,
     );
   }
 }

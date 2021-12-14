@@ -1,10 +1,11 @@
-import 'package:doan/components/myheaderauth_widget.dart';
-import 'package:doan/constants.dart';
-import 'package:doan/screens/loginScreen/components/loginform.dart';
+import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/constants/assets/app_assets_path.dart';
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/constants/themes/app_text_styles.dart';
+import 'package:doan/widget/mybutton_widget.dart';
+import 'package:doan/widget/myheaderauth_widget.dart';
+import './loginform.dart';
 import 'package:flutter/material.dart';
-import 'package:doan/components/mytext_widget.dart';
-import 'package:doan/components/mybutton_widget.dart';
-import 'package:doan/screens/myscreen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -43,47 +44,38 @@ class Body extends StatelessWidget {
                   text: "Đăng nhập bằng Google",
                   onPress: () {},
                   isSocial: true,
-                  color: MyColor.whiteClr,
-                  textColor: MyColor.grayClr,
-                  icon: SvgPicture.asset(MyIcons.googleIcon)),
+                  color: AppColors.whiteClr,
+                  textStyle: AppTextStyles.normalTextBold,
+                  icon: SvgPicture.asset(AppAssetsPath.googleIcon)),
               MyButtonWidget(
                   padding: const EdgeInsets.only(top: 15.0),
                   text: "Đăng nhập bằng Facebook",
                   onPress: () {},
-                  color: MyColor.whiteClr,
+                  color: AppColors.whiteClr,
                   isSocial: true,
-                  textColor: MyColor.grayClr,
-                  icon: SvgPicture.asset(MyIcons.facebookIcon)),
+                  textStyle: AppTextStyles.normalTextBold,
+                  icon: SvgPicture.asset(AppAssetsPath.facebookIcon)),
               const SizedBox(
-                height: 80,
+                height: 60,
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                MyScreen.forgotPasswordScreen));
+                    Navigator.pushNamed(context, RoutesName.FORGOT_PASS_PAGE);
                   },
-                  child: const MyTextWidget(
-                      text: "Quên mật khẩu",
-                      isBold: true,
-                      color: MyColor.blueClr)),
+                  child: const Text("Quên mật khẩu",
+                      style: AppTextStyles.largeLinkText)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Bạn không có tài khoản?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyScreen.registerScreen));
+                        Navigator.pushNamed(context, RoutesName.REGISTER_PAGE);
                       },
-                      child: const MyTextWidget(
-                          text: "Đăng ký",
-                          isBold: true,
-                          color: MyColor.blueClr)),
+                      child: const Text(
+                        "Đăng ký",
+                        style: AppTextStyles.largeLinkText,
+                      ))
                 ],
               )
             ],

@@ -1,10 +1,10 @@
-import 'package:doan/components/myheaderauth_widget.dart';
-import 'package:doan/constants.dart';
+import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/widget/mybutton_widget.dart';
+import 'package:doan/widget/myheaderauth_widget.dart';
+import 'package:doan/widget/mytext_widget.dart';
+import 'package:doan/widget/mytextformfield_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:doan/components/mytext_widget.dart';
-import 'package:doan/components/mytextformfield_widget.dart';
-import 'package:doan/components/mybutton_widget.dart';
-import 'package:doan/screens/myscreen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -33,8 +33,11 @@ class Body extends StatelessWidget {
                     MyButtonWidget(
                       padding: const EdgeInsets.only(top: 47.0),
                       text: "Quên mật khẩu",
+                      textStyle: const TextStyle(
+                          color: AppColors.whiteClr,
+                          fontWeight: FontWeight.bold),
                       onPress: () {},
-                      color: MyColor.blueClr,
+                      color: AppColors.blueClr,
                     ),
                   ],
                 ),
@@ -48,15 +51,12 @@ class Body extends StatelessWidget {
                   const Text("Quay lại trang đăng nhập?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyScreen.loginScreen));
+                        Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
                       },
                       child: const MyTextWidget(
                           text: "Quay lại",
                           isBold: true,
-                          color: MyColor.blueClr)),
+                          color: AppColors.blueClr)),
                 ],
               )
             ],

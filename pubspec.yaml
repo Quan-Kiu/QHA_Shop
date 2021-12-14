@@ -60,22 +60,24 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/Logo.png
-    - assets/icons/Google.svg
-    - assets/icons/Facebook.svg
-    - assets/icons/productIcons/bikini.svg
-    - assets/icons/productIcons/dress.svg
-    - assets/icons/productIcons/manbag.svg
-    - assets/icons/productIcons/manpants.svg
-    - assets/icons/productIcons/manshoes.svg
-    - assets/icons/productIcons/manunderwear.svg
-    - assets/icons/productIcons/shirt.svg
-    - assets/icons/productIcons/skirt.svg
-    - assets/icons/productIcons/tshirt.svg
-    - assets/icons/productIcons/womanbag.svg
-    - assets/icons/productIcons/womanshoes.svg
-    - assets/icons/productIcons/womantshirt.svg
-    - assets/icons/productIcons/womanpants.svg
+    - assets/images/
+    - assets/icons/
+    - assets/icons/productIcons/
+    # - assets/icons/Google.svg
+    # - assets/icons/Facebook.svg
+    # - assets/icons/productIcons/bikini.svg
+    # - assets/icons/productIcons/dress.svg
+    # - assets/icons/productIcons/manbag.svg
+    # - assets/icons/productIcons/manpants.svg
+    # - assets/icons/productIcons/manshoes.svg
+    # - assets/icons/productIcons/manunderwear.svg
+    # - assets/icons/productIcons/shirt.svg
+    # - assets/icons/productIcons/skirt.svg
+    # - assets/icons/productIcons/tshirt.svg
+    # - assets/icons/productIcons/womanbag.svg
+    # - assets/icons/productIcons/womanshoes.svg
+    # - assets/icons/productIcons/womantshirt.svg
+    # - assets/icons/productIcons/womanpants.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

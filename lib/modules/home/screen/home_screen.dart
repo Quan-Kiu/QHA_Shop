@@ -1,5 +1,5 @@
-import 'package:doan/screens/homeScreen/components/appbar.dart';
-import 'package:doan/screens/homeScreen/components/body.dart';
+import './components/appbar.dart';
+import './components/body.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
