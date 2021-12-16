@@ -1,6 +1,9 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
+import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/models/buttoncate.dart';
 import 'package:doan/widget/mybutton_cate_widget.dart';
+import 'package:doan/widget/mybutton_widget.dart';
+import 'package:doan/widget/mytext_widget.dart';
 import 'package:flutter/material.dart';
 
 List<ButtonCate> buttonCate = [
@@ -19,6 +22,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: <Widget>[
@@ -44,6 +48,13 @@ class Body extends StatelessWidget {
                   itemBuilder: (BuildContext context, index) {
                     return MyButtonCategory(buttonCate: buttonCate[index]);
                   })),
+          MyButtonWidget(
+              text: 'Lưu',
+              onPress: () {},
+              color: AppColors.blueClr,
+              padding: EdgeInsets.all(15),
+              textStyle: TextStyle(
+                  color: AppColors.whiteClr, fontWeight: FontWeight.bold))
         ],
       ),
     );

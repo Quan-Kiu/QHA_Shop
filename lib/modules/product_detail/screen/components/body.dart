@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
       ["image_46.png", "image_47.png", "image_48.png", "image_49.png"],
       1);
   List<String> sizes = ["46", "47", "48", "49", "50", "51", "52", "53"];
-  List<String> colors = ["yellow", "blue", "dark", "red"];
+  List<String> colors = ["yellow", "blue", "dark", "red", "green"];
 
   int curentPage = 0;
   @override
