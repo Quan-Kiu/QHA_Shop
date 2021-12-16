@@ -48,13 +48,6 @@ class Body extends StatelessWidget {
                   itemBuilder: (BuildContext context, index) {
                     return MyButtonCategory(buttonCate: buttonCate[index]);
                   })),
-          MyButtonWidget(
-              text: 'Lưu',
-              onPress: () {},
-              color: AppColors.blueClr,
-              padding: EdgeInsets.all(15),
-              textStyle: TextStyle(
-                  color: AppColors.whiteClr, fontWeight: FontWeight.bold))
         ],
       ),
     );
