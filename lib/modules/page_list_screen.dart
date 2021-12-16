@@ -12,6 +12,7 @@ class PageList extends StatelessWidget {
     RoutesName.REGISTER_PAGE,
     RoutesName.FORGOT_PASS_PAGE,
     RoutesName.HOME_PAGE,
+    RoutesName.PRODUCT_DETAIL_PAGE,
   ];
 
   @override

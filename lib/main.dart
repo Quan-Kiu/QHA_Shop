@@ -1,7 +1,6 @@
 import 'package:doan/config/routes/router.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import "package:flutter/material.dart";
-import 'package:doan/constants/assets/app_assets_path.dart';
 
 import 'constants/themes/app_colors.dart';
 
@@ -17,13 +16,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "QHAShop",
-      theme: ThemeData(
-          fontFamily: "Poppins",
-          scaffoldBackgroundColor: AppColors.whiteClr,
-          textTheme: const TextTheme(
-              bodyText2: TextStyle(color: AppColors.grayClr, fontSize: 12))),
+      theme: theme(),
       onGenerateRoute: RouteGenerator.generateRoute,
       initialRoute: RoutesName.PAGE_LIST,
     );
   }
+}
+
+ThemeData theme() {
+  return ThemeData(
+      appBarTheme: const AppBarTheme(
+          color: AppColors.whiteClr,
+          elevation: 0,
+          iconTheme: IconThemeData(color: AppColors.darkClr),
+          titleTextStyle: TextStyle(
+              fontSize: 16,
+              color: AppColors.darkClr,
+              fontWeight: FontWeight.bold)),
+      fontFamily: "Poppins",
+      scaffoldBackgroundColor: AppColors.whiteClr,
+      textTheme: const TextTheme(
+          bodyText2: TextStyle(color: AppColors.grayClr, fontSize: 12)));
 }

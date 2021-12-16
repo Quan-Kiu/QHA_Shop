@@ -4,6 +4,7 @@ import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
 import 'package:doan/modules/page_list_screen.dart';
+import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -22,6 +23,9 @@ class RouteGenerator {
       case RoutesName.HOME_PAGE:
         return _GeneratePageRoute(
             widget: HomeScreen(), routeName: settings.name);
+      case RoutesName.PRODUCT_DETAIL_PAGE:
+        return _GeneratePageRoute(
+            widget: ProductDetail(), routeName: settings.name);
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
       default:
