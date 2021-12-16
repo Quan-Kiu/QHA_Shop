@@ -7,6 +7,7 @@ import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 
+
 import 'package:flutter/widgets.dart';
 
 class RouteGenerator {

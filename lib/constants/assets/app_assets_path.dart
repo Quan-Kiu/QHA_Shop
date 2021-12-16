@@ -9,6 +9,7 @@ class AppAssetsPath {
   static const logoImage = imagePath + "Logo.png";
   static const banner1Image = imagePath + "Promotion_Image.png";
 
+
   static const googleIcon = iconPath + "Google.svg";
   static const starIcon = iconPath + "star.svg";
   static const likeIcon = iconPath + "like.svg";
