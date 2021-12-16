@@ -23,30 +23,7 @@ class MyTextSize {
   static const largeText = 16.0;
   static const mediumText = 14.0;
   static const smallText = 10.0;
-
   static const largeHeadingText = 32.0;
   static const mediumHeadingText = 24.0;
   static const normalHeadingText = 20.0;
-}
-
-class MyImages {
-  static const logoImage = "assets/images/Logo.png";
-}
-
-class MyIcons {
-  static const googleIcon = "assets/icons/Google.svg";
-  static const facebookIcon = "assets/icons/Facebook.svg";
-  static const bikiniIcon = "assets/icons/productIcons/bikini.svg";
-  static const dressIcon = "assets/icons/productIcons/dress.svg";
-  static const manbagIcon = "assets/icons/productIcons/manbag.svg";
-  static const manpantsIcon = "assets/icons/productIcons/manpants.svg";
-  static const manshoesIcon = "assets/icons/productIcons/manshoes.svg";
-  static const manunderwearIcon = "assets/icons/productIcons/manunderwear.svg";
-  static const shirtIcon = "assets/icons/productIcons/shirt.svg";
-  static const skirtIcon = "assets/icons/productIcons/skirt.svg";
-  static const tshirtIcon = "assets/icons/productIcons/tshirt.svg";
-  static const womanbagIcon = "assets/icons/productIcons/womanbag.svg";
-  static const womanshoesIcon = "assets/icons/productIcons/womanshoes.svg";
-  static const womantshirtIcon = "assets/icons/productIcons/womantshirt.svg";
-  static const womanpantsIcon = "assets/icons/productIcons/womanpants.svg";
 }

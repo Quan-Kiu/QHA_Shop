@@ -6,6 +6,8 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String FORGOT_PASS_PAGE = 'ForgotPasswordPage';
   // ignore: constant_identifier_names
+  static const String PRODUCT_DETAIL_PAGE = 'ProductDetailPage';
+  // ignore: constant_identifier_names
   static const String HOME_PAGE = 'HomePage';
   // ignore: constant_identifier_names
   static const String PAGE_LIST = 'PageList';
