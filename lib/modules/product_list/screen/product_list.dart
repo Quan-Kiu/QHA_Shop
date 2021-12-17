@@ -1,9 +1,8 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/extenstion/app_extension.dart';
-import 'package:doan/models/product.dart';
 import 'package:doan/widget/rating_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:doan/models/product.dart';
+import 'package:doan/models/productdiscount.dart';
 import '../../../constants.dart';
 import 'components/banner.dart';
 import 'components/buildAppbar.dart';
@@ -41,34 +40,39 @@ class Body extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               mainAxisSpacing: 10,
               crossAxisSpacing: 20,
-              childAspectRatio: 1.1,
+              childAspectRatio: 0.75,
               children: List.generate(products.length, (index) {
-                return SizedBox(
-                  height: 300,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Expanded(
-                        child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Image.asset(
-                              AppAssetsPath.imagePath +
-                                  products[index].images[0],
-                              fit: BoxFit.cover,
-                            )),
-                      ),
-                      Text(
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Image.asset(
+                            AppAssetsPath.imagePath + products[index].image,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
                         products[index].name,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 12.0,
                             color: MyColor.darkClr),
                       ),
-                      const Rating(star_count: 4),
-                      Text(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: const Rating(star_count: 4),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
                         AppExtension.moneyFormat(
                             products[index].price.toString()),
                         style: const TextStyle(
@@ -76,28 +80,32 @@ class Body extends StatelessWidget {
                             fontSize: 12.0,
                             color: MyColor.blueClr),
                       ),
-                      Row(
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 6),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
                             AppExtension.moneyFormat(
-                                products[index].price.toString()),
+                                products[index].preprice.toString()),
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12.0,
+                                fontSize: 10.0,
                                 color: MyColor.grayClr),
                           ),
                           const Text(
                             "Giảm 24%",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12.0,
+                                fontSize: 10.0,
                                 color: MyColor.redClr),
                           )
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               })),
         ],

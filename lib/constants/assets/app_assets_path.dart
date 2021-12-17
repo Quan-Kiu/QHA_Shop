@@ -8,11 +8,14 @@ class AppAssetsPath {
 
   static const logoImage = imagePath + "Logo.png";
   static const banner1Image = imagePath + "Promotion_Image.png";
-
+  static const banner2Image = imagePath + "banner_2.png";
 
   static const googleIcon = iconPath + "Google.svg";
   static const starIcon = iconPath + "star.svg";
   static const likeIcon = iconPath + "like.svg";
+  static const backIcon = iconPath + "back.svg";
+  static const leftIcon = iconPath + "Left.svg";
+  static const searchIcon = iconPath + "Search.svg";
   static const facebookIcon = iconPath + "Facebook.svg";
   static const bikiniIcon = iconPath + "productIcons/bikini.svg";
   static const dressIcon = iconPath + "productIcons/dress.svg";
