@@ -5,6 +5,7 @@ import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
 import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
+import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 
 
@@ -30,6 +31,8 @@ class RouteGenerator {
             widget: ProductDetail(), routeName: settings.name);
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
+      case RoutesName.PRODUCT_FAVORITE_PAGE:
+        return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
