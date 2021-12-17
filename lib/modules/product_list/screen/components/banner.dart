@@ -14,15 +14,18 @@ class Banner_Discount extends StatelessWidget {
     return Container(
       child: Stack(
         children: <Widget>[
-          Image.asset(
-            image,
-            width: double.infinity,
-            height: 180,
-            fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Image.asset(
+              image,
+              width: 319,
+              height: 206,
+              
+            ),
           ),
           Positioned(
-              top: 40,
-              left: 10,
+              top: 48,
+              left: 42,
               child: Row(
                 children: [
                   Text(
@@ -30,13 +33,13 @@ class Banner_Discount extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 35),
+                        fontSize: 24),
                   )
                 ],
               )),
           Positioned(
-              top: 80,
-              left: 10,
+              top: 96,
+              left: 42,
               child: Row(
                 children: [
                   Text(
@@ -44,7 +47,7 @@ class Banner_Discount extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 35),
+                        fontSize: 24),
                   )
                 ],
               )),
