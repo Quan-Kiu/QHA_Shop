@@ -15,6 +15,12 @@ class AppAssetsPath {
   static const likeIcon = iconPath + "like.svg";
   static const backIcon = iconPath + "back.svg";
   static const leftIcon = iconPath + "Left.svg";
+  static const loveIcon = iconPath + "love.svg";
+  static const cartIcon = iconPath + "Cart.svg";
+  static const homeIcon = iconPath + "Home.svg";
+  static const offerIcon = iconPath + "Offer.svg";
+  static const userIcon = iconPath + "User.svg";
+  static const notificationIcon = iconPath + "Notification.svg";
   static const searchIcon = iconPath + "Search.svg";
   static const facebookIcon = iconPath + "Facebook.svg";
   static const bikiniIcon = iconPath + "productIcons/bikini.svg";
