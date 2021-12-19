@@ -12,6 +12,9 @@ import 'package:doan/modules/auth/screen/dateofbirthScreen/dateofbith_screen.dar
 import 'package:doan/modules/auth/screen/emailScreen/email_screen.dart';
 import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
 import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
+import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
+import 'package:doan/modules/product_list/screen/product_list.dart';
+
 
 import 'package:flutter/widgets.dart';
 
@@ -57,6 +60,11 @@ class RouteGenerator {
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
 
+      case RoutesName.PRODUCT_FAVORITE_PAGE:
+        return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
+      case RoutesName.LIST_PRODUCT_PAGE:
+        return _GeneratePageRoute(
+            widget: ProductList(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }
