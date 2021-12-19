@@ -20,6 +20,8 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
+
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -63,6 +65,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/icons/productIcons/
+    - assets/info/
     # - assets/icons/Google.svg
     # - assets/icons/Facebook.svg
     # - assets/icons/productIcons/bikini.svg
@@ -101,3 +104,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

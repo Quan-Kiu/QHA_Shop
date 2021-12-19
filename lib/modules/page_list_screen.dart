@@ -13,6 +13,15 @@ class PageList extends StatelessWidget {
     RoutesName.FORGOT_PASS_PAGE,
     RoutesName.HOME_PAGE,
     RoutesName.PRODUCT_DETAIL_PAGE,
+    RoutesName.INFO_PAGE,
+    RoutesName.RENAME_PAGE,
+    RoutesName.SEX_PAGE,
+    RoutesName.DATEOFBIRTH_PAGE,
+    RoutesName.EMAIL_PAGE,
+    RoutesName.PHONE_PAGE,
+    RoutesName.CHANGEPASSWORD_PAGE,
+
+
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
     RoutesName.CATEGORY_PAGE,
