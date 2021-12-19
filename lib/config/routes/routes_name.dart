@@ -10,5 +10,22 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String HOME_PAGE = 'HomePage';
   // ignore: constant_identifier_names
+  static const String INFO_PAGE = 'InfoPage';
+  // ignore: constant_identifier_names
+  static const String RENAME_PAGE = 'RenamePage';
+  // ignore: constant_identifier_names
+  static const String SEX_PAGE = 'SexPage';
+  // ignore: constant_identifier_names
+  static const String DATEOFBIRTH_PAGE = 'DateOfBirthPage';
+  // ignore: constant_identifier_names
+  static const String EMAIL_PAGE = 'EmailPage';
+  // ignore: constant_identifier_names
+  static const String PHONE_PAGE = 'PhonePage';
+  // ignore: constant_identifier_names
+  static const String CHANGEPASSWORD_PAGE = 'ChangePasswordPage';
+  // ignore: constant_identifier_names
+
   static const String PAGE_LIST = 'PageList';
+
+  
 }

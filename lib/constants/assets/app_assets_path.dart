@@ -2,9 +2,12 @@ const imagePath = "assets/images/";
 
 const iconPath = "assets/icons/";
 
+const infoPath = "assets/info/";
+
 class AppAssetsPath {
   static const imagePath = "assets/images/";
   static const iconPath = "assets/icons/";
+  static const infoPath = "assets/info/";
 
   static const logoImage = imagePath + "Logo.png";
 
@@ -25,4 +28,11 @@ class AppAssetsPath {
   static const womanshoesIcon = iconPath + "productIcons/womanshoes.svg";
   static const womantshirtIcon = iconPath + "productIcons/womantshirt.svg";
   static const womanpantsIcon = iconPath + "productIcons/womanpants.svg";
+
+  static const DateIcon = infoPath + "Date.svg";
+  static const GenderIcon = infoPath + "Gender.svg";
+  static const MessageIcon = infoPath + "Message.svg";
+  static const PasswordIcon = infoPath + "Passwor.svg";
+  static const PhoneIcon = infoPath + "Phone.svg";
+  static const ProfilePicture = infoPath + "ProfilePicture.png";
 }

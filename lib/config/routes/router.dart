@@ -5,6 +5,13 @@ import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
 import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
+import 'package:doan/modules/auth/screen/info/info_screen.dart';
+import 'package:doan/modules/auth/screen/renameScreen/rename_screen.dart';
+import 'package:doan/modules/auth/screen/sexScreen/sex_screen.dart';
+import 'package:doan/modules/auth/screen/dateofbirthScreen/dateofbith_screen.dart';
+import 'package:doan/modules/auth/screen/emailScreen/email_screen.dart';
+import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
+import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -26,8 +33,30 @@ class RouteGenerator {
       case RoutesName.PRODUCT_DETAIL_PAGE:
         return _GeneratePageRoute(
             widget: ProductDetail(), routeName: settings.name);
+      case RoutesName.INFO_PAGE:
+        return _GeneratePageRoute(
+            widget: InfoPageScreen(), routeName: settings.name);
+      case RoutesName.RENAME_PAGE:
+        return _GeneratePageRoute(
+            widget: RenamePageScreen(), routeName: settings.name);
+      case RoutesName.SEX_PAGE:
+        return _GeneratePageRoute(
+            widget: SexPageScreen(), routeName: settings.name);
+      case RoutesName.DATEOFBIRTH_PAGE:
+        return _GeneratePageRoute(
+            widget: DateOBPageScreen(), routeName: settings.name);
+      case RoutesName.EMAIL_PAGE:
+        return _GeneratePageRoute(
+            widget: EmailPageScreen(), routeName: settings.name);
+      case RoutesName.PHONE_PAGE:
+        return _GeneratePageRoute(
+            widget: PhonePageScreen(), routeName: settings.name);
+      case RoutesName.CHANGEPASSWORD_PAGE:
+        return _GeneratePageRoute(
+            widget: ChangePasswordPageScreen(), routeName: settings.name);
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
+
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }
