@@ -24,47 +24,47 @@ class RouteGenerator {
     switch (settings.name) {
       case RoutesName.LOGIN_PAGE:
         return _GeneratePageRoute(
-            widget: LoginScreen(), routeName: settings.name);
+            widget: const LoginScreen(), routeName: settings.name);
       case RoutesName.REGISTER_PAGE:
         return _GeneratePageRoute(
-            widget: RegisterScreen(), routeName: settings.name);
+            widget: const RegisterScreen(), routeName: settings.name);
       case RoutesName.FORGOT_PASS_PAGE:
         return _GeneratePageRoute(
-            widget: ForgotPassScreen(), routeName: settings.name);
+            widget: const ForgotPassScreen(), routeName: settings.name);
       case RoutesName.HOME_PAGE:
         return _GeneratePageRoute(
-            widget: HomeScreen(), routeName: settings.name);
+            widget: const HomeScreen(), routeName: settings.name);
       case RoutesName.PRODUCT_DETAIL_PAGE:
         return _GeneratePageRoute(
-            widget: ProductDetail(), routeName: settings.name);
+            widget: const ProductDetail(), routeName: settings.name);
       case RoutesName.INFO_PAGE:
         return _GeneratePageRoute(
-            widget: InfoPageScreen(), routeName: settings.name);
+            widget: const InfoPageScreen(), routeName: settings.name);
       case RoutesName.RENAME_PAGE:
         return _GeneratePageRoute(
-            widget: RenamePageScreen(), routeName: settings.name);
+            widget: const RenamePageScreen(), routeName: settings.name);
       case RoutesName.SEX_PAGE:
         return _GeneratePageRoute(
-            widget: SexPageScreen(), routeName: settings.name);
+            widget: const SexPageScreen(), routeName: settings.name);
       case RoutesName.DATEOFBIRTH_PAGE:
         return _GeneratePageRoute(
-            widget: DateOBPageScreen(), routeName: settings.name);
+            widget: const DateOBPageScreen(), routeName: settings.name);
       case RoutesName.EMAIL_PAGE:
         return _GeneratePageRoute(
-            widget: EmailPageScreen(), routeName: settings.name);
+            widget: const EmailPageScreen(), routeName: settings.name);
       case RoutesName.PHONE_PAGE:
         return _GeneratePageRoute(
-            widget: PhonePageScreen(), routeName: settings.name);
+            widget: const PhonePageScreen(), routeName: settings.name);
       case RoutesName.CHANGEPASSWORD_PAGE:
         return _GeneratePageRoute(
-            widget: ChangePasswordPageScreen(), routeName: settings.name);
+            widget: const ChangePasswordPageScreen(), routeName: settings.name);
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
 
       case RoutesName.PRODUCT_FAVORITE_PAGE:
         return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
-        return _GeneratePageRoute(widget: Category_List(), routeName: settings.name);
+        return _GeneratePageRoute(widget: const Category_List(), routeName: settings.name);
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
@@ -76,6 +76,7 @@ class RouteGenerator {
 
 class _GeneratePageRoute extends PageRouteBuilder {
   final Widget widget;
+  // ignore: prefer_typing_uninitialized_variables
   final routeName;
   _GeneratePageRoute({required this.widget, required this.routeName})
       : super(
@@ -84,7 +85,7 @@ class _GeneratePageRoute extends PageRouteBuilder {
                 Animation<double> secondaryAnimation) {
               return widget;
             },
-            transitionDuration: Duration(milliseconds: 500),
+            transitionDuration: const Duration(milliseconds: 500),
             transitionsBuilder: (BuildContext context,
                 Animation<double> animation,
                 Animation<double> secondaryAnimation,
@@ -92,7 +93,7 @@ class _GeneratePageRoute extends PageRouteBuilder {
               return SlideTransition(
                 textDirection: TextDirection.rtl,
                 position: Tween<Offset>(
-                  begin: Offset(1.0, 0.0),
+                  begin: const Offset(1.0, 0.0),
                   end: Offset.zero,
                 ).animate(animation),
                 child: child,
