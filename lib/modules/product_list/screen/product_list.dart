@@ -46,20 +46,18 @@ class Body extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      flex:3,
+                      flex: 3,
                       child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Image.asset(
-                            AppAssetsPath.imagePath +
-                                products[index].image,
-                           
+                            AppAssetsPath.imagePath + products[index].image,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left:20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Text(
                         products[index].name,
                         style: const TextStyle(
@@ -69,12 +67,11 @@ class Body extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left:20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: const Rating(star_count: 4),
                     ),
-                   
                     Padding(
-                      padding: const EdgeInsets.only(left:20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Text(
                         AppExtension.moneyFormat(
                             products[index].price.toString()),
@@ -85,7 +82,8 @@ class Body extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left:20,right:20,top:6),
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 6),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[

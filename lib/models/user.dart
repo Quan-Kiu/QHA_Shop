@@ -17,6 +17,7 @@ class User {
       required this.password});
 }
 
+// ignore: camel_case_types
 class iicon {
   final String icon;
   final String link;

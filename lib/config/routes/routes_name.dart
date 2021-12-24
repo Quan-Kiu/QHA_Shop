@@ -33,4 +33,6 @@ class RoutesName {
   static const String LIST_PRODUCT_PAGE = 'DiscountPage';
   // ignore: constant_identifier_names
   static const String PRODUCT_FAVORITE_PAGE = 'FavoritePage';
+  // ignore: constant_identifier_names
+  static const String CATEGORY_PAGE = 'CategoryPage';
 }

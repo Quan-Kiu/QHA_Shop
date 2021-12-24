@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Product {
   final String image, name, description;
-  final int price, size, id,preprice;
+  final int price, size, id, preprice;
   final Color color;
   Product({
     required this.id,
@@ -19,22 +19,20 @@ class Product {
 List<Product> products = [
   Product(
       id: 1,
-      name: "Nike Air Max 270 day las asasdasdasd",
+      name: "Nike ",
       price: 680,
       size: 12,
       description: dummyText,
-      image: "bag_1.png",
+      image: "dress.svg",
       color: const Color(0xFF3D82AE),
-      preprice: 123
-      ),
-      
+      preprice: 123),
   Product(
       id: 2,
       name: "Belt Bag",
       price: 680,
       size: 8,
       description: dummyText,
-      image: "bag_2.png",
+      image: "dress.svg",
       color: const Color(0xFFD3A984),
       preprice: 123),
   Product(
@@ -43,16 +41,16 @@ List<Product> products = [
       price: 234,
       size: 10,
       description: dummyText,
-      image: "bag_3.png",
+      image: "dress.svg",
       color: const Color(0xFF989493),
       preprice: 123),
-   Product(
+  Product(
       id: 4,
       name: "Old Fashion",
       price: 234,
       size: 11,
       description: dummyText,
-      image: "bag_4.png",
+      image: "dress.svg",
       color: const Color(0xFFE6B398),
       preprice: 123),
   Product(
@@ -61,7 +59,7 @@ List<Product> products = [
       price: 234,
       size: 12,
       description: dummyText,
-      image: "bag_5.png",
+      image: "dress.svg",
       color: const Color(0xFFFB7883),
       preprice: 123),
   Product(
@@ -70,50 +68,21 @@ List<Product> products = [
     price: 234,
     size: 12,
     description: dummyText,
-    image: "bag_6.png",
+    image: "dress.svg",
     color: const Color(0xFFAEAEAE),
     preprice: 123,
-  ), 
+  ),
   Product(
     id: 6,
     name: "Office Code",
     price: 234,
     size: 12,
     description: dummyText,
-    image: "image_46.png",
+    image: "dress.svg",
     color: const Color(0xFFAEAEAE),
     preprice: 123,
-  ), 
-  Product(
-    id: 6,
-    name: "Office Code",
-    price: 234,
-    size: 12,
-    description: dummyText,
-    image: "image_47.png",
-    color: const Color(0xFFAEAEAE),
-    preprice: 123,
-  ), 
-  Product(
-    id: 6,
-    name: "Office Code",
-    price: 234,
-    size: 12,
-    description: dummyText,
-    image: "image_48.png",
-    color: const Color(0xFFAEAEAE),
-    preprice: 123,
-  ), 
-  Product(
-    id: 6,
-    name: "Office Code",
-    price: 234,
-    size: 12,
-    description: dummyText,
-    image: "image_49.png",
-    color: const Color(0xFFAEAEAE),
-    preprice: 123,
-  ), 
+  ),
+  
 ];
 
 String dummyText =

@@ -24,7 +24,7 @@ List<Product> products = [
       size: 12,
       description: dummyText,
       image: "bag_1.png",
-      color: Color(0xFF3D82AE),
+      color: const Color(0xFF3D82AE),
       preprice: 123
       ),
       
@@ -35,7 +35,7 @@ List<Product> products = [
       size: 8,
       description: dummyText,
       image: "bag_2.png",
-      color: Color(0xFFD3A984),
+      color: const Color(0xFFD3A984),
       preprice: 123),
   Product(
       id: 3,
@@ -44,7 +44,7 @@ List<Product> products = [
       size: 10,
       description: dummyText,
       image: "bag_3.png",
-      color: Color(0xFF989493),
+      color: const Color(0xFF989493),
       preprice: 123),
    Product(
       id: 4,
@@ -53,7 +53,7 @@ List<Product> products = [
       size: 11,
       description: dummyText,
       image: "bag_4.png",
-      color: Color(0xFFE6B398),
+      color: const Color(0xFFE6B398),
       preprice: 123),
   Product(
       id: 5,
@@ -62,7 +62,7 @@ List<Product> products = [
       size: 12,
       description: dummyText,
       image: "bag_5.png",
-      color: Color(0xFFFB7883),
+      color: const Color(0xFFFB7883),
       preprice: 123),
   Product(
     id: 6,
@@ -71,7 +71,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "bag_6.png",
-    color: Color(0xFFAEAEAE),
+    color: const Color(0xFFAEAEAE),
     preprice: 123,
   ), 
   Product(
@@ -81,7 +81,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "image_46.png",
-    color: Color(0xFFAEAEAE),
+    color: const Color(0xFFAEAEAE),
     preprice: 123,
   ), 
   Product(
@@ -91,7 +91,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "image_47.png",
-    color: Color(0xFFAEAEAE),
+    color: const Color(0xFFAEAEAE),
     preprice: 123,
   ), 
   Product(
@@ -101,7 +101,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "image_48.png",
-    color: Color(0xFFAEAEAE),
+    color: const Color(0xFFAEAEAE),
     preprice: 123,
   ), 
   Product(
@@ -111,7 +111,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "image_49.png",
-    color: Color(0xFFAEAEAE),
+    color: const Color(0xFFAEAEAE),
     preprice: 123,
   ), 
 ];

@@ -51,9 +51,9 @@ class body extends StatelessWidget {
                             color: MyColor.darkClr),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left:20),
-                      child: const Rating(star_count: 4),
+                    const Padding(
+                      padding: EdgeInsets.only(left:20),
+                      child: Rating(star_count: 4),
                     ),
                    
                     Padding(
