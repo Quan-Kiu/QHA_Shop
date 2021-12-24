@@ -14,7 +14,7 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String RENAME_PAGE = 'RenamePage';
   // ignore: constant_identifier_names
-  static const String SEX_PAGE = 'SexPage';
+  static const String SEX_PAGE = 'GenderPage';
   // ignore: constant_identifier_names
   static const String DATEOFBIRTH_PAGE = 'DateOfBirthPage';
   // ignore: constant_identifier_names
