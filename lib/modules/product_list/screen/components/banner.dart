@@ -6,7 +6,9 @@ class Banner_Discount extends StatelessWidget {
   final String discount;
   const Banner_Discount({
     Key? key,
-    required this.image, required this.title, required this.discount,
+    required this.image,
+    required this.title,
+    required this.discount,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,6 @@ class Banner_Discount extends StatelessWidget {
               image,
               width: 319,
               height: 206,
-              
             ),
           ),
           Positioned(

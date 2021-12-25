@@ -16,7 +16,6 @@ import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_scr
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 
-
 import 'package:flutter/widgets.dart';
 
 class RouteGenerator {
@@ -62,6 +61,7 @@ class RouteGenerator {
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
 
       case RoutesName.PRODUCT_FAVORITE_PAGE:
+
         return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(widget: const Category_List(), routeName: settings.name);
