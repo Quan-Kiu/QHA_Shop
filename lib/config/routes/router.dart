@@ -4,6 +4,8 @@ import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
 import 'package:doan/modules/category/screen/category_list.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
+import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
+import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
 import 'package:doan/modules/auth/screen/info/info_screen.dart';
@@ -60,11 +62,20 @@ class RouteGenerator {
       case RoutesName.PAGE_LIST:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
 
-      case RoutesName.PRODUCT_FAVORITE_PAGE:
+      case RoutesName.ORDERS_PAGE:
+        return _GeneratePageRoute(
+            widget: const OrdersPage(), routeName: settings.name);
 
-        return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
+      case RoutesName.ORDER_DETAUL_PAGE:
+        return _GeneratePageRoute(
+            widget: const OrderDetail(), routeName: settings.name);
+
+      case RoutesName.PRODUCT_FAVORITE_PAGE:
+        return _GeneratePageRoute(
+            widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
-        return _GeneratePageRoute(widget: const Category_List(), routeName: settings.name);
+        return _GeneratePageRoute(
+            widget: const Category_List(), routeName: settings.name);
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
@@ -93,7 +104,7 @@ class _GeneratePageRoute extends PageRouteBuilder {
               return SlideTransition(
                 textDirection: TextDirection.rtl,
                 position: Tween<Offset>(
-                  begin: const Offset(1.0, 0.0),
+                  begin: const Offset(-1.0, 0.0),
                   end: Offset.zero,
                 ).animate(animation),
                 child: child,

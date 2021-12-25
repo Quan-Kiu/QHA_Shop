@@ -17,13 +17,14 @@ class AppAssetsPath {
   static const banner2Image = imagePath + "banner_2.png";
 
   static const googleIcon = iconPath + "Google.svg";
+  static const successIcon = iconPath + "Success.svg";
   static const starIcon = iconPath + "star.svg";
   static const likeIcon = iconPath + "like.svg";
   static const backIcon = iconPath + "back.svg";
   static const leftIcon = iconPath + "Left.svg";
   static const loveIcon = iconPath + "love.svg";
   static const cartIcon = iconPath + "Cart.svg";
-  static String homeIcon = iconPath + "Home.svg";
+  static const homeIcon = iconPath + "Home.svg";
   static const offerIcon = iconPath + "Offer.svg";
   static const userIcon = iconPath + "User.svg";
   static const notificationIcon = iconPath + "Notification.svg";
