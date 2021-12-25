@@ -28,7 +28,12 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String PAGE_LIST = 'PageList';
 
-  
+  // ignore: constant_identifier_names
+  static const String ORDERS_PAGE = 'Orders_Page';
+
+  // ignore: constant_identifier_names
+  static const String ORDER_DETAUL_PAGE = 'Order_Detail_Page';
+
   // ignore: constant_identifier_names
   static const String LIST_PRODUCT_PAGE = 'DiscountPage';
   // ignore: constant_identifier_names
