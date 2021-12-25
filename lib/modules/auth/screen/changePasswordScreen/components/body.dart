@@ -30,7 +30,7 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: Form(
           child: ListView(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         children: [
           Container(
             padding: const EdgeInsets.all(15.0),
@@ -157,8 +157,8 @@ class _BodyState extends State<Body> {
         formKey.currentState!.save();
         const message =
                   'Username: \nPassword: ';
-          final snackBar = SnackBar(
-                content: Text(
+          final snackBar = const SnackBar(
+                content: const Text(
                   message,
                   style: TextStyle(fontSize: 20),
                 ));
