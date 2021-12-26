@@ -21,6 +21,7 @@ import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_scr
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 import 'package:doan/modules/search_error/search_error.dart';
+import 'package:doan/modules/search_result/search_result.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -89,6 +90,9 @@ class RouteGenerator {
       case RoutesName.PRODUCT_FAVORITE_PAGE:
         return _GeneratePageRoute(
             widget: Product_Favorite(), routeName: settings.name);
+      case RoutesName.SEARCH_RESULT:
+        return _GeneratePageRoute(
+            widget: Search_Result(), routeName: settings.name);
 
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
