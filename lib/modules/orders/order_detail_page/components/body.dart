@@ -1,7 +1,7 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
-import 'package:doan/modules/orders/order_detail_page/components/product_order_item.dart';
+import 'package:doan/widget/product_order_item.dart';
 import 'package:doan/modules/orders/order_detail_page/components/status_order.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -51,8 +51,11 @@ class Body extends StatelessWidget {
                         child: Column(
                           children: List.generate(
                             products.length,
-                            (index) =>
-                                ProductOrderItem(product: products[index]),
+                            (index) => ProductOrderItem(
+                              product: products[index],
+                              readOnly: true,
+                            ),
+
                           ),
                         ),
                       ),
@@ -91,7 +94,8 @@ class Body extends StatelessWidget {
         ),
         MyButtonWidget(
             text: 'Trở lại',
-            onPress: () => Navigator.pushNamed(context, RoutesName.ORDERS_PAGE),
+            onPress: () => Navigator.pop(context),
+
             color: AppColors.blueClr,
             textStyle:
                 const TextStyle(color: AppColors.whiteClr, fontSize: 16.0),

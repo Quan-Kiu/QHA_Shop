@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                   const Text("Bạn có một tài khoản ?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+                        Navigator.pop(context);
                       },
                       child: const Text("Đăng nhập",
                           style: AppTextStyles.largeLinkText))

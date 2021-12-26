@@ -51,7 +51,7 @@ class Body extends StatelessWidget {
                   const Text("Quay lại trang đăng nhập?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+                        Navigator.pop(context);
                       },
                       child: const MyTextWidget(
                           text: "Quay lại",
