@@ -14,6 +14,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
 import '../components/numbers_widget.dart';
+// ignore: duplicate_import
 import '../components/profile_widget.dart';
 import '../components/user_preferences.dart';
 
@@ -81,8 +82,8 @@ class _BodyState extends State<Body> {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
-            Icon(Icons.male_outlined, color: AppColors.blueClr),
-            Text(
+            const Icon(Icons.male_outlined, color: AppColors.blueClr),
+            const Text(
               ' Giới tính: ',
               style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -93,12 +94,12 @@ class _BodyState extends State<Body> {
             Expanded(
                 child: Text(
               user.sex,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
               ),
             )),
-            Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
+            const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
           ],
         ),
       );
@@ -107,8 +108,8 @@ class _BodyState extends State<Body> {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
-            Icon(Icons.calendar_today_outlined, color: AppColors.blueClr),
-            Text(
+            const Icon(Icons.calendar_today_outlined, color: AppColors.blueClr),
+            const Text(
               ' Ngày sinh: ',
               style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -119,23 +120,23 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.dateOB,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 20,
                 ),
               ),
             ),
-            Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
+            const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
           ],
         ),
       );
 
   Widget buildemail(User user) => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
-            Icon(Icons.email_outlined, color: AppColors.blueClr),
-            Text(
+            const Icon(Icons.email_outlined, color: AppColors.blueClr),
+            const Text(
               ' Email: ',
               style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -145,12 +146,12 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: Text(user.email,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                   )),
             ),
-            Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
+            const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
           ],
         ),
       );
@@ -159,8 +160,8 @@ class _BodyState extends State<Body> {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
-            Icon(Icons.phone_android_outlined, color: AppColors.blueClr),
-            Text(
+            const Icon(Icons.phone_android_outlined, color: AppColors.blueClr),
+            const Text(
               ' Số điện thoại: ',
               style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -171,20 +172,20 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.phone,
-                style: TextStyle(color: Colors.grey, fontSize: 20),
+                style: const TextStyle(color: Colors.grey, fontSize: 20),
               ),
             ),
-            Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
+            const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
           ],
         ),
       );
 
   Widget buildpassword(User user) => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
-            Icon(Icons.lock, color: AppColors.blueClr),
-            Text(
+            const Icon(Icons.lock, color: AppColors.blueClr),
+            const Text(
               ' Mật khẩu: ',
               style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -195,13 +196,13 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.password,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 20,
                 ),
               ),
             ),
-            Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
+            const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.blueClr),
           ],
         ),
       );
