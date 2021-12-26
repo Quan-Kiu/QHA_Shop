@@ -30,7 +30,7 @@ class OrderInFo extends StatelessWidget {
                               style: (type == 'payment' &&
                                       index == data.length - 1)
                                   ? const TextStyle(
-                                      fontSize: 16.0,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.bold)
                                   : const TextStyle(fontSize: 14.0))),
                       Expanded(
@@ -44,9 +44,11 @@ class OrderInFo extends StatelessWidget {
                             style:
                                 (type == 'payment' && index == data.length - 1)
                                     ? const TextStyle(
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
                                         color: AppColors.blueClr)
                                     : const TextStyle(
+                                        height: 1.5,
                                         fontSize: 14.0,
                                         color: AppColors.darkClr),
                           )),

@@ -2,6 +2,7 @@ import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
+import 'package:doan/modules/cart/cart_page.dart';
 import 'package:doan/modules/category/screen/category_list.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
@@ -69,6 +70,10 @@ class RouteGenerator {
       case RoutesName.ORDER_DETAUL_PAGE:
         return _GeneratePageRoute(
             widget: const OrderDetail(), routeName: settings.name);
+
+      case RoutesName.CART_PAGE:
+        return _GeneratePageRoute(
+            widget: const CartPage(), routeName: settings.name);
 
       case RoutesName.PRODUCT_FAVORITE_PAGE:
         return _GeneratePageRoute(
