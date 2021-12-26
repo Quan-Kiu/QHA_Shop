@@ -20,12 +20,12 @@ class PageList extends StatelessWidget {
     RoutesName.EMAIL_PAGE,
     RoutesName.PHONE_PAGE,
     RoutesName.CHANGEPASSWORD_PAGE,
-
-
+    RoutesName.ORDERS_PAGE,
+    RoutesName.ORDER_DETAUL_PAGE,
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
-    RoutesName.CATEGORY_PAGE,
 
+    RoutesName.CATEGORY_PAGE,
   ];
 
   @override

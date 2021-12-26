@@ -82,7 +82,6 @@ List<Product> products = [
     color: const Color(0xFFAEAEAE),
     preprice: 123,
   ),
-  
 ];
 
 String dummyText =
