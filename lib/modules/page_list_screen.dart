@@ -23,10 +23,11 @@ class PageList extends StatelessWidget {
     RoutesName.ORDERS_PAGE,
     RoutesName.ORDER_DETAUL_PAGE,
     RoutesName.CART_PAGE,
+    RoutesName.COMMENT_PAGE,
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
-
     RoutesName.CATEGORY_PAGE,
+    RoutesName.CREATE_COMMENT_PAGE,
   ];
 
   @override

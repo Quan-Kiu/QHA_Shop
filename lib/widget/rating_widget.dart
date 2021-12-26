@@ -8,27 +8,43 @@ class Rating extends StatelessWidget {
   // ignore: non_constant_identifier_names, prefer_typing_uninitialized_variables
   final star_count;
   final countTextShow;
+  final size;
+  final onPress;
 
   // ignore: non_constant_identifier_names
 
-  const Rating({Key? key, required this.star_count, this.countTextShow = false})
+  const Rating(
+      {Key? key,
+      required this.star_count,
+      this.countTextShow = false,
+      this.size = "sm",
+      this.onPress})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double iconSize = size == 'sm' ? 20.0 : 35.0;
+    double textSize = size == 'sm' ? 12.0 : 16.0;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: List.generate(
               5,
-              (index) => SvgPicture.asset(
-                AppAssetsPath.starIcon,
-                color: index < star_count
-                    ? AppColors.yellowClr
-                    : AppColors.lightClr,
+              (index) => GestureDetector(
+                child: SvgPicture.asset(
+                  AppAssetsPath.starIcon,
+                  color: index < star_count
+                      ? AppColors.yellowClr
+                      : AppColors.lightClr,
+                  width: iconSize,
+                  height: iconSize,
+                ),
+                onTap: () {
+                  onPress(index);
+                },
               ),
             ),
           ),
@@ -38,15 +54,19 @@ class Rating extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(star_count.toString(),
-                          style: AppTextStyles.mediumTextBold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: textSize)),
                       const SizedBox(
                         width: 5,
                       ),
-                      const Text("(5 sao)", style: AppTextStyles.normalText)
+                      Text(
+                        "(5 sao)",
+                        style: TextStyle(fontSize: textSize),
+                      )
                     ],
                   ),
                 )
-              : Text(""),
+              : const Text(""),
         ],
       ),
     );
