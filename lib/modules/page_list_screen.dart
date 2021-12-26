@@ -24,7 +24,7 @@ class PageList extends StatelessWidget {
     RoutesName.ORDER_DETAUL_PAGE,
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
-
+    RoutesName.SEARCH_ERROR,
     RoutesName.CATEGORY_PAGE,
   ];
 

@@ -43,6 +43,7 @@ class AppAssetsPath {
   static const womanshoesIcon = iconPath + "productIcons/womanshoes.svg";
   static const womantshirtIcon = iconPath + "productIcons/womantshirt.svg";
   static const womanpantsIcon = iconPath + "productIcons/womanpants.svg";
+  static const cancleIcon = iconPath + "productIcons/Times.svg";
 
   // ignore: constant_identifier_names
   static const DateIcon = infoPath + "Date.svg";

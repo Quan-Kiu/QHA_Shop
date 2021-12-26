@@ -17,6 +17,7 @@ import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
 import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
+import 'package:doan/modules/search_error/search_error.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -77,6 +78,9 @@ class RouteGenerator {
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
             widget: const Category_List(), routeName: settings.name);
+      case RoutesName.SEARCH_ERROR:
+        return _GeneratePageRoute(
+            widget: const Search_error(), routeName: settings.name);
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
