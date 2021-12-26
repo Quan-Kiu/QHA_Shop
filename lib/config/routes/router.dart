@@ -76,8 +76,9 @@ class RouteGenerator {
             widget: const CartPage(), routeName: settings.name);
 
       case RoutesName.PRODUCT_FAVORITE_PAGE:
-        return _GeneratePageRoute(
-            widget: Product_Favorite(), routeName: settings.name);
+
+
+        return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
             widget: const Category_List(), routeName: settings.name);
