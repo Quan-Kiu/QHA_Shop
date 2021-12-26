@@ -31,6 +31,7 @@ class OrderInFo extends StatelessWidget {
                                       index == data.length - 1)
                                   ? const TextStyle(
                                       fontSize: 14.0,
+
                                       fontWeight: FontWeight.bold)
                                   : const TextStyle(fontSize: 14.0))),
                       Expanded(
@@ -49,6 +50,7 @@ class OrderInFo extends StatelessWidget {
                                         color: AppColors.blueClr)
                                     : const TextStyle(
                                         height: 1.5,
+
                                         fontSize: 14.0,
                                         color: AppColors.darkClr),
                           )),

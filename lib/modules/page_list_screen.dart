@@ -28,6 +28,7 @@ class PageList extends StatelessWidget {
     RoutesName.PRODUCT_FAVORITE_PAGE,
     RoutesName.CATEGORY_PAGE,
     RoutesName.CREATE_COMMENT_PAGE,
+
   ];
 
   @override

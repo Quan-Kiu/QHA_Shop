@@ -55,6 +55,7 @@ class Body extends StatelessWidget {
                               product: products[index],
                               readOnly: true,
                             ),
+
                           ),
                         ),
                       ),
@@ -94,6 +95,7 @@ class Body extends StatelessWidget {
         MyButtonWidget(
             text: 'Trở lại',
             onPress: () => Navigator.pop(context),
+
             color: AppColors.blueClr,
             textStyle:
                 const TextStyle(color: AppColors.whiteClr, fontSize: 16.0),
