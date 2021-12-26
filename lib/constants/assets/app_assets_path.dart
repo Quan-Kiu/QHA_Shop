@@ -11,14 +11,20 @@ class AppAssetsPath {
   static const imagePath = "assets/images/";
   static const iconPath = "assets/icons/";
   static const infoPath = "assets/info/";
+  static const bannerPath = "assets/banner/";
 
   static const logoImage = imagePath + "Logo.png";
   static const banner1Image = imagePath + "Promotion_Image.png";
-  static const banner2Image = imagePath + "banner_2.png";
+  static const banner2Image = imagePath + "Banner2.png";
+  static const image_46 = imagePath + "image_46.png";
+  
 
   static const googleIcon = iconPath + "Google.svg";
   static const successIcon = iconPath + "Success.svg";
   static const starIcon = iconPath + "star.svg";
+  static const trashIcon = iconPath + "Trash.svg";
+  static const minusIcon = iconPath + "Minus.svg";
+  static const plusIcon = iconPath + "Plus.svg";
   static const likeIcon = iconPath + "like.svg";
   static const backIcon = iconPath + "back.svg";
   static const leftIcon = iconPath + "Left.svg";

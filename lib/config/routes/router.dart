@@ -2,7 +2,10 @@ import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
+import 'package:doan/modules/cart/cart_page.dart';
 import 'package:doan/modules/category/screen/category_list.dart';
+import 'package:doan/modules/comments/comment_page/comment_page.dart';
+import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
@@ -71,10 +74,22 @@ class RouteGenerator {
         return _GeneratePageRoute(
             widget: const OrderDetail(), routeName: settings.name);
 
+      case RoutesName.CART_PAGE:
+        return _GeneratePageRoute(
+            widget: const CartPage(), routeName: settings.name);
+
+      case RoutesName.COMMENT_PAGE:
+        return _GeneratePageRoute(
+            widget: const CommentPage(), routeName: settings.name);
+
+      case RoutesName.CREATE_COMMENT_PAGE:
+        return _GeneratePageRoute(
+            widget: const CreateCommentPage(), routeName: settings.name);
+
       case RoutesName.PRODUCT_FAVORITE_PAGE:
+        return _GeneratePageRoute(
+            widget: Product_Favorite(), routeName: settings.name);
 
-
-        return _GeneratePageRoute(widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
             widget: const Category_List(), routeName: settings.name);

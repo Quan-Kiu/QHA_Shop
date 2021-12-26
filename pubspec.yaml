@@ -66,6 +66,7 @@ flutter:
     - assets/icons/
     - assets/icons/productIcons/
     - assets/info/
+
     # - assets/icons/Google.svg
     # - assets/icons/Facebook.svg
     # - assets/icons/productIcons/bikini.svg

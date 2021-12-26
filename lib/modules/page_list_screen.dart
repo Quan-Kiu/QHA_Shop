@@ -22,10 +22,14 @@ class PageList extends StatelessWidget {
     RoutesName.CHANGEPASSWORD_PAGE,
     RoutesName.ORDERS_PAGE,
     RoutesName.ORDER_DETAUL_PAGE,
+    RoutesName.CART_PAGE,
+    RoutesName.COMMENT_PAGE,
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
     RoutesName.SEARCH_ERROR,
     RoutesName.CATEGORY_PAGE,
+    RoutesName.CREATE_COMMENT_PAGE,
+
   ];
 
   @override
