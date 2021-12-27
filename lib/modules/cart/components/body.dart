@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
@@ -50,7 +51,9 @@ class _BodyState extends State<Body> {
           MyButtonWidget(
               padding: EdgeInsets.zero,
               text: 'Đặt hàng',
-              onPress: () {},
+              onPress: () {
+                Navigator.pushNamed(context, RoutesName.CHECKOUT_TYPE_PAGE);
+              },
               color: AppColors.blueClr,
               textStyle: const TextStyle(color: AppColors.whiteClr))
         ],

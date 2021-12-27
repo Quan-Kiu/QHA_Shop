@@ -1,21 +1,18 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/extenstion/app_extension.dart';
+import 'package:doan/widget/my_app_bar.dart';
 import 'package:doan/widget/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/models/productdiscount.dart';
 import '../../../constants.dart';
 import 'components/banner.dart';
-import 'components/buildAppbar.dart';
 
 class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: buildAppBar(),
-        body: const Body(),
-      ),
+    return Scaffold(
+      appBar: buildAppBar(context, 'Siêu giảm giá'),
+      body: const Body(),
     );
   }
 }
