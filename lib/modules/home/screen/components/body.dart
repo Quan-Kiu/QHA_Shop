@@ -7,7 +7,6 @@ import 'package:doan/models/home_product.dart';
 import 'package:doan/widget/mybutton_cate_widget.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
-import 'package:doan/widget/NavBar/navbar_item.dart';
 import 'package:flutter/material.dart';
 
 List<ButtonCate> buttonCate = [
@@ -50,7 +49,6 @@ class Body extends StatelessWidget {
             SizedBox(
                 height: 230,
                 child: GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 100,
@@ -82,6 +80,7 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
+            
             Container(
               child: Column(
                 children: <Widget>[
@@ -104,16 +103,16 @@ class Body extends StatelessWidget {
                                     product_home[index].images),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: Text(
-                                  product_home[index].name,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.0,
-                                  ),
-                                ),
+                            padding: const EdgeInsets.all(5),
+                            child: Text(
+                              product_home[index].name,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.0,
                               ),
+                            ),
+                          ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Row(
@@ -134,24 +133,22 @@ class Body extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Text("1.200.000đ",
-                                          style: TextStyle(
-                                              decoration:
-                                                  TextDecoration.lineThrough)),
-                                    ),
-                                    Text(
-                                      "Giảm 24%",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.redClr),
-                                    ),
-                                  ],
-                                ),
-                              )
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text("1.200.000đ",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.lineThrough)),
+                              ),
+                              Text(
+                                "Giảm 24%",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.redClr),
+                              ),
+                            ],
+                          ),)
                             ],
                           ),
                         ),
@@ -160,11 +157,11 @@ class Body extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(AppAssetsPath.banner2Image),
-              ],
-            ),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset(AppAssetsPath.banner2Image),
+                    ],
+                  ),
             Container(
               child: Column(
                 children: <Widget>[
@@ -187,16 +184,16 @@ class Body extends StatelessWidget {
                                     product_home[index].images),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: Text(
-                                  product_home[index].name,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.0,
-                                  ),
-                                ),
+                            padding: const EdgeInsets.all(5),
+                            child: Text(
+                              product_home[index].name,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.0,
                               ),
+                            ),
+                          ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Row(
@@ -217,24 +214,22 @@ class Body extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Text("1.200.000đ",
-                                          style: TextStyle(
-                                              decoration:
-                                                  TextDecoration.lineThrough)),
-                                    ),
-                                    Text(
-                                      "Giảm 24%",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.redClr),
-                                    ),
-                                  ],
-                                ),
-                              )
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text("1.200.000đ",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.lineThrough)),
+                              ),
+                              Text(
+                                "Giảm 24%",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.redClr),
+                              ),
+                            ],
+                          ),)
                             ],
                           ),
                         ),

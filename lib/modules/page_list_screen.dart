@@ -30,10 +30,7 @@ class PageList extends StatelessWidget {
     RoutesName.CATEGORY_PAGE,
     RoutesName.CREATE_COMMENT_PAGE,
     RoutesName.SEARCH_RESULT,
-    RoutesName.LISTCATEGORY,
-    RoutesName.TRANS_POST_PAGE,
-    RoutesName.CHECKOUT_TYPE_PAGE,
-    RoutesName.CHECKOUT_COMPLETE_PAGE,
+
   ];
 
   @override

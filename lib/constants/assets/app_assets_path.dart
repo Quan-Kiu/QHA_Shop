@@ -4,15 +4,12 @@ const imagePath = "assets/images/";
 
 const iconPath = "assets/icons/";
 
-const iconProductPath = "assets/icons/productIcons/";
-
 const infoPath = "assets/info/";
 
 // ignore: duplicate_ignore
 class AppAssetsPath {
   static const imagePath = "assets/images/";
   static const iconPath = "assets/icons/";
-  static const iconProductPath = "assets/icons/productIcons/";
   static const infoPath = "assets/info/";
   static const bannerPath = "assets/banner/";
 
@@ -20,6 +17,7 @@ class AppAssetsPath {
   static const banner1Image = imagePath + "Promotion_Image.png";
   static const banner2Image = imagePath + "Banner2.png";
   static const image_46 = imagePath + "image_46.png";
+  
 
   static const googleIcon = iconPath + "Google.svg";
   static const successIcon = iconPath + "Success.svg";
@@ -30,8 +28,6 @@ class AppAssetsPath {
   static const likeIcon = iconPath + "like.svg";
   static const backIcon = iconPath + "back.svg";
   static const leftIcon = iconPath + "Left.svg";
-  static const BankIcon = iconPath + "Bank.svg";
-  static const GroupIcon = iconPath + "Group.svg";
   static const loveIcon = iconPath + "love.svg";
   static const cartIcon = iconPath + "Cart.svg";
   static const homeIcon = iconPath + "Home.svg";
@@ -54,7 +50,6 @@ class AppAssetsPath {
   static const womantshirtIcon = iconPath + "productIcons/womantshirt.svg";
   static const womanpantsIcon = iconPath + "productIcons/womanpants.svg";
   static const cancleIcon = iconPath + "productIcons/Times.svg";
-  static const completeIcon = iconPath + "productIcons/complete.svg";
 
   // ignore: constant_identifier_names
   static const DateIcon = infoPath + "Date.svg";
