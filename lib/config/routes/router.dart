@@ -4,9 +4,12 @@ import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
 import 'package:doan/modules/cart/cart_page.dart';
 import 'package:doan/modules/category/screen/category_list.dart';
+import 'package:doan/modules/checkout/checkout.dart';
+import 'package:doan/modules/checkout_complete/ckout_complete.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
+import 'package:doan/modules/list_category/list_category.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
@@ -22,6 +25,7 @@ import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
+import 'package:doan/modules/transpost_page/transpost.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -92,8 +96,10 @@ class RouteGenerator {
             widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.SEARCH_RESULT:
         return _GeneratePageRoute(
-            widget: Search_Result(), routeName: settings.name);
-
+            widget: const Search_Result(), routeName: settings.name);
+      case RoutesName.LISTCATEGORY:
+        return _GeneratePageRoute(
+            widget: const List_Category(), routeName: settings.name);
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
             widget: const Category_List(), routeName: settings.name);
@@ -103,6 +109,15 @@ class RouteGenerator {
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
+      case RoutesName.TRANS_POST_PAGE:
+        return _GeneratePageRoute(
+            widget: TransPost(), routeName: settings.name);
+      case RoutesName.CHECKOUT_TYPE_PAGE:
+        return _GeneratePageRoute(
+            widget: CheckoutPage(), routeName: settings.name);
+      case RoutesName.CHECKOUT_COMPLETE_PAGE:
+        return _GeneratePageRoute(
+            widget: Checkout_Complete(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }
