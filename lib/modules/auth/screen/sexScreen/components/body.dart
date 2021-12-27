@@ -16,7 +16,6 @@ class Item {
 }
 
 class Body extends StatefulWidget {
-  
   Body({Key? key}) : super(key: key);
 
   @override
@@ -36,8 +35,8 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding:  EdgeInsets.all(15),
-        constraints:  BoxConstraints.expand(),
+        padding: const EdgeInsets.all(15),
+        constraints: const BoxConstraints.expand(),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -51,72 +50,61 @@ class _BodyState extends State<Body> {
                   children: [
                     Container(
                       padding: const EdgeInsets.all(15.0),
-                      child: const Text("Giới tính",
-                      style: TextStyle(
-                        color: AppColors.darkClr,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20),
+                      child: const Text(
+                        "Giới tính",
+                        style: TextStyle(
+                            color: AppColors.darkClr,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20),
                       ),
                     ),
                   ],
                 ),
               ),
-              
               Container(
-                
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: DropdownButton<Item>(
-                hint:  Text("Nam"),
-                value: selectedUser,
-                
-                isExpanded: true,
-                onChanged: (Value) {
-              setState(() {
-                selectedUser = Value;
-              });
-            },
-            items: users.map((Item user) {
-              return  DropdownMenuItem<Item>(
-                value: user,
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      user.name,
-                      style:  const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        ),
-                        ),
-                  ],
+                  hint: const Text("Nam"),
+                  value: selectedUser,
+                  isExpanded: true,
+                  onChanged: (Value) {
+                    setState(() {
+                      selectedUser = Value;
+                    });
+                  },
+                  items: users.map((Item user) {
+                    return DropdownMenuItem<Item>(
+                      value: user,
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            user.name,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
                 ),
-              );
-            }).toList(),
-          ),
               ),
-              
-
-
               MyButtonWidget(
-                      padding: const EdgeInsets.only(top: 370.0),
-                      text: "Lưu",
-                      textStyle: const TextStyle(
-                          color: AppColors.whiteClr,
-                          fontWeight: FontWeight.bold),
-                      onPress: () {},
-                      color: AppColors.blueClr,
-                    ),
+                padding: const EdgeInsets.only(top: 370.0),
+                text: "Lưu",
+                textStyle: const TextStyle(
+                    color: AppColors.whiteClr, fontWeight: FontWeight.bold),
+                onPress: () {},
+                color: AppColors.blueClr,
+              ),
               const SizedBox(
                 height: 80,
               ),
             ],
           ),
-          
-
         ),
-        
       ),
-      
     );
   }
 }
-
