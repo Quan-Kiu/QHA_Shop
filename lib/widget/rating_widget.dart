@@ -23,7 +23,7 @@ class Rating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double iconSize = size == 'sm' ? 20.0 : 35.0;
+    double iconSize = size == 'sm' ? 16.0 : 35.0;
     double textSize = size == 'sm' ? 12.0 : 16.0;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0),

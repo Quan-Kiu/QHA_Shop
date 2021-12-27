@@ -49,7 +49,7 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
         const Rating(star_count: 4),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Text(AppExtension.moneyFormat(widget.product.phone.toString()),
+          child: Text(AppExtension.moneyFormat(widget.product.price.toString()),
               textAlign: TextAlign.left,
               style: const TextStyle(
                   color: AppColors.blueClr,

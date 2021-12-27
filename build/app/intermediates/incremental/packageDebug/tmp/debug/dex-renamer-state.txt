@@ -1,4 +1,4 @@
-#Mon Dec 27 02:42:47 ICT 2021
-base.0=E\:\\Flutter\\QHA_Shop\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Mon Dec 27 09:09:08 ICT 2021
+base.0=E\:\\CDTH19B - HK1 - III\\LT-Mobile\\DA\\DoAn\\doan\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
