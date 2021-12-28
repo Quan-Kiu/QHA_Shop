@@ -114,7 +114,7 @@ class Body extends StatelessWidget {
                             ),
                           ),
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
@@ -131,7 +131,7 @@ class Body extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: const [
@@ -195,7 +195,7 @@ class Body extends StatelessWidget {
                             ),
                           ),
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
@@ -212,7 +212,7 @@ class Body extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: const [

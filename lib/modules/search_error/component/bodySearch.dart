@@ -5,6 +5,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/widget/alert_modal.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_svg/svg.dart';
 
 class BodySearch extends StatelessWidget {
@@ -19,7 +20,7 @@ class BodySearch extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Row(
-            children: <Widget>[
+            children: const <Widget>[
               Padding(
                 padding: EdgeInsets.only(left: 18.0, top: 20.0),
                 child: Text(
@@ -32,7 +33,7 @@ class BodySearch extends StatelessWidget {
               ),
             ],
           ),
-          AlertModal(      
+          const AlertModal(      
             title: 'Sản phẩm không tồn tại',
             subtitle: 'Cảm ơn bạn đã sử dụng sản phẩm của chúng tôi',
             icon: AppAssetsPath.cancleIcon,
@@ -40,7 +41,7 @@ class BodySearch extends StatelessWidget {
           ),
           MyButtonWidget(
               text: "Quay trở về trang chủ",
-              textStyle: TextStyle(
+              textStyle: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 15),
@@ -48,7 +49,7 @@ class BodySearch extends StatelessWidget {
                 Navigator.pushNamed(context, RoutesName.HOME_PAGE);
               },
               color: AppColors.blueClr,
-              padding: EdgeInsets.all(8.0))
+              padding: const EdgeInsets.all(8.0))
         ],
       ),
     );
