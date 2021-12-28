@@ -23,5 +23,3 @@ class bodyTransPost extends StatelessWidget {
         });
   }
 }
-
-
