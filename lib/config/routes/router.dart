@@ -1,4 +1,5 @@
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/modules/address/address.dart';
 import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
@@ -118,6 +119,9 @@ class RouteGenerator {
       case RoutesName.CHECKOUT_COMPLETE_PAGE:
         return _GeneratePageRoute(
             widget: Checkout_Complete(), routeName: settings.name);
+      case RoutesName.ADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: Address(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }

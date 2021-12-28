@@ -61,4 +61,6 @@ class RoutesName {
   static const String CHECKOUT_TYPE_PAGE = 'CheckoutPage';
   // ignore: constant_identifier_names
   static const String CHECKOUT_COMPLETE_PAGE = 'CheckoutCompletePage';
+  // ignore: constant_identifier_names
+  static const String ADDRESS_PAGE = 'AddressPage';
 }

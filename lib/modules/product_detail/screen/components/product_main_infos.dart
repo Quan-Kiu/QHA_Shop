@@ -24,7 +24,7 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
           children: [
             Expanded(
               child: Text(
-                widget.product.name,
+                widget.product.Address,
                 style: const TextStyle(
                     color: AppColors.darkClr,
                     fontWeight: FontWeight.w700,
