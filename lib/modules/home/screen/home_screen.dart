@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 import 'package:doan/constants/assets/app_assets_path.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 
 import './components/appbar.dart';
 import './components/body.dart';
@@ -19,8 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: buildAppBar(),
       body: const Body(),
-
-      
+      bottomNavigationBar: buildBottomNavBar(),
     );
   }
 }
