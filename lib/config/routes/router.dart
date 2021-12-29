@@ -1,4 +1,5 @@
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/modules/addcheckout/checkout.dart';
 import 'package:doan/modules/address/address.dart';
 import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
@@ -14,6 +15,7 @@ import 'package:doan/modules/list_category/list_category.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
+import 'package:doan/modules/payment_card/main.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
 import 'package:doan/modules/auth/screen/info/info_screen.dart';
 import 'package:doan/modules/auth/screen/renameScreen/rename_screen.dart';
@@ -24,6 +26,7 @@ import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
 import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
+import 'package:doan/modules/rmaddress/removeAddress.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
 import 'package:doan/modules/transpost_page/transpost.dart';
@@ -122,6 +125,15 @@ class RouteGenerator {
       case RoutesName.ADDRESS_PAGE:
         return _GeneratePageRoute(
             widget: Address(), routeName: settings.name);
+      case RoutesName.RMADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: RemoveAddress(), routeName: settings.name);
+      case RoutesName.PAYMENTCARD_PAGE:
+        return _GeneratePageRoute(
+            widget: Paymentcard(), routeName: settings.name);
+      case RoutesName.ADDCHECKOUT_PAGE:
+        return _GeneratePageRoute(
+            widget: AddCheckout(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }

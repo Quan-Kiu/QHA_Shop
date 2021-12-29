@@ -63,4 +63,10 @@ class RoutesName {
   static const String CHECKOUT_COMPLETE_PAGE = 'CheckoutCompletePage';
   // ignore: constant_identifier_names
   static const String ADDRESS_PAGE = 'AddressPage';
+  // ignore: constant_identifier_names
+  static const String RMADDRESS_PAGE = 'RemoveAddressPage';
+  // ignore: constant_identifier_names
+  static const String PAYMENTCARD_PAGE = 'PaymentCardPage';
+  // ignore: constant_identifier_names
+  static const String ADDCHECKOUT_PAGE = 'AddcheckoutPage';
 }

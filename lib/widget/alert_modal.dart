@@ -35,7 +35,7 @@ class AlertModal extends StatelessWidget {
                             icon,
                           ))),
                   decoration: ShapeDecoration(
-                      color: MyColor.blueClr,
+                      color: mycolor,
                       shape: CircleBorder(
                           side: BorderSide(width: 10, color: mycolor)))),
             ),

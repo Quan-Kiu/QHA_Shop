@@ -2,8 +2,8 @@ import 'package:doan/models/transpost.dart';
 import 'package:doan/widget/transpost_card.dart';
 import 'package:flutter/material.dart';
 
-class bodyTransPost extends StatelessWidget {
-  const bodyTransPost({
+class bodyTranspost extends StatelessWidget {
+  const bodyTranspost({
     Key? key,
   }) : super(key: key);
 

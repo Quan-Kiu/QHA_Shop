@@ -15,7 +15,7 @@ class TransPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, 'Vận chuyển đến'),
-      body: bodyTransPost(),
+      body: bodyTranspost(),
       bottomNavigationBar: Container(
         child: MyButtonWidget(
             text: 'Tiếp tục',
