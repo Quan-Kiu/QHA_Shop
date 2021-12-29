@@ -1,4 +1,6 @@
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/modules/auth/screen/addaddress/addaddress_screen.dart';
+import 'package:doan/modules/auth/screen/addcard/addcard_screen.dart';
 import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
@@ -95,7 +97,15 @@ class RouteGenerator {
             widget: Product_Favorite(), routeName: settings.name);
       case RoutesName.SEARCH_RESULT:
         return _GeneratePageRoute(
-            widget: Search_Result(), routeName: settings.name);
+            widget: const Search_Result(), routeName: settings.name);
+
+      case RoutesName.ADD_ADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: const AddAddressPageScreen(), routeName: settings.name);
+      
+      case RoutesName.ADD_CARD_PAGE:
+        return _GeneratePageRoute(
+            widget: const AddCardPageScreen(), routeName: settings.name);
 
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
