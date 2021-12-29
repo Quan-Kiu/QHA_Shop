@@ -25,6 +25,7 @@ import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
 import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
+import 'package:doan/modules/search/search_page.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
 
@@ -102,7 +103,7 @@ class RouteGenerator {
       case RoutesName.ADD_ADDRESS_PAGE:
         return _GeneratePageRoute(
             widget: const AddAddressPageScreen(), routeName: settings.name);
-      
+
       case RoutesName.ADD_CARD_PAGE:
         return _GeneratePageRoute(
             widget: const AddCardPageScreen(), routeName: settings.name);
@@ -118,6 +119,10 @@ class RouteGenerator {
       case RoutesName.ACTIVITIES_NOTIFY_PAGE:
         return _GeneratePageRoute(
             widget: const Activities_Notify_Page(), routeName: settings.name);
+
+      case RoutesName.SEARCH_PAGE:
+        return _GeneratePageRoute(
+            widget: const Search_Page(), routeName: settings.name);
 
       case RoutesName.NOTIFY_PAGE:
         return _GeneratePageRoute(

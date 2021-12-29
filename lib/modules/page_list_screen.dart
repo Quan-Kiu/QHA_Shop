@@ -1,5 +1,4 @@
 import 'package:doan/config/routes/routes_name.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -25,6 +24,7 @@ class PageList extends StatelessWidget {
     RoutesName.CART_PAGE,
     RoutesName.COMMENT_PAGE,
     RoutesName.NOTIFY_PAGE,
+    RoutesName.SEARCH_PAGE,
     RoutesName.LIST_PRODUCT_PAGE,
     RoutesName.PRODUCT_FAVORITE_PAGE,
     RoutesName.SEARCH_ERROR,

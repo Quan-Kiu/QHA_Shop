@@ -18,8 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
-      body: const Body(),
+      appBar: buildAppBar(context),
+      body: Body(),
       bottomNavigationBar: buildBottomNavBar(),
     );
   }

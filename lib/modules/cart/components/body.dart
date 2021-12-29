@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
@@ -25,35 +26,29 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Column(
-                      children: List.generate(
-                          products.length,
-                          (index) => ProductOrderItem(
-                                product: products[index],
-                              ))),
-                  const DiscountCodeInput(),
-                  OrderInFo(data: _cartInfos, type: 'payment'),
-                  const SizedBox(
-                    height: 15.0,
-                  )
-                ],
-              ),
+      padding: const EdgeInsets.all(20),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Column(
+                children: List.generate(
+                    products.length,
+                    (index) => ProductOrderItem(
+                          product: products[index],
+                        ))),
+            const DiscountCodeInput(),
+            OrderInFo(data: _cartInfos, type: 'payment'),
+            const SizedBox(
+              height: 15.0,
             ),
-          ),
-          MyButtonWidget(
-              padding: EdgeInsets.zero,
-              text: 'Đặt hàng',
-              onPress: () {},
-              color: AppColors.blueClr,
-              textStyle: const TextStyle(color: AppColors.whiteClr))
-        ],
+            MyButtonWidget(
+                padding: EdgeInsets.zero,
+                text: 'Đặt hàng',
+                onPress: () {},
+                color: AppColors.blueClr,
+                textStyle: const TextStyle(color: AppColors.whiteClr))
+          ],
+        ),
       ),
     );
   }

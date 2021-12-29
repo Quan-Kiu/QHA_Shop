@@ -23,7 +23,7 @@ buildBottomNavBar() => Container(
           NavItem(
               icon: AppAssetsPath.searchIcon,
               title: 'Tìm kiếm',
-              router: RoutesName.SEARCH_RESULT),
+              router: RoutesName.SEARCH_PAGE),
           NavItem(
               icon: AppAssetsPath.cartIcon,
               title: 'Giỏ hàng',

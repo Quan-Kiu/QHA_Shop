@@ -49,6 +49,8 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String POSTS_NOTIFY_PAGE = 'Posts_Notify_Page';
   // ignore: constant_identifier_names
+  static const String SEARCH_PAGE = 'Search_Page';
+  // ignore: constant_identifier_names
   static const String ACTIVITIES_NOTIFY_PAGE = 'Activities_Notify_Page';
   static const String ADD_ADDRESS_PAGE = 'Add_Address_Page';
   // ignore: constant_identifier_names
