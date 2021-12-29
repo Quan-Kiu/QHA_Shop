@@ -28,22 +28,22 @@ class Search_PageState extends State<Search_Page> {
           _resultLst = newArr;
         });
       }),
-      body: GestureDetector(
-        onTap: () =>
-            Navigator.pushNamed(context, RoutesName.PRODUCT_DETAIL_PAGE),
-        child: Container(
-            padding:
-                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
-            child: ListView.builder(
-                itemCount: _resultLst.length,
-                itemBuilder: (context, index) => Container(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      body: Container(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+          child: ListView.builder(
+              itemCount: _resultLst.length,
+              itemBuilder: (context, index) => Container(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: GestureDetector(
+                      onTap: () => Navigator.pushNamed(
+                          context, RoutesName.PRODUCT_DETAIL_PAGE,
+                          arguments: _resultLst[index]),
                       child: Text(
                         _resultLst[index].name,
                         style: const TextStyle(fontSize: 16.0),
                       ),
-                    ))),
-      ),
+                    ),
+                  ))),
     );
   }
 }

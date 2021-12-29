@@ -13,12 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "QHAShop",
-      theme: theme(),
-      onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RoutesName.PAGE_LIST,
+    return GestureDetector(
+      onTap: () =>
+          WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "QHAShop",
+        theme: theme(),
+        onGenerateRoute: RouteGenerator.generateRoute,
+        initialRoute: RoutesName.PAGE_LIST,
+      ),
     );
   }
 }

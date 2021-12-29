@@ -13,15 +13,8 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Body extends StatelessWidget {
-  Body({Key? key}) : super(key: key);
-  Product product = Product(
-      "Nike Air Zoom Pegasus 36 Miami",
-      680000,
-      "Nike Air Max 270 React ENG kết hợp đế giữa bằng bọt React có chiều dài đầy đủ với bộ phận 270 Max Air để mang lại sự thoải mái vô song và trải nghiệm hình ảnh ấn tượng.",
-      ["image_46.png", "image_47.png", "image_48.png", "image_49.png"],
-      1);
-  List<String> sizes = ["46", "47", "48", "49", "50", "51", "52", "53"];
-  List<String> colors = ["yellow", "blue", "dark", "red", "green"];
+  final Product product;
+  Body({Key? key, required this.product}) : super(key: key);
 
   int curentPage = 0;
   @override
@@ -42,8 +35,8 @@ class Body extends StatelessWidget {
                       ProductMainInfos(
                         product: product,
                       ),
-                      ButtonSelect(data: sizes, type: "size"),
-                      ButtonSelect(data: colors, type: "color"),
+                      ButtonSelect(data: product.sizes, type: "size"),
+                      ButtonSelect(data: product.colors, type: "color"),
                       const SizedBox(
                         height: 20,
                       ),

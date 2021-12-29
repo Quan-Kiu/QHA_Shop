@@ -1,3 +1,4 @@
+import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Banner_Discount extends StatelessWidget {
@@ -16,12 +17,11 @@ class Banner_Discount extends StatelessWidget {
     return Container(
       child: Stack(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(20),
+          Container(
+            width: double.infinity,
             child: Image.asset(
               image,
-              width: 319,
-              height: 206,
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
@@ -31,8 +31,8 @@ class Banner_Discount extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
-                        color: Colors.white,
+                    style: const TextStyle(
+                        color: AppColors.whiteClr,
                         fontWeight: FontWeight.bold,
                         fontSize: 24),
                   )
@@ -45,8 +45,8 @@ class Banner_Discount extends StatelessWidget {
                 children: [
                   Text(
                     discount,
-                    style: TextStyle(
-                        color: Colors.white,
+                    style: const TextStyle(
+                        color: AppColors.whiteClr,
                         fontWeight: FontWeight.bold,
                         fontSize: 24),
                   )

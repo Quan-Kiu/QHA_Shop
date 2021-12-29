@@ -1,14 +1,12 @@
 import 'package:doan/config/routes/routes_name.dart';
-import 'package:doan/modules/auth/screen/addaddress/addaddress_screen.dart';
-import 'package:doan/modules/auth/screen/addcard/addcard_screen.dart';
-import 'package:doan/modules/auth/screen/forgotPassScreen/forgot_pass_screen.dart';
-import 'package:doan/modules/auth/screen/loginScreen/login_screen.dart';
-import 'package:doan/modules/auth/screen/registerScreen/register_screen.dart';
+import 'package:doan/modules/auth/forgotPassScreen/forgot_pass_screen.dart';
+import 'package:doan/modules/auth/loginScreen/login_screen.dart';
+import 'package:doan/modules/auth/registerScreen/register_screen.dart';
 import 'package:doan/modules/cart/cart_page.dart';
-import 'package:doan/modules/category/screen/category_list.dart';
+import 'package:doan/modules/category/category_list.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
-import 'package:doan/modules/home/screen/home_screen.dart';
+import 'package:doan/modules/home/home_screen.dart';
 import 'package:doan/modules/notify/activitys/activitys_notify_page.dart';
 import 'package:doan/modules/notify/notify_page.dart';
 import 'package:doan/modules/notify/posts/posts_notify_page.dart';
@@ -16,15 +14,17 @@ import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
-import 'package:doan/modules/auth/screen/info/info_screen.dart';
-import 'package:doan/modules/auth/screen/renameScreen/rename_screen.dart';
-import 'package:doan/modules/auth/screen/sexScreen/sex_screen.dart';
-import 'package:doan/modules/auth/screen/dateofbirthScreen/dateofbith_screen.dart';
-import 'package:doan/modules/auth/screen/emailScreen/email_screen.dart';
 import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
-import 'package:doan/modules/auth/screen/changePasswordScreen/changePassword_screen.dart';
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
+import 'package:doan/modules/profile/addaddress/addaddress_screen.dart';
+import 'package:doan/modules/profile/addcard/addcard_screen.dart';
+import 'package:doan/modules/profile/changePasswordScreen/changePassword_screen.dart';
+import 'package:doan/modules/profile/dateofbirthScreen/dateofbith_screen.dart';
+import 'package:doan/modules/profile/emailScreen/email_screen.dart';
+import 'package:doan/modules/profile/info/info_screen.dart';
+import 'package:doan/modules/profile/renameScreen/rename_screen.dart';
+import 'package:doan/modules/profile/sexScreen/sex_screen.dart';
 import 'package:doan/modules/search/search_page.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
@@ -48,7 +48,10 @@ class RouteGenerator {
             widget: const HomeScreen(), routeName: settings.name);
       case RoutesName.PRODUCT_DETAIL_PAGE:
         return _GeneratePageRoute(
-            widget: const ProductDetail(), routeName: settings.name);
+            widget: ProductDetail(
+              product: settings.arguments,
+            ),
+            routeName: settings.name);
       case RoutesName.INFO_PAGE:
         return _GeneratePageRoute(
             widget: const InfoPageScreen(), routeName: settings.name);

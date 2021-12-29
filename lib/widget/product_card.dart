@@ -3,26 +3,28 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/product.dart';
+import 'package:doan/widget/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  const ProductCard({Key? key, required this.product}) : super(key: key);
-
-  get index => null;
+  final bool isShowRating;
+  const ProductCard({Key? key, required this.product, this.isShowRating = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, RoutesName.PRODUCT_DETAIL_PAGE),
+      onTap: () => Navigator.pushNamed(context, RoutesName.PRODUCT_DETAIL_PAGE,
+          arguments: product),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
         decoration: BoxDecoration(
-            border: Border.all(color: AppColors.lightClr, width: 1)),
+            border: Border.all(color: AppColors.lightClr, width: 2)),
         child: Column(
           children: [
             SizedBox(
-              width: 110.0,
+              width: isShowRating ? 135.0 : 100.0,
               child: Column(
                 children: [
                   Image.asset(
@@ -38,6 +40,7 @@ class ProductCard extends StatelessWidget {
                         fontSize: 15.0,
                         color: AppColors.darkClr),
                   ),
+                  isShowRating ? const Rating(star_count: 4) : Container(),
                 ],
               ),
             ),
@@ -57,8 +60,12 @@ class ProductCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text("1.200.000đ",
-                      style: TextStyle(decoration: TextDecoration.lineThrough)),
+                  Expanded(
+                    child: Text("1.200.000đ",
+                        style: TextStyle(
+                            fontSize: 12.0,
+                            decoration: TextDecoration.lineThrough)),
+                  ),
                   Text(
                     "Giảm 24%",
                     style: TextStyle(

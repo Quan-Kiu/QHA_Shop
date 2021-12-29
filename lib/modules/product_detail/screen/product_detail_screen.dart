@@ -3,7 +3,9 @@ import 'components/appbar.dart';
 import 'components/body.dart';
 
 class ProductDetail extends StatefulWidget {
-  const ProductDetail({Key? key}) : super(key: key);
+  // ignore: prefer_typing_uninitialized_variables
+  final product;
+  const ProductDetail({Key? key, required this.product}) : super(key: key);
 
   @override
   _ProductDetailState createState() => _ProductDetailState();
@@ -14,7 +16,7 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(product: widget.product),
     );
   }
 }

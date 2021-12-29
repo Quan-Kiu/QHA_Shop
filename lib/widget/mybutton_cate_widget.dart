@@ -23,17 +23,20 @@ class MyButtonCategory extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              icon: SvgPicture.asset(buttonCate.icon),
-              iconSize: 25,
+              icon: SvgPicture.asset(
+                buttonCate.icon,
+                width: 25.0,
+              ),
               color: AppColors.blueClr,
               onPressed: () {},
             ),
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
-        Text(buttonCate.label, style: AppTextStyles.smallText)
+        Text(buttonCate.label,
+            textAlign: TextAlign.center, style: AppTextStyles.normalText)
       ],
     );
   }
