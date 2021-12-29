@@ -31,7 +31,7 @@ class PageList extends StatelessWidget {
     RoutesName.CREATE_COMMENT_PAGE,
     RoutesName.SEARCH_RESULT,
     RoutesName.ADD_ADDRESS_PAGE,
-
+    RoutesName.ADD_CARD_PAGE,
   ];
 
   @override

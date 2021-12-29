@@ -45,7 +45,8 @@ class RoutesName {
 
   // ignore: constant_identifier_names
   static const String ADD_ADDRESS_PAGE = 'Add_Address_Page';
-
+  // ignore: constant_identifier_names
+  static const String ADD_CARD_PAGE = 'Add_Card_Page';
 
   // ignore: constant_identifier_names
   static const String LIST_PRODUCT_PAGE = 'DiscountPage';
