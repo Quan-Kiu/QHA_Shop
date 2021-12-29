@@ -7,6 +7,9 @@ import 'package:doan/modules/category/screen/category_list.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/home/screen/home_screen.dart';
+import 'package:doan/modules/notify/activitys/activitys_notify_page.dart';
+import 'package:doan/modules/notify/notify_page.dart';
+import 'package:doan/modules/notify/posts/posts_notify_page.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
@@ -97,6 +100,18 @@ class RouteGenerator {
       case RoutesName.CATEGORY_PAGE:
         return _GeneratePageRoute(
             widget: const Category_List(), routeName: settings.name);
+
+      case RoutesName.POSTS_NOTIFY_PAGE:
+        return _GeneratePageRoute(
+            widget: const Posts_Notify_Page(), routeName: settings.name);
+
+      case RoutesName.ACTIVITIES_NOTIFY_PAGE:
+        return _GeneratePageRoute(
+            widget: const Activities_Notify_Page(), routeName: settings.name);
+
+      case RoutesName.NOTIFY_PAGE:
+        return _GeneratePageRoute(
+            widget: const NotifyPage(), routeName: settings.name);
       case RoutesName.SEARCH_ERROR:
         return _GeneratePageRoute(
             widget: const Search_error(), routeName: settings.name);

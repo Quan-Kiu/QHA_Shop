@@ -43,6 +43,13 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String CREATE_COMMENT_PAGE = 'Create_Comment_Page';
 
+  // ignore: constant_identifier_names
+  static const String NOTIFY_PAGE = 'Notify_Page';
+
+  // ignore: constant_identifier_names
+  static const String POSTS_NOTIFY_PAGE = 'Posts_Notify_Page';
+  // ignore: constant_identifier_names
+  static const String ACTIVITIES_NOTIFY_PAGE = 'Activities_Notify_Page';
 
   // ignore: constant_identifier_names
   static const String LIST_PRODUCT_PAGE = 'DiscountPage';
