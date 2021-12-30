@@ -12,6 +12,7 @@ import 'package:doan/modules/checkout_complete/ckout_complete.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/home/home_screen.dart';
+import 'package:doan/modules/list_category/list_category.dart';
 import 'package:doan/modules/notify/activitys/activitys_notify_page.dart';
 import 'package:doan/modules/notify/notify_page.dart';
 import 'package:doan/modules/notify/posts/posts_notify_page.dart';
@@ -169,6 +170,9 @@ class RouteGenerator {
       case RoutesName.ADDCHECKOUT_PAGE:
         return _GeneratePageRoute(
             widget: AddCheckout(), routeName: settings.name);
+      case RoutesName.LISTCATEGORY:
+        return _GeneratePageRoute(
+            widget: List_Category(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }
