@@ -1,4 +1,5 @@
 // ignore_for_file: unused_import
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
@@ -12,7 +13,6 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
-import '../components/numbers_widget.dart';
 // ignore: duplicate_import
 import '../components/profile_widget.dart';
 import '../components/user_preferences.dart';
@@ -28,7 +28,6 @@ class _BodyState extends State<Body> {
   FocusNode myFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   final user = UserPreferences.myUser;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,15 +48,15 @@ class _BodyState extends State<Body> {
           ),
           const SizedBox(height: 40),
           buildsex(user),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           builddateOB(user),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           buildemail(user),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           buildphone(user),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           buildpassword(user),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
         ],
       )),
     );
@@ -113,8 +112,13 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            const Icon(Icons.arrow_forward_ios_outlined,
-                color: AppColors.blueClr),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.SEX_PAGE);
+              },
+              icon: const Icon(Icons.arrow_forward_ios_outlined,
+                  color: AppColors.blueClr),
+            ),
           ],
         ),
       );
@@ -148,8 +152,13 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            const Icon(Icons.arrow_forward_ios_outlined,
-                color: AppColors.blueClr),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.DATEOFBIRTH_PAGE);
+              },
+              icon: const Icon(Icons.arrow_forward_ios_outlined,
+                  color: AppColors.blueClr),
+            ),
           ],
         ),
       );
@@ -181,8 +190,13 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            const Icon(Icons.arrow_forward_ios_outlined,
-                color: AppColors.blueClr),
+           IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
+              },
+              icon: const Icon(Icons.arrow_forward_ios_outlined,
+                  color: AppColors.blueClr),
+            ),
           ],
         ),
       );
@@ -213,8 +227,13 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            const Icon(Icons.arrow_forward_ios_outlined,
-                color: AppColors.blueClr),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.PHONE_PAGE);
+              },
+              icon: const Icon(Icons.arrow_forward_ios_outlined,
+                  color: AppColors.blueClr),
+            ),
           ],
         ),
       );
@@ -248,8 +267,13 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            const Icon(Icons.arrow_forward_ios_outlined,
-                color: AppColors.blueClr),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.CHANGEPASSWORD_PAGE);
+              },
+              icon: const Icon(Icons.arrow_forward_ios_outlined,
+                  color: AppColors.blueClr),
+            ),
           ],
         ),
       );
