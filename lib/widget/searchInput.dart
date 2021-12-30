@@ -1,6 +1,5 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
-import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 PreferredSize searchInput(context, cb) {

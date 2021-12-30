@@ -1,4 +1,4 @@
-import 'compoments/appbar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 import 'compoments/body.dart';
 
@@ -13,7 +13,7 @@ class _AddCardPageScreenState extends State<AddCardPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarInfo(),
+      appBar: buildSecondaryAppBar(context, 'Địa chỉ'),
       body: Body(),
     );
   }

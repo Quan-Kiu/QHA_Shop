@@ -1,6 +1,6 @@
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/transpost_page/component/bodyTransPost.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +14,9 @@ class TransPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Vận chuyển đến'),
-      body: bodyTranspost(),
-      bottomNavigationBar: Container(
+      appBar: buildSecondaryAppBar(context, 'Vận chuyển đến'),
+      body: const bodyTranspost(),
+      bottomNavigationBar: SizedBox(
         child: MyButtonWidget(
             text: 'Tiếp tục',
             onPress: () => Navigator.pop(context),

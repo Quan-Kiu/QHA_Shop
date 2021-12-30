@@ -1,4 +1,4 @@
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 
 import 'components/body.dart';
@@ -14,7 +14,7 @@ class _CommentPageState extends State<CommentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Đánh giá'),
+      appBar: buildSecondaryAppBar(context, 'Đánh giá'),
       body: const Body(),
     );
   }

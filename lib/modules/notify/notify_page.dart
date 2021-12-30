@@ -1,7 +1,7 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/modules/notify/components/cate_notify_item.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 
 class NotifyPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class NotifyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Thông báo'),
+      appBar: buildSecondaryAppBar(context, 'Thông báo'),
       body: SizedBox(
         child: Column(
           children: const [

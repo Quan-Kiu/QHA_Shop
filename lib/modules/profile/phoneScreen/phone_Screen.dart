@@ -1,4 +1,5 @@
-import '../PhoneScreen/components/appbar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+
 import 'package:flutter/material.dart';
 import '../PhoneScreen/components/body.dart';
 
@@ -13,7 +14,7 @@ class _PhonePageScreenState extends State<PhonePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarInfo(),
+      appBar: buildSecondaryAppBar(context, 'Số điện thoại'),
       body: Body(),
     );
   }

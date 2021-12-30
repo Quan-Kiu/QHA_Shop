@@ -76,7 +76,7 @@ class Body extends StatelessWidget {
                             color: Colors.blue.shade900)),
                     TextButton(
                       onPressed: () => Navigator.pushNamed(
-                          context, RoutesName.LIST_PRODUCT_PAGE),
+                          context, RoutesName.DISCOUNT_PAGE),
                       child: const Text("Xem thêm...",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,

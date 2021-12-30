@@ -4,7 +4,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-PreferredSize buildAppBar(context) {
+PreferredSize buildPrimaryAppBar(context) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(80.0),
     child: Container(
@@ -29,16 +29,12 @@ PreferredSize buildAppBar(context) {
                       fillColor: Colors.white70,
                       contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(12.0)),
                         borderSide:
                             BorderSide(color: Colors.grey.shade100, width: 2),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(5.0)),
+                      focusedBorder: const OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Colors.grey.shade100, width: 2),
+                            BorderSide(color: AppColors.blueClr, width: 1),
                       ),
                     ),
                   ),

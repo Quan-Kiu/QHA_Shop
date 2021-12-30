@@ -1,9 +1,11 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/product.dart';
-import 'package:doan/modules/product_detail/screen/components/product_main_infos.dart';
-import 'package:doan/modules/product_detail/screen/components/product_slider.dart';
+import 'package:doan/modules/product_detail/components/product_main_infos.dart';
+import 'package:doan/modules/product_detail/components/product_slider.dart';
+
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/comment_item_widget.dart';
 import 'package:doan/widget/mybutton_widget.dart';
@@ -67,7 +69,10 @@ class Body extends StatelessWidget {
                                 color: AppColors.darkClr,
                                 fontSize: MyTextSize.mediumText),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, RoutesName.COMMENT_PAGE);
+                              },
                               style: TextButton.styleFrom(
                                 minimumSize: Size.zero,
                                 padding: EdgeInsets.zero,

@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:doan/constants/assets/app_assets_path.dart';
-import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
@@ -29,7 +28,7 @@ class ProfileWidget extends StatelessWidget {
       child: Material(
         //color: AppColors.blueClr,
         child: Ink.image(
-          image: const AssetImage("assets/info/ProfilePicture.png") ,
+          image: const AssetImage("assets/info/ProfilePicture.png"),
           fit: BoxFit.cover,
           width: 100,
           height: 100,
@@ -52,7 +51,7 @@ class ProfileWidget extends StatelessWidget {
           ),
         ),
       );
-  
+
   Widget buildCircle({
     required Widget child,
     required double all,
@@ -65,5 +64,4 @@ class ProfileWidget extends StatelessWidget {
           child: child,
         ),
       );
-
 }

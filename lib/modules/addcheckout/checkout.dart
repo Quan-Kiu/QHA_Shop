@@ -1,6 +1,6 @@
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/addcheckout/component/bodyAddCheckout.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class AddCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Thanh toán'),
+      appBar: buildSecondaryAppBar(context, 'Thanh toán'),
       body: bodyaddcheckout(),
       bottomNavigationBar: Container(
         child: MyButtonWidget(

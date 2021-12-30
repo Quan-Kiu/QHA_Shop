@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytextformfield_widget.dart';
@@ -29,7 +30,9 @@ class _LoginFormState extends State<LoginForm> {
                 color: AppColors.whiteClr,
                 fontSize: 14,
                 fontWeight: FontWeight.bold),
-            onPress: () {},
+            onPress: () {
+              Navigator.pushNamed(context, RoutesName.HOME_PAGE);
+            },
             color: AppColors.blueClr,
           ),
         ],

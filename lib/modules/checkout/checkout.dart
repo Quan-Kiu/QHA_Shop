@@ -1,5 +1,5 @@
 import 'package:doan/modules/checkout/component/bodyCheckout.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class CheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, "Thanh toán"),
+      appBar: buildSecondaryAppBar(context, "Thanh toán"),
       body: bodyCheckoutPage(),
     );
   }

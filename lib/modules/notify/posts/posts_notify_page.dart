@@ -1,6 +1,6 @@
 import 'package:doan/models/notify.dart';
 import 'package:doan/modules/notify/components/notify_item.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 
 class Posts_Notify_Page extends StatelessWidget {
@@ -8,7 +8,7 @@ class Posts_Notify_Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Bài viết'),
+      appBar: buildSecondaryAppBar(context, 'Bài viết'),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),

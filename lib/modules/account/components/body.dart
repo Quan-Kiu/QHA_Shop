@@ -26,27 +26,27 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: type.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          onTap: () {},
-          title: Text(
-            type[index].name,
-            style: const TextStyle(
+        itemCount: type.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, type[index].router);
+            },
+            title: Text(
+              type[index].name,
+              style: const TextStyle(
                   fontSize: 15,
                   color: AppColors.darkClr,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.75),
-          ),
-          leading: IconButton(
+            ),
+            leading: IconButton(
                 icon:
                     SvgPicture.asset(AppAssetsPath.iconPath + type[index].icon),
                 color: AppColors.grayClr,
                 onPressed: () {}),
-        );
-      });
+          );
+        });
     ;
   }
-
-  
 }

@@ -24,47 +24,40 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String CHANGEPASSWORD_PAGE = 'ChangePasswordPage';
   // ignore: constant_identifier_names
-
-  // ignore: constant_identifier_names
   static const String PAGE_LIST = 'PageList';
-
   // ignore: constant_identifier_names
   static const String ORDERS_PAGE = 'Orders_Page';
-
   // ignore: constant_identifier_names
   static const String CART_PAGE = 'Cart_Page';
-
   // ignore: constant_identifier_names
   static const String COMMENT_PAGE = 'Comment_Page';
-
   // ignore: constant_identifier_names
   static const String ORDER_DETAUL_PAGE = 'Order_Detail_Page';
-
   // ignore: constant_identifier_names
   static const String CREATE_COMMENT_PAGE = 'Create_Comment_Page';
-
   // ignore: constant_identifier_names
   static const String NOTIFY_PAGE = 'Notify_Page';
-
   // ignore: constant_identifier_names
   static const String POSTS_NOTIFY_PAGE = 'Posts_Notify_Page';
   // ignore: constant_identifier_names
   static const String SEARCH_PAGE = 'Search_Page';
   // ignore: constant_identifier_names
   static const String ACTIVITIES_NOTIFY_PAGE = 'Activities_Notify_Page';
+  // ignore: constant_identifier_names
   static const String ADD_ADDRESS_PAGE = 'Add_Address_Page';
   // ignore: constant_identifier_names
   static const String ADD_CARD_PAGE = 'Add_Card_Page';
-
   // ignore: constant_identifier_names
-  static const String LIST_PRODUCT_PAGE = 'DiscountPage';
+  static const String DISCOUNT_PAGE = 'DiscountPage';
   // ignore: constant_identifier_names
   static const String PRODUCT_FAVORITE_PAGE = 'FavoritePage';
   // ignore: constant_identifier_names
   static const String CATEGORY_PAGE = 'CategoryPage';
   // ignore: constant_identifier_names
   static const String SEARCH_ERROR = 'SearchErrorPage';
+  // ignore: constant_identifier_names
   static const String SEARCH_RESULT = 'SearchResultPage';
+  // ignore: constant_identifier_names
   static const String LISTCATEGORY = 'ListCaterogyPage';
   // ignore: constant_identifier_names
   static const String TRANS_POST_PAGE = 'TransPostPage';

@@ -1,6 +1,6 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/models/product.dart';
-import 'package:doan/modules/search/components/searchInput.dart';
+import 'package:doan/widget/searchInput.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types

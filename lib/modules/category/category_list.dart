@@ -1,7 +1,6 @@
-import 'package:doan/constants/assets/app_assets_path.dart';
-import 'package:doan/modules/category/components/appbar.dart';
 import 'package:doan/modules/category/components/body.dart';
-import 'package:doan/modules/category/components/navbar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_pri.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,43 +12,9 @@ class Category_List extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: buildAppBar(),
-        body: body(),
-        bottomNavigationBar: Container(
-          height: 75,
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              NavBar(
-                icon: AppAssetsPath.homeIcon,
-                title: 'Home',
-              ),
-              const NavBar(
-                icon: AppAssetsPath.searchIcon,
-                title: 'Tìm kiếm',
-              ),
-              const NavBar(
-                icon: AppAssetsPath.cartIcon,
-                title: 'Giỏ hàng',
-              ),
-              const NavBar(
-                icon: AppAssetsPath.offerIcon,
-                title: 'Deal',
-              ),
-              const NavBar(
-                icon: AppAssetsPath.userIcon,
-                title: 'Tài khoản',
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return Scaffold(
+        appBar: buildPrimaryAppBar(context),
+        body: Body(),
+        bottomNavigationBar: buildBottomNavBar());
   }
 }

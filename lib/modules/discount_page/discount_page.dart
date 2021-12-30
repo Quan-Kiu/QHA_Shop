@@ -1,15 +1,16 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/models/product.dart';
+
 import 'components/banner.dart';
 
-class ProductList extends StatelessWidget {
+class DiscountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Siêu giảm giá'),
+      appBar: buildSecondaryAppBar(context, 'Siêu giảm giá'),
       body: const Body(),
     );
   }

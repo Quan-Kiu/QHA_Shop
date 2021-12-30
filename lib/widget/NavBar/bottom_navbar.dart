@@ -31,11 +31,11 @@ buildBottomNavBar() => Container(
           NavItem(
               icon: AppAssetsPath.offerIcon,
               title: 'Deal',
-              router: RoutesName.LIST_PRODUCT_PAGE),
+              router: RoutesName.DISCOUNT_PAGE),
           NavItem(
               icon: AppAssetsPath.userIcon,
               title: 'Tài khoản',
-              router: RoutesName.INFO_PAGE),
+              router: RoutesName.ACCOUNT_PAGE),
         ],
       ),
     );

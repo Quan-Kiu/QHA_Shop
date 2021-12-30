@@ -1,4 +1,5 @@
-import '../dateofbirthScreen/components/appbar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+
 import 'package:flutter/material.dart';
 import '../dateofbirthScreen/components/body.dart';
 
@@ -13,10 +14,8 @@ class _DateOBPageScreenState extends State<DateOBPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarInfo(),
+      appBar: buildSecondaryAppBar(context, 'Ngày sinh'),
       body: Body(),
     );
   }
 }
-
-

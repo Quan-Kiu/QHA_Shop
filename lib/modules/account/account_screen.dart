@@ -1,6 +1,5 @@
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/NavBar/bottom_navbar.dart';
-
-import 'components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
@@ -15,11 +14,8 @@ class _AccountPageScreenState extends State<AccountPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarInfo(),
+      appBar: buildSecondaryAppBar(context, 'Tài khoản'),
       body: Body(),
-      bottomNavigationBar: buildBottomNavBar(),
     );
   }
 }
-
-

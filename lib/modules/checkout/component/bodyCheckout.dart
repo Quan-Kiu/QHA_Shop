@@ -11,10 +11,14 @@ class bodyCheckoutPage extends StatelessWidget {
         itemCount: type.length,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () {},
+            onTap: () {
+              if (type[index].router != '') {
+                Navigator.pushNamed(context, type[index].router);
+              }
+            },
             title: Text(
               type[index].name,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 15,
                   color: AppColors.darkClr,
                   fontWeight: FontWeight.bold,

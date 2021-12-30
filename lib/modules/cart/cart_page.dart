@@ -1,5 +1,5 @@
 import 'package:doan/modules/cart/components/body.dart';
-import 'package:doan/widget/my_app_bar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -8,7 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Giỏ hàng của bạn'),
+      appBar: buildSecondaryAppBar(context, 'Giỏ hàng của bạn'),
       body: const Body(),
     );
   }

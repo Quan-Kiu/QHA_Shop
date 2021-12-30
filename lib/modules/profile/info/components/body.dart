@@ -13,8 +13,6 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
-// ignore: duplicate_import
-import '../components/profile_widget.dart';
 import '../components/user_preferences.dart';
 
 class Body extends StatefulWidget {
@@ -35,18 +33,21 @@ class _BodyState extends State<Body> {
           child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 30.0)),
-              ProfileWidget(
-                imagePath: user.imagePath,
-                onClicked: () async {},
-              ),
-              const Padding(padding: EdgeInsets.only(left: 20.0)),
-              buildName(user),
-            ],
+          Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
+            child: Row(
+              children: [
+                ProfileWidget(
+                  imagePath: user.imagePath,
+                  onClicked: () async {},
+                ),
+                const Padding(padding: EdgeInsets.only(left: 20.0)),
+                buildName(user),
+              ],
+            ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           buildsex(user),
           const SizedBox(height: 20),
           builddateOB(user),
@@ -63,39 +64,43 @@ class _BodyState extends State<Body> {
   }
 
   Widget buildName(User user) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            child: TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.RENAME_PAGE);
-              },
-              child: Text(
-                user.name,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                  textStyle: const TextStyle(
-                fontSize: 20,
-              )),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RoutesName.RENAME_PAGE);
+            },
+            style: TextButton.styleFrom(
+              minimumSize: Size.zero,
+              padding: EdgeInsets.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            child: Text(
+              user.name,
+              style: const TextStyle(
+                  color: AppColors.darkClr,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0),
             ),
           ),
-          SizedBox(
-            child: TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
-              },
-              child: Text(
-                user.email,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                  textStyle: const TextStyle(
-                fontSize: 20,
-              )),
+          const SizedBox(
+            height: 10.0,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
+            },
+            style: TextButton.styleFrom(
+              minimumSize: Size.zero,
+              padding: EdgeInsets.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            child: Text(
+              user.email,
+              style: const TextStyle(
+                  fontSize: 16.0,
+                  color: AppColors.grayClr,
+                  fontWeight: FontWeight.normal),
             ),
           ),
         ],
@@ -110,11 +115,11 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.only(right: 10),
             ),
             const Text(
-              ' Giới tính: ',
+              'Giới tính:',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black),
+                  color: AppColors.darkClr),
             ),
 
             Expanded(
@@ -129,14 +134,14 @@ class _BodyState extends State<Body> {
                       user.sex,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
-                        color: Colors.blueGrey,
+                        color: AppColors.grayClr,
                       ),
                     ),
                   ],
                 ),
                 style: TextButton.styleFrom(
                     textStyle: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16.0,
                 )),
               ),
             ),
@@ -147,7 +152,7 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, RoutesName.SEX_PAGE);
               },
               icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.blueClr),
+                  color: AppColors.grayClr),
             ),
           ],
         ),
@@ -162,11 +167,11 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.only(right: 10),
             ),
             const Text(
-              ' Ngày sinh: ',
+              'Ngày sinh:',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black),
+                  color: AppColors.darkClr),
             ),
             const SizedBox(height: 4),
             Expanded(
@@ -181,24 +186,23 @@ class _BodyState extends State<Body> {
                       user.dateOB,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
-                        color: Colors.blueGrey,
+                        color: AppColors.grayClr,
                       ),
                     ),
                   ],
                 ),
                 style: TextButton.styleFrom(
                     textStyle: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16.0,
                 )),
               ),
             ),
-            
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, RoutesName.DATEOFBIRTH_PAGE);
               },
               icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.blueClr),
+                  color: AppColors.grayClr),
             ),
           ],
         ),
@@ -213,11 +217,11 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.only(right: 10),
             ),
             const Text(
-              ' Email: ',
+              'Email:',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black),
+                  color: AppColors.darkClr),
             ),
             const SizedBox(height: 4),
             Expanded(
@@ -234,7 +238,7 @@ class _BodyState extends State<Body> {
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.right,
                         style: const TextStyle(
-                          color: Colors.blueGrey,
+                          color: AppColors.grayClr,
                         ),
                       ),
                     ),
@@ -242,7 +246,7 @@ class _BodyState extends State<Body> {
                 ),
                 style: TextButton.styleFrom(
                     textStyle: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16.0,
                 )),
               ),
             ),
@@ -251,7 +255,7 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
               },
               icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.blueClr),
+                  color: AppColors.grayClr),
             ),
           ],
         ),
@@ -266,11 +270,11 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.only(right: 10),
             ),
             const Text(
-              ' Số điện thoại: ',
+              'Số điện thoại:',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black),
+                  color: AppColors.darkClr),
             ),
             const SizedBox(height: 4),
             Expanded(
@@ -285,14 +289,14 @@ class _BodyState extends State<Body> {
                       user.phone,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
-                        color: Colors.blueGrey,
+                        color: AppColors.grayClr,
                       ),
                     ),
                   ],
                 ),
                 style: TextButton.styleFrom(
                     textStyle: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16.0,
                 )),
               ),
             ),
@@ -304,7 +308,7 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, RoutesName.PHONE_PAGE);
               },
               icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.blueClr),
+                  color: AppColors.grayClr),
             ),
           ],
         ),
@@ -319,11 +323,11 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.only(right: 10),
             ),
             const Text(
-              ' Mật khẩu: ',
+              'Mật khẩu:',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black),
+                  color: AppColors.darkClr),
             ),
             const SizedBox(height: 4),
             Expanded(
@@ -338,14 +342,14 @@ class _BodyState extends State<Body> {
                       user.password,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
-                        color: Colors.blueGrey,
+                        color: AppColors.grayClr,
                       ),
                     ),
                   ],
                 ),
                 style: TextButton.styleFrom(
                     textStyle: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16.0,
                 )),
               ),
             ),
@@ -357,7 +361,7 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, RoutesName.CHANGEPASSWORD_PAGE);
               },
               icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.blueClr),
+                  color: AppColors.grayClr),
             ),
           ],
         ),

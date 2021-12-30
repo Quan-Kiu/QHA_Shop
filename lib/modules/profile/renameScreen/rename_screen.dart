@@ -1,4 +1,5 @@
-import 'components/appbar.dart';
+import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
@@ -13,10 +14,8 @@ class _RenamePageScreenState extends State<RenamePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarInfo(),
+      appBar: buildSecondaryAppBar(context, 'Họ tên'),
       body: Body(),
     );
   }
 }
-
-
