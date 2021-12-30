@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 AppBar buildAppBar(context) {
   return AppBar(
-    title: Text("Nike Air Zoom Pegasus 36 Miami"),
+    title: const Text("Nike Air Zoom Pegasus 36 Miami"),
     leading: IconButton(
         icon: SvgPicture.asset(AppAssetsPath.leftIcon),
         color: AppColors.grayClr,
@@ -13,8 +13,8 @@ AppBar buildAppBar(context) {
           Navigator.pop(context);
         }),
     actions: [
-      IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-      IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+      IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
     ],
   );
 }

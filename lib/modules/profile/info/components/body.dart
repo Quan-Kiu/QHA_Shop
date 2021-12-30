@@ -34,16 +34,16 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: Form(
           child: ListView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         children: [
           Row(
             children: [
-              Padding(padding: EdgeInsets.only(left: 30.0)),
+              const Padding(padding: EdgeInsets.only(left: 30.0)),
               ProfileWidget(
                 imagePath: user.imagePath,
                 onClicked: () async {},
               ),
-              Padding(padding: EdgeInsets.only(left: 20.0)),
+              const Padding(padding: EdgeInsets.only(left: 20.0)),
               buildName(user),
             ],
           ),
@@ -67,24 +67,32 @@ class _BodyState extends State<Body> {
         children: [
           Text(
             user.name,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
           ),
-          const SizedBox(height: 4),
-          Text(
-            user.email,
-            style: TextStyle(color: Colors.black),
-          )
+          SizedBox(
+            child: TextButton(
+              onPressed: null,
+              child: Text(user.email),
+              style: TextButton.styleFrom(
+                  textStyle: const TextStyle(
+                fontSize: 20,
+              )),
+            ),
+          ),
         ],
       );
 
   Widget buildsex(User user) => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
             const Icon(Icons.male_outlined, color: AppColors.blueClr),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Text(
               ' Giới tính: ',
               style: TextStyle(
@@ -92,15 +100,19 @@ class _BodyState extends State<Body> {
                   fontSize: 20,
                   color: Colors.black),
             ),
-            const SizedBox(height: 4),
             Expanded(
-                child: Text(
-              user.sex,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
+              child: Text(
+                user.sex,
+                textAlign: TextAlign.right,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
               ),
-            )),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Icon(Icons.arrow_forward_ios_outlined,
                 color: AppColors.blueClr),
           ],
@@ -108,10 +120,13 @@ class _BodyState extends State<Body> {
       );
 
   Widget builddateOB(User user) => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
             const Icon(Icons.calendar_today_outlined, color: AppColors.blueClr),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Text(
               ' Ngày sinh: ',
               style: TextStyle(
@@ -123,11 +138,15 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.dateOB,
+                textAlign: TextAlign.right,
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 20,
                 ),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
             ),
             const Icon(Icons.arrow_forward_ios_outlined,
                 color: AppColors.blueClr),
@@ -140,6 +159,9 @@ class _BodyState extends State<Body> {
         child: Row(
           children: [
             const Icon(Icons.email_outlined, color: AppColors.blueClr),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Text(
               ' Email: ',
               style: TextStyle(
@@ -150,10 +172,14 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: Text(user.email,
+                  textAlign: TextAlign.right,
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                   )),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
             ),
             const Icon(Icons.arrow_forward_ios_outlined,
                 color: AppColors.blueClr),
@@ -162,10 +188,13 @@ class _BodyState extends State<Body> {
       );
 
   Widget buildphone(User user) => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           children: [
             const Icon(Icons.phone_android_outlined, color: AppColors.blueClr),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Text(
               ' Số điện thoại: ',
               style: TextStyle(
@@ -177,8 +206,12 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.phone,
+                textAlign: TextAlign.right,
                 style: const TextStyle(color: Colors.grey, fontSize: 20),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
             ),
             const Icon(Icons.arrow_forward_ios_outlined,
                 color: AppColors.blueClr),
@@ -191,6 +224,9 @@ class _BodyState extends State<Body> {
         child: Row(
           children: [
             const Icon(Icons.lock, color: AppColors.blueClr),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+            ),
             const Text(
               ' Mật khẩu: ',
               style: TextStyle(
@@ -202,11 +238,15 @@ class _BodyState extends State<Body> {
             Expanded(
               child: Text(
                 user.password,
+                textAlign: TextAlign.right,
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 20,
                 ),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
             ),
             const Icon(Icons.arrow_forward_ios_outlined,
                 color: AppColors.blueClr),
