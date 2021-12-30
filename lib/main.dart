@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         title: "QHAShop",
         theme: theme(),
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute: RoutesName.PAGE_LIST,
+        initialRoute: RoutesName.LOGIN_PAGE,
       ),
     );
   }
