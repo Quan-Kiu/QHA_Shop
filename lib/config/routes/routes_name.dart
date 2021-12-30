@@ -80,4 +80,6 @@ class RoutesName {
   static const String PAYMENTCARD_PAGE = 'PaymentCardPage';
   // ignore: constant_identifier_names
   static const String ADDCHECKOUT_PAGE = 'AddcheckoutPage';
+  // ignore: constant_identifier_names
+  static const String ACCOUNT_PAGE = 'AccountPage';
 }

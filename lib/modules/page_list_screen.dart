@@ -41,6 +41,7 @@ class PageList extends StatelessWidget {
     RoutesName.RMADDRESS_PAGE,
     RoutesName.PAYMENTCARD_PAGE,
     RoutesName.ADDCHECKOUT_PAGE,
+    RoutesName.ACCOUNT_PAGE,
   ];
 
   @override
