@@ -1,9 +1,13 @@
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/models/address/address.dart';
+import 'package:doan/modules/addcheckout/checkout.dart';
 import 'package:doan/modules/auth/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/registerScreen/register_screen.dart';
 import 'package:doan/modules/cart/cart_page.dart';
 import 'package:doan/modules/category/category_list.dart';
+import 'package:doan/modules/checkout/checkout.dart';
+import 'package:doan/modules/checkout_complete/ckout_complete.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/home/home_screen.dart';
@@ -13,8 +17,8 @@ import 'package:doan/modules/notify/posts/posts_notify_page.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
+import 'package:doan/modules/payment_card/main.dart';
 import 'package:doan/modules/product_detail/screen/product_detail_screen.dart';
-import 'package:doan/modules/auth/screen/PhoneScreen/phone_Screen.dart';
 import 'package:doan/modules/product_favorite/screen/product_favarite.dart';
 import 'package:doan/modules/product_list/screen/product_list.dart';
 import 'package:doan/modules/profile/addaddress/addaddress_screen.dart';
@@ -23,11 +27,14 @@ import 'package:doan/modules/profile/changePasswordScreen/changePassword_screen.
 import 'package:doan/modules/profile/dateofbirthScreen/dateofbith_screen.dart';
 import 'package:doan/modules/profile/emailScreen/email_screen.dart';
 import 'package:doan/modules/profile/info/info_screen.dart';
+import 'package:doan/modules/profile/phoneScreen/phone_Screen.dart';
 import 'package:doan/modules/profile/renameScreen/rename_screen.dart';
 import 'package:doan/modules/profile/sexScreen/sex_screen.dart';
+import 'package:doan/modules/rmaddress/removeAddress.dart';
 import 'package:doan/modules/search/search_page.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
+import 'package:doan/modules/transpost_page/transpost.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -136,6 +143,27 @@ class RouteGenerator {
       case RoutesName.LIST_PRODUCT_PAGE:
         return _GeneratePageRoute(
             widget: ProductList(), routeName: settings.name);
+            case RoutesName.TRANS_POST_PAGE:
+        return _GeneratePageRoute(
+            widget: TransPost(), routeName: settings.name);
+      case RoutesName.CHECKOUT_TYPE_PAGE:
+        return _GeneratePageRoute(
+            widget: CheckoutPage(), routeName: settings.name);
+      case RoutesName.CHECKOUT_COMPLETE_PAGE:
+        return _GeneratePageRoute(
+            widget: Checkout_Complete(), routeName: settings.name);
+      case RoutesName.ADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: Address(), routeName: settings.name);
+      case RoutesName.RMADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: RemoveAddress(), routeName: settings.name);
+      case RoutesName.PAYMENTCARD_PAGE:
+        return _GeneratePageRoute(
+            widget: Paymentcard(), routeName: settings.name);
+      case RoutesName.ADDCHECKOUT_PAGE:
+        return _GeneratePageRoute(
+            widget: AddCheckout(), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }

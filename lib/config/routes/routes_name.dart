@@ -65,4 +65,19 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String SEARCH_ERROR = 'SearchErrorPage';
   static const String SEARCH_RESULT = 'SearchResultPage';
+  static const String LISTCATEGORY = 'ListCaterogyPage';
+  // ignore: constant_identifier_names
+  static const String TRANS_POST_PAGE = 'TransPostPage';
+  // ignore: constant_identifier_names
+  static const String CHECKOUT_TYPE_PAGE = 'CheckoutPage';
+  // ignore: constant_identifier_names
+  static const String CHECKOUT_COMPLETE_PAGE = 'CheckoutCompletePage';
+  // ignore: constant_identifier_names
+  static const String ADDRESS_PAGE = 'AddressPage';
+  // ignore: constant_identifier_names
+  static const String RMADDRESS_PAGE = 'RemoveAddressPage';
+  // ignore: constant_identifier_names
+  static const String PAYMENTCARD_PAGE = 'PaymentCardPage';
+  // ignore: constant_identifier_names
+  static const String ADDCHECKOUT_PAGE = 'AddcheckoutPage';
 }

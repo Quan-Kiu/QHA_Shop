@@ -11,6 +11,8 @@ class AppAssetsPath {
   static const imagePath = "assets/images/";
   static const iconPath = "assets/icons/";
   static const infoPath = "assets/info/";
+  static const iconProductPath = "assets/icons/productIcons/";
+
   static const bannerPath = "assets/banner/";
 
   static const logoImage = imagePath + "Logo.png";
@@ -35,8 +37,13 @@ class AppAssetsPath {
   static const homeIcon = iconPath + "Home.svg";
   static const offerIcon = iconPath + "Offer.svg";
   static const userIcon = iconPath + "User.svg";
+  static const WarringIcon = iconPath + "Warring.svg";
+  static const LogoCardIcon = iconPath + "LogoCard.svg";
   static const searchIcon = iconPath + "Search.svg";
+  static const completeIcon = iconPath + "complete.svg";
   static const facebookIcon = iconPath + "Facebook.svg";
+  static const BankIcon = iconPath + "Bank.svg";
+  static const GroupIcon = iconPath + "Group.svg";
   static const bikiniIcon = iconPath + "productIcons/bikini.svg";
   static const dressIcon = iconPath + "productIcons/dress.svg";
   static const manbagIcon = iconPath + "productIcons/manbag.svg";
