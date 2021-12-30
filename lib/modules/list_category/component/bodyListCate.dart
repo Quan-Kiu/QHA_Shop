@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
             onTap: () {},
             title: Text(
               category[index].name,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 15,
                   color: AppColors.darkClr,
                   fontWeight: FontWeight.bold,

@@ -58,12 +58,13 @@ class AppAssetsPath {
   static const womantshirtIcon = iconPath + "productIcons/womantshirt.svg";
   static const womanpantsIcon = iconPath + "productIcons/womanpants.svg";
   static const cancleIcon = iconPath + "productIcons/Times.svg";
-
+  static const GroupsIcons = iconPath + "Groups.svg";
   // ignore: constant_identifier_names
   static const DateIcon = infoPath + "Date.svg";
   static const GenderIcon = infoPath + "Gender.svg";
   static const MessageIcon = infoPath + "Message.svg";
   static const PasswordIcon = infoPath + "Passwor.svg";
   static const PhoneIcon = infoPath + "Phone.svg";
+
   static const ProfilePicture = infoPath + "ProfilePicture.png";
 }
