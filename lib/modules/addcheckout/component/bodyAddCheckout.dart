@@ -21,7 +21,8 @@ class bodyaddcheckout extends StatelessWidget {
                   letterSpacing: 0.75),
             ),
             leading: IconButton(
-                icon: SvgPicture.asset("assets/icons/Bank.svg"),
+                icon:
+                    SvgPicture.asset(AppAssetsPath.iconPath + type[index].icon),
                 color: AppColors.grayClr,
                 onPressed: () {}),
           );
