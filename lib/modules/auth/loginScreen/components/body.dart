@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
               const LoginForm(),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20,
+                  top: 10,
                 ),
                 child: Text(
                   "hoặc".toUpperCase(),
@@ -56,7 +56,7 @@ class Body extends StatelessWidget {
                   textStyle: AppTextStyles.normalTextBold,
                   icon: SvgPicture.asset(AppAssetsPath.facebookIcon)),
               const SizedBox(
-                height: 60,
+                height: 10,
               ),
               TextButton(
                   onPressed: () {

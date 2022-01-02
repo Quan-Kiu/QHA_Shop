@@ -24,7 +24,7 @@ class _LoginFormState extends State<LoginForm> {
               obscureText: true,
               prefixIcon: Icons.lock_outline),
           MyButtonWidget(
-            padding: const EdgeInsets.only(top: 47.0),
+            padding: const EdgeInsets.all(20),
             text: "Đăng nhập",
             textStyle: const TextStyle(
                 color: AppColors.whiteClr,
