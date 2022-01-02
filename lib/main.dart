@@ -1,7 +1,6 @@
 import 'package:doan/config/routes/router.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import "package:flutter/material.dart";
-
 import 'constants/themes/app_colors.dart';
 
 void main() {
@@ -40,5 +39,5 @@ ThemeData theme() {
       fontFamily: "Poppins",
       scaffoldBackgroundColor: AppColors.whiteClr,
       textTheme: const TextTheme(
-          bodyText2: TextStyle(color: AppColors.grayClr, fontSize: 12)));
+          bodyText2: TextStyle(color: AppColors.grayClr, fontSize: 14)));
 }

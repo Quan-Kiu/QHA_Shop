@@ -11,6 +11,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.all(15),
@@ -27,7 +28,8 @@ class Body extends StatelessWidget {
               Form(
                 child: Column(
                   children: [
-                    const MyTextFormField(
+                    MyTextFormField(
+                        textController: emailController,
                         hintText: "Your Email",
                         prefixIcon: Icons.email_outlined),
                     MyButtonWidget(
