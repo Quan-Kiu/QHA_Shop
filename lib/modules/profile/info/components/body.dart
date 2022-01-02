@@ -58,7 +58,19 @@ class _BodyState extends State<Body> {
           const SizedBox(height: 20),
           buildpassword(user),
           const SizedBox(height: 20),
+          MyButtonWidget(
+                      padding: const EdgeInsets.all(15),
+                      text: "Chỉnh sửa hồ sơ",
+                      textStyle: const TextStyle(
+                          color: AppColors.whiteClr,
+                          fontWeight: FontWeight.bold),
+                      onPress: () {
+                         Navigator.pushNamed(context, RoutesName.CHANGEPROFILE_PAGE);
+                      },
+                      color: AppColors.blueClr,
+                    ),
         ],
+        
       )),
     );
   }
@@ -68,7 +80,6 @@ class _BodyState extends State<Body> {
         children: [
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, RoutesName.RENAME_PAGE);
             },
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
@@ -88,7 +99,6 @@ class _BodyState extends State<Body> {
           ),
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
             },
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
@@ -125,7 +135,6 @@ class _BodyState extends State<Body> {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.SEX_PAGE);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -145,15 +154,7 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-            //const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.blueClr),
-            //       color: AppColors.blueClr),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.SEX_PAGE);
-              },
-              icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.grayClr),
-            ),
+           
           ],
         ),
       );
@@ -177,7 +178,6 @@ class _BodyState extends State<Body> {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.DATEOFBIRTH_PAGE);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -197,13 +197,7 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.DATEOFBIRTH_PAGE);
-              },
-              icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.grayClr),
-            ),
+           
           ],
         ),
       );
@@ -213,6 +207,7 @@ class _BodyState extends State<Body> {
         child: Row(
           children: [
             const Icon(Icons.email_outlined, color: AppColors.blueClr),
+
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
@@ -227,7 +222,6 @@ class _BodyState extends State<Body> {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -250,13 +244,7 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.EMAIL_PAGE);
-              },
-              icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.grayClr),
-            ),
+            
           ],
         ),
       );
@@ -280,7 +268,6 @@ class _BodyState extends State<Body> {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.PHONE_PAGE);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -303,13 +290,7 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.PHONE_PAGE);
-              },
-              icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.grayClr),
-            ),
+            
           ],
         ),
       );
@@ -333,7 +314,6 @@ class _BodyState extends State<Body> {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.CHANGEPASSWORD_PAGE);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -356,14 +336,9 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RoutesName.CHANGEPASSWORD_PAGE);
-              },
-              icon: const Icon(Icons.arrow_forward_ios_outlined,
-                  color: AppColors.grayClr),
-            ),
+            
           ],
         ),
       );
+  
 }
