@@ -1,17 +1,22 @@
 import 'package:doan/config/routes/router.dart';
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/providers/auth.dart';
 import "package:flutter/material.dart";
 import 'constants/themes/app_colors.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => Auth())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    var token = context.watch<Auth>().myValue['token'];
     return GestureDetector(
       onTap: () =>
           WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus(),
@@ -20,7 +25,8 @@ class MyApp extends StatelessWidget {
         title: "QHAShop",
         theme: theme(),
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute: RoutesName.LOGIN_PAGE,
+        initialRoute:
+            token == '' ? RoutesName.LOGIN_PAGE : RoutesName.HOME_PAGE,
       ),
     );
   }

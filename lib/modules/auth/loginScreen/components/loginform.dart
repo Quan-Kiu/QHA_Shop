@@ -1,11 +1,14 @@
 import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/models/user.dart';
+import 'package:doan/providers/auth.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/utils/validations.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytextformfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -51,6 +54,10 @@ class _LoginFormState extends State<LoginForm> {
     var response = await MyApi().postData(formData, 'login');
 
     if (response['success']) {
+      var user = new User.fromJson(response['data']['user']);
+      context
+          .read<Auth>()
+          .update({'user': user, 'token': response['data']['token']});
       Navigator.pushNamed(context, RoutesName.HOME_PAGE);
     } else {
       AlertMessage.showMsg(context, response['message']);

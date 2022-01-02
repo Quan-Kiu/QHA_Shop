@@ -1,4 +1,7 @@
+import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/providers/auth.dart';
 import "package:flutter/material.dart";
+import 'package:provider/src/provider.dart';
 import './components/body.dart';
 
 class LoginScreen extends StatefulWidget {

@@ -3,9 +3,10 @@ import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
+import 'package:doan/models/user.dart';
 import 'package:doan/modules/profile/info/components/profile_widget.dart';
-import 'package:doan/modules/profile/info/components/user_preferences.dart';
 import 'package:doan/modules/profile/sexScreen/components/body.dart';
+import 'package:doan/providers/auth.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -13,6 +14,7 @@ import 'package:doan/widget/mytextformfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/src/provider.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -33,10 +35,10 @@ class _BodyState extends State<Body> {
   ];
 
   var selectedUser;
-  final user = UserPreferences.myUser;
 
   @override
   Widget build(BuildContext context) {
+    User user = context.watch<Auth>().myValue['user'];
     return SafeArea(
       child: Form(
           child: ListView(
@@ -48,10 +50,9 @@ class _BodyState extends State<Body> {
             child: Row(
               children: [
                 ProfileWidget(
-                  imagePath: user.imagePath,
+                  imagePath: user.avatar,
                   onClicked: () async {},
                 ),
-                const Padding(padding: EdgeInsets.only(left: 20.0)),
               ],
             ),
           ),

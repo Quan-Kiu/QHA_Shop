@@ -4,6 +4,7 @@ import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/user.dart';
+import 'package:doan/providers/auth.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -13,7 +14,7 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
-import '../components/user_preferences.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -25,9 +26,10 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   FocusNode myFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  final user = UserPreferences.myUser;
+
   @override
   Widget build(BuildContext context) {
+    User user = context.watch<Auth>().myValue['user'];
     return SafeArea(
       child: Form(
           child: ListView(
@@ -39,7 +41,7 @@ class _BodyState extends State<Body> {
             child: Row(
               children: [
                 ProfileWidget(
-                  imagePath: user.imagePath,
+                  imagePath: user.avatar,
                   onClicked: () async {},
                 ),
                 const Padding(padding: EdgeInsets.only(left: 20.0)),
@@ -59,18 +61,16 @@ class _BodyState extends State<Body> {
           buildpassword(user),
           const SizedBox(height: 20),
           MyButtonWidget(
-                      padding: const EdgeInsets.all(15),
-                      text: "Chỉnh sửa hồ sơ",
-                      textStyle: const TextStyle(
-                          color: AppColors.whiteClr,
-                          fontWeight: FontWeight.bold),
-                      onPress: () {
-                         Navigator.pushNamed(context, RoutesName.CHANGEPROFILE_PAGE);
-                      },
-                      color: AppColors.blueClr,
-                    ),
+            padding: const EdgeInsets.all(15),
+            text: "Chỉnh sửa hồ sơ",
+            textStyle: const TextStyle(
+                color: AppColors.whiteClr, fontWeight: FontWeight.bold),
+            onPress: () {
+              Navigator.pushNamed(context, RoutesName.CHANGEPROFILE_PAGE);
+            },
+            color: AppColors.blueClr,
+          ),
         ],
-        
       )),
     );
   }
@@ -79,15 +79,14 @@ class _BodyState extends State<Body> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
               padding: EdgeInsets.zero,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             child: Text(
-              user.name,
+              user.fullname,
               style: const TextStyle(
                   color: AppColors.darkClr,
                   fontWeight: FontWeight.bold,
@@ -98,8 +97,7 @@ class _BodyState extends State<Body> {
             height: 10.0,
           ),
           TextButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
               padding: EdgeInsets.zero,
@@ -131,18 +129,16 @@ class _BodyState extends State<Body> {
                   fontSize: 20,
                   color: AppColors.darkClr),
             ),
-
             Expanded(
               child: TextButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text(
-                      user.sex,
+                      'Nam',
                       textAlign: TextAlign.right,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.grayClr,
                       ),
                     ),
@@ -154,7 +150,6 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-           
           ],
         ),
       );
@@ -177,13 +172,12 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: TextButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      user.dateOB,
+                      user.birthday,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
                         color: AppColors.grayClr,
@@ -197,7 +191,6 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-           
           ],
         ),
       );
@@ -207,7 +200,6 @@ class _BodyState extends State<Body> {
         child: Row(
           children: [
             const Icon(Icons.email_outlined, color: AppColors.blueClr),
-
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
@@ -221,8 +213,7 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: TextButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -244,7 +235,6 @@ class _BodyState extends State<Body> {
                 )),
               ),
             ),
-            
           ],
         ),
       );
@@ -267,8 +257,7 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: TextButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -290,7 +279,6 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            
           ],
         ),
       );
@@ -313,15 +301,14 @@ class _BodyState extends State<Body> {
             const SizedBox(height: 4),
             Expanded(
               child: TextButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text(
-                      user.password,
+                      '*********',
                       textAlign: TextAlign.right,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.grayClr,
                       ),
                     ),
@@ -336,9 +323,7 @@ class _BodyState extends State<Body> {
             const Padding(
               padding: EdgeInsets.only(right: 10),
             ),
-            
           ],
         ),
       );
-  
 }

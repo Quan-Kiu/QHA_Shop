@@ -22,13 +22,11 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget buildImage() {
-    //final image = Image.asset(AppAssetsPath.ProfilePicture);
-
+    var image = Image.network(imagePath);
     return ClipOval(
       child: Material(
-        //color: AppColors.blueClr,
         child: Ink.image(
-          image: const AssetImage("assets/info/ProfilePicture.png"),
+          image: NetworkImage(imagePath),
           fit: BoxFit.cover,
           width: 100,
           height: 100,
