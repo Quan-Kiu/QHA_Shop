@@ -37,6 +37,7 @@ import 'package:doan/modules/search/search_page.dart';
 import 'package:doan/modules/search_error/search_error.dart';
 import 'package:doan/modules/search_result/search_result.dart';
 import 'package:doan/modules/transpost_page/transpost.dart';
+import 'package:doan/modules/profile/changeprofile/changeprofilescreen.dart';
 import 'package:flutter/widgets.dart';
 
 class RouteGenerator {
@@ -168,6 +169,10 @@ class RouteGenerator {
       case RoutesName.ADDCHECKOUT_PAGE:
         return _GeneratePageRoute(
             widget: const AddCheckout(), routeName: settings.name);
+      case RoutesName.CHANGEPROFILE_PAGE:
+        return _GeneratePageRoute(
+            widget: const ChangeProfile(), routeName: settings.name);
+
       case RoutesName.LISTCATEGORY:
         return _GeneratePageRoute(
             widget: const List_Category(), routeName: settings.name);
