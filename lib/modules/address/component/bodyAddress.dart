@@ -2,6 +2,7 @@ import 'package:doan/models/address.dart';
 import 'package:doan/widget/transpost_card.dart';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class bodyAddress extends StatelessWidget {
   const bodyAddress({
     Key? key,

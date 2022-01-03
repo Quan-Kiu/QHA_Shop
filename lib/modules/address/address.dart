@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/mybutton_widget.dart';
@@ -16,11 +17,14 @@ class Address extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Địa chỉ'),
-      body: bodyAddress(),
+      body: const bodyAddress(),
+      // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(
         child: MyButtonWidget(
             text: 'Thêm đia chỉ',
-            onPress: () => Navigator.pop(context),
+            onPress: () {
+              Navigator.pushNamed(context, RoutesName.ADD_ADDRESS_PAGE);
+            },
             color: AppColors.blueClr,
             textStyle:
                 const TextStyle(color: AppColors.whiteClr, fontSize: 16.0),
