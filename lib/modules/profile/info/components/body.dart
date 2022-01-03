@@ -134,11 +134,11 @@ class _BodyState extends State<Body> {
                 onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
-                      'Nam',
+                      user.gender,
                       textAlign: TextAlign.right,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.grayClr,
                       ),
                     ),

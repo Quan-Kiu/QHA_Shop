@@ -1,4 +1,5 @@
 // ignore_for_file: unused_import
+import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
@@ -7,6 +8,7 @@ import 'package:doan/models/user.dart';
 import 'package:doan/modules/profile/info/components/profile_widget.dart';
 import 'package:doan/modules/profile/sexScreen/components/body.dart';
 import 'package:doan/providers/auth.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -15,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/src/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -35,6 +38,23 @@ class _BodyState extends State<Body> {
   ];
 
   var selectedUser;
+  _changeInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString('qhatoken');
+    print(token);
+    var formData = {
+      'email': 'quankiugl@gmail.com',
+      'fullname': 'Quan Kiu Kiu',
+    };
+    var response = await MyApi().putData(formData, 'user/1');
+    if (response['success'] != null && response['success']) {
+      var user = User.fromJson(response['data']);
+      context.read<Auth>().updateUser(user);
+      AlertMessage.showMsg(context, response['message']);
+    } else {
+      AlertMessage.showMsg(context, response['message']);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +148,9 @@ class _BodyState extends State<Body> {
             ),
           ),
           buildphone(),
+          const SizedBox(
+            height: 40.0,
+          ),
           MyButtonWidget(
             padding: const EdgeInsets.all(5),
             text: "Đổi mật khẩu",
@@ -143,7 +166,9 @@ class _BodyState extends State<Body> {
             text: "Lưu",
             textStyle: const TextStyle(
                 color: AppColors.whiteClr, fontWeight: FontWeight.bold),
-            onPress: () {},
+            onPress: () {
+              _changeInfo();
+            },
             color: AppColors.blueClr,
           ),
         ],

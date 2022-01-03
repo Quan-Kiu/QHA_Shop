@@ -5,6 +5,7 @@ class User {
   final String phone;
   final String avatar;
   final String address;
+  final String gender;
   final int status;
   final int userTypeId;
   final String birthday;
@@ -18,6 +19,7 @@ class User {
     this.fullname,
     this.email,
     this.phone,
+    this.gender,
     this.address,
     this.avatar,
     this.birthday,
@@ -36,6 +38,7 @@ class User {
         phone = json['phone'] ?? '',
         avatar = json['avatar'],
         address = json['address'] ?? '',
+        gender = json['gender'] ?? '',
         birthday = json['birthday'].toString(),
         status = json['status'],
         deletedAt = json['deleted_at'].toString(),
@@ -51,6 +54,7 @@ class User {
     data['email'] = this.email;
     data['phone'] = this.phone;
     data['avatar'] = this.avatar;
+    data['gender'] = this.gender;
     data['address'] = this.address;
     data['birthday'] = this.birthday;
     data['status'] = this.status;

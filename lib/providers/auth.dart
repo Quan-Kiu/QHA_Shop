@@ -12,4 +12,10 @@ class Auth extends ChangeNotifier {
     _myAuth = data;
     notifyListeners();
   }
+
+  void updateUser(data) {
+    _myAuth['user'] = data;
+
+    notifyListeners();
+  }
 }

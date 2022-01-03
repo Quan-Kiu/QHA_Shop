@@ -9,6 +9,7 @@ import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytextformfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -55,6 +56,9 @@ class _LoginFormState extends State<LoginForm> {
 
     if (response['success']) {
       var user = new User.fromJson(response['data']['user']);
+      var token = response['data']['token'];
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('qhatoken', token);
       context
           .read<Auth>()
           .update({'user': user, 'token': response['data']['token']});
