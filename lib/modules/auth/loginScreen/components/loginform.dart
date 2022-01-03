@@ -54,14 +54,12 @@ class _LoginFormState extends State<LoginForm> {
 
     var response = await MyApi().postData(formData, 'login');
 
-    if (response['success']) {
-      var user = new User.fromJson(response['data']['user']);
+    if (response['success'] != null && response['success']) {
+      var user = User.fromJson(response['data']['user']);
       var token = response['data']['token'];
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('qhatoken', token);
-      context
-          .read<Auth>()
-          .update({'user': user, 'token': response['data']['token']});
+      context.read<Auth>().update({'user': user, 'token': token});
       Navigator.pushNamed(context, RoutesName.HOME_PAGE);
     } else {
       AlertMessage.showMsg(context, response['message']);

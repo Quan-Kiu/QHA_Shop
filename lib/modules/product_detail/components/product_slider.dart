@@ -1,4 +1,3 @@
-import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter/material.dart';
 
 import 'color_dot.dart';
@@ -28,8 +27,8 @@ class _ProductSliderState extends State<ProductSlider> {
                       _currentImage = index;
                     });
                   },
-                  itemBuilder: (BuildContext context, index) => Image.asset(
-                    AppAssetsPath.imagePath + widget.images[index],
+                  itemBuilder: (BuildContext context, index) => Image.network(
+                    widget.images[index],
                     fit: BoxFit.cover,
                   ),
                   itemCount: widget.images.length,

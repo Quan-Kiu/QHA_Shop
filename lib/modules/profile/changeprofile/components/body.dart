@@ -39,9 +39,6 @@ class _BodyState extends State<Body> {
 
   var selectedUser;
   _changeInfo() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var token = prefs.getString('qhatoken');
-    print(token);
     var formData = {
       'email': 'quankiugl@gmail.com',
       'fullname': 'Quan Kiu Kiu',

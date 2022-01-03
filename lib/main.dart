@@ -1,14 +1,18 @@
 import 'package:doan/config/routes/router.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/providers/auth.dart';
+import 'package:doan/providers/products.dart';
 import "package:flutter/material.dart";
 import 'constants/themes/app_colors.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => Auth())],
-    child: MyApp(),
+    providers: [
+      ChangeNotifierProvider(create: (_) => Auth()),
+      ChangeNotifierProvider(create: (_) => Products())
+    ],
+    child: const MyApp(),
   ));
 }
 

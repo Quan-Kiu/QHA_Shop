@@ -27,9 +27,7 @@ class ProductCard extends StatelessWidget {
               width: isShowRating ? 135.0 : 100.0,
               child: Column(
                 children: [
-                  Image.asset(
-                    AppAssetsPath.imagePath + product.images[0],
-                  ),
+                  Image.network(product.images[0]),
                   const SizedBox(height: 10.0),
                   Text(
                     product.name,
@@ -59,14 +57,15 @@ class ProductCard extends StatelessWidget {
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Expanded(
-                    child: Text("1.200.000đ",
-                        style: TextStyle(
+                    child: Text(
+                        AppExtension.moneyFormat(product.discount.toString()),
+                        style: const TextStyle(
                             fontSize: 12.0,
                             decoration: TextDecoration.lineThrough)),
                   ),
-                  Text(
+                  const Text(
                     "Giảm 24%",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: AppColors.redClr),

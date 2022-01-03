@@ -177,7 +177,7 @@ class _BodyState extends State<Body> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      user.birthday,
+                      user.birthday.toString(),
                       textAlign: TextAlign.right,
                       style: const TextStyle(
                         color: AppColors.grayClr,

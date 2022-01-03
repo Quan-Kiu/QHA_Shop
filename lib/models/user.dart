@@ -8,11 +8,11 @@ class User {
   final String gender;
   final int status;
   final int userTypeId;
-  final String birthday;
-  final String deletedAt;
-  final String emailVerifiedAt;
-  final String createdAt;
-  final String updatedAt;
+  final birthday;
+  final deletedAt;
+  final emailVerifiedAt;
+  final createdAt;
+  final updatedAt;
 
   User(
     this.id,
@@ -39,13 +39,13 @@ class User {
         avatar = json['avatar'],
         address = json['address'] ?? '',
         gender = json['gender'] ?? '',
-        birthday = json['birthday'].toString(),
+        birthday = json['birthday'],
         status = json['status'],
-        deletedAt = json['deleted_at'].toString(),
+        deletedAt = json['deleted_at'],
         userTypeId = json['user_type_id'],
-        emailVerifiedAt = json['email_verified_at'].toString(),
-        createdAt = json['created_at'].toString(),
-        updatedAt = json['updated_at'].toString();
+        emailVerifiedAt = json['email_verified_at'],
+        createdAt = json['created_at'],
+        updatedAt = json['updated_at'];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

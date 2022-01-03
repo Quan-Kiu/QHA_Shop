@@ -1,15 +1,19 @@
 // ignore_for_file: unused_import
+import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/buttoncate.dart';
 import 'package:doan/models/product.dart';
+import 'package:doan/providers/products.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mybutton_cate_widget.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
 import 'package:doan/widget/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 
 List<ButtonCate> buttonCate = [
   ButtonCate("Áo thun nam", AppAssetsPath.shirtIcon, "none"),
@@ -20,11 +24,42 @@ List<ButtonCate> buttonCate = [
   ButtonCate("Giày nữ", AppAssetsPath.womanshoesIcon, "none"),
 ];
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  _getProducts() async {
+    var response = await MyApi().getData('product');
+    if (response['success'] != null && response['success']) {
+      var products = response['data']['products']
+          .map((data) => Product.fromJson(data))
+          .toList();
+
+      print(products);
+
+      var total = response['data']['total'];
+
+      context.read<Products>().update({'products': products, 'total': total});
+    } else {
+      AlertMessage.showMsg(context, response['message']);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    print('aa');
+    _getProducts();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var products = context.watch<Products>().myValue['products'];
+    print(products);
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(

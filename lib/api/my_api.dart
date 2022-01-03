@@ -12,6 +12,13 @@ class MyApi {
     return json.decode(response.body);
   }
 
+  getData(url) async {
+    var fullUrl = _baseUrl + url;
+    final response =
+        await http.get(Uri.parse(fullUrl), headers: await _setHeaders());
+    return json.decode(response.body);
+  }
+
   putData(data, url) async {
     var fullUrl = _baseUrl + url;
 
