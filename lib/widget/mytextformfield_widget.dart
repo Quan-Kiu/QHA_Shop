@@ -8,7 +8,6 @@ class MyTextFormField extends StatelessWidget {
   final IconData prefixIcon;
   final bool obscureText;
   final errorText;
-  final readonly;
   TextEditingController textController;
 
   MyTextFormField({
@@ -18,7 +17,6 @@ class MyTextFormField extends StatelessWidget {
     required this.prefixIcon,
     required this.textController,
     this.errorText,
-    this.readonly,
   }) : super(key: key);
 
   @override
@@ -39,8 +37,9 @@ class MyTextFormField extends StatelessWidget {
                 hintStyle: const TextStyle(fontWeight: FontWeight.normal),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
+                  
                   child: Icon(
-                    prefixIcon,
+                    prefixIcon,color: AppColors.blueClr,
                   ),
                 ),
                 focusedBorder: const OutlineInputBorder(
@@ -48,7 +47,7 @@ class MyTextFormField extends StatelessWidget {
                 ),
                 enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Color.fromRGBO(235, 240, 255, 1), width: 2.0)),
+                        color: AppColors.blueClr, width: 2.0)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5.0),
                 ))));

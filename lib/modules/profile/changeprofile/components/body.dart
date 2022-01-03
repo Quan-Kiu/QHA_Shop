@@ -1,5 +1,4 @@
 // ignore_for_file: unused_import
-import 'dart:html';
 
 import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
@@ -150,7 +149,7 @@ class _BodyState extends State<Body> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(10),
             child: DropdownButton<Item>(
               hint: const Text("Nam"),
               value: selectedUser,
@@ -198,15 +197,15 @@ class _BodyState extends State<Body> {
                 hintStyle: TextStyle(fontWeight: FontWeight.normal),
                 prefixIcon: Padding(
                   padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-                  child: Icon(Icons.calendar_today_outlined),
+                  child: Icon(Icons.calendar_today_outlined,color:AppColors.blueClr ,),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
                 ),
                 // ignore: unnecessary_const
                 enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromRGBO(235, 240, 255, 1), width: 2.0)),
+                    borderSide:
+                        BorderSide(color: AppColors.blueClr, width: 2.0)),
               )),
           Container(
             padding: const EdgeInsets.all(10.0),

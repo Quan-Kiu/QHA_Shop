@@ -23,7 +23,6 @@ class _BodyState extends State<Body> {
 
   TextEditingController nameController = TextEditingController();
 
-
   String ho = '';
   String ten = '';
   String diachi = '';
@@ -39,7 +38,7 @@ class _BodyState extends State<Body> {
             Container(
               padding: const EdgeInsets.all(15.0),
               child: const Text(
-                "Họ",
+                "Họ và tên",
                 style: TextStyle(
                     color: AppColors.darkClr,
                     fontWeight: FontWeight.w500,
@@ -47,21 +46,10 @@ class _BodyState extends State<Body> {
               ),
             ),
             MyTextFormField(
-    hintText: 'Ho',
-    prefixIcon: Icons.list_alt_outlined,
-    textController: nameController,
-  ),
-            Container(
-              padding: const EdgeInsets.all(15.0),
-              child: const Text(
-                "Tên",
-                style: TextStyle(
-                    color: AppColors.darkClr,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20),
-              ),
+              hintText: '',
+              prefixIcon: Icons.list_alt_outlined,
+              textController: nameController,
             ),
-            buildTen(),
             Container(
               padding: const EdgeInsets.all(15.0),
               child: const Text(
@@ -72,7 +60,11 @@ class _BodyState extends State<Body> {
                     fontSize: 20),
               ),
             ),
-            buildDiachi(),
+            MyTextFormField(
+              hintText: '',
+              prefixIcon: Icons.location_city_outlined,
+              textController: nameController,
+            ),
             Container(
               padding: const EdgeInsets.all(15.0),
               child: const Text(
@@ -83,7 +75,14 @@ class _BodyState extends State<Body> {
                     fontSize: 20),
               ),
             ),
-            buildSdt(),
+            MyTextFormField(
+              hintText: '',
+              prefixIcon: Icons.phone_android_outlined,
+              textController: nameController,
+            ),
+
+
+            
             MyButtonWidget(
               padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
               text: "Thêm địa chỉ",
@@ -98,77 +97,5 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Widget builHo() => MyTextFormField(
-    hintText: 'Ho',
-    prefixIcon: Icons.list_alt_outlined,
-    textController: nameController,
-  );
-
-  // Widget buildHo() => TextFormField(
-  //     keyboardType: TextInputType.multiline,
-  //     style: const TextStyle(fontSize: 15),
-  //     decoration: const InputDecoration(
-  //       contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-  //       hintStyle: TextStyle(fontWeight: FontWeight.normal),
-  //       prefixIcon: Padding(
-  //         padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-  //       ),
-  //       focusedBorder: OutlineInputBorder(
-  //         borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-  //       ),
-  //       // ignore: unnecessary_const
-  //       enabledBorder: const OutlineInputBorder(
-  //           borderSide: BorderSide(color: AppColors.blueClr, width: 2.0)),
-  //     ));
-
-  Widget buildTen() => TextFormField(
-      keyboardType: TextInputType.multiline,
-      style: const TextStyle(fontSize: 15),
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.blueClr, width: 2.0)),
-      ));
-
-  Widget buildDiachi() => TextFormField(
-      keyboardType: TextInputType.multiline,
-      style: const TextStyle(fontSize: 15),
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.blueClr, width: 2.0)),
-      ));
-
-  Widget buildSdt() => TextFormField(
-      keyboardType: TextInputType.number,
-      style: const TextStyle(fontSize: 15),
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.blueClr, width: 2.0)),
-      ));
+  
 }

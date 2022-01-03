@@ -1,4 +1,6 @@
 // ignore_for_file: unused_import
+import 'dart:ui';
+
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
@@ -64,7 +66,7 @@ class _BodyState extends State<Body> {
             child: Row(
               children: [
                 ProfileWidget(
-                  imagePath: AppAssetsPath.ProfilePicture,
+                  imagePath: '',
                   onClicked: () async {},
                 ),
                 const Padding(padding: EdgeInsets.only(left: 20.0)),
