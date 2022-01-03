@@ -27,6 +27,29 @@ class _BodyState extends State<Body> {
   FocusNode myFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController ganderController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  DateTime selectedDate = DateTime.now();
+  // ignore: prefer_final_fields, unnecessary_new
+  TextEditingController _date = new TextEditingController();
+  // ignore: prefer_void_to_null, unused_element
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1901, 1),
+        lastDate: DateTime(2100));
+    if (picked != null && picked != selectedDate)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        selectedDate = picked;
+        _date.value = TextEditingValue(text: picked.toString());
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     User user = context.watch<Auth>().myValue['user'];
@@ -41,7 +64,7 @@ class _BodyState extends State<Body> {
             child: Row(
               children: [
                 ProfileWidget(
-                  imagePath: user.avatar,
+                  imagePath: AppAssetsPath.ProfilePicture,
                   onClicked: () async {},
                 ),
                 const Padding(padding: EdgeInsets.only(left: 20.0)),
@@ -51,15 +74,15 @@ class _BodyState extends State<Body> {
           ),
           const SizedBox(height: 20),
           buildsex(user),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           builddateOB(user),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           buildemail(user),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           buildphone(user),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           buildpassword(user),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           MyButtonWidget(
             padding: const EdgeInsets.all(15),
             text: "Chỉnh sửa hồ sơ",
@@ -78,20 +101,16 @@ class _BodyState extends State<Body> {
   Widget buildName(User user) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(
-              minimumSize: Size.zero,
-              padding: EdgeInsets.zero,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            child: Text(
-              user.fullname,
-              style: const TextStyle(
-                  color: AppColors.darkClr,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0),
-            ),
+          Row(
+            children: [
+              Text(
+                user.fullname,
+                style: const TextStyle(
+                    color: AppColors.darkClr,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0),
+              ),
+            ],
           ),
           const SizedBox(
             height: 10.0,
@@ -130,70 +149,59 @@ class _BodyState extends State<Body> {
                   color: AppColors.darkClr),
             ),
             Expanded(
-              child: TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      user.gender,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: AppColors.grayClr,
-                      ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    user.gender,
+                    textAlign: TextAlign.right,
+                    style: const TextStyle(
+                      color: AppColors.grayClr,
                     ),
-                  ],
-                ),
-                style: TextButton.styleFrom(
-                    textStyle: const TextStyle(
-                  fontSize: 16.0,
-                )),
+                  ),
+                ],
               ),
             ),
           ],
         ),
       );
 
-  Widget builddateOB(User user) => Container(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Row(
-          children: [
-            const Icon(Icons.calendar_today_outlined, color: AppColors.blueClr),
-            const Padding(
-              padding: EdgeInsets.only(right: 10),
-            ),
-            const Text(
-              'Ngày sinh:',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: AppColors.darkClr),
-            ),
-            const SizedBox(height: 4),
-            Expanded(
-              child: TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      user.birthday,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: AppColors.grayClr,
-                      ),
-                    ),
-                  ],
-                ),
-                style: TextButton.styleFrom(
-                    textStyle: const TextStyle(
-                  fontSize: 16.0,
-                )),
-              ),
-            ),
-          ],
+  Widget builddateOB(User user) {
+    var textButton = Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          user.birthday,
+          textAlign: TextAlign.right,
+          style: const TextStyle(
+            color: AppColors.grayClr,
+          ),
         ),
-      );
+      ],
+    );
+    return Container(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+      child: Row(
+        children: [
+          const Icon(Icons.calendar_today_outlined, color: AppColors.blueClr),
+          const Padding(
+            padding: EdgeInsets.only(right: 10),
+          ),
+          const Text(
+            'Ngày sinh:',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: AppColors.darkClr),
+          ),
+          const SizedBox(height: 4),
+          Expanded(
+            child: textButton,
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget buildemail(User user) => Container(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -212,27 +220,20 @@ class _BodyState extends State<Body> {
             ),
             const SizedBox(height: 4),
             Expanded(
-              child: TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        user.email,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          color: AppColors.grayClr,
-                        ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Flexible(
+                    child: Text(
+                      user.email,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: const TextStyle(
+                        color: AppColors.grayClr,
                       ),
                     ),
-                  ],
-                ),
-                style: TextButton.styleFrom(
-                    textStyle: const TextStyle(
-                  fontSize: 16.0,
-                )),
+                  ),
+                ],
               ),
             ),
           ],
@@ -256,24 +257,17 @@ class _BodyState extends State<Body> {
             ),
             const SizedBox(height: 4),
             Expanded(
-              child: TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      user.phone,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: AppColors.grayClr,
-                      ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    user.phone,
+                    textAlign: TextAlign.right,
+                    style: const TextStyle(
+                      color: AppColors.grayClr,
                     ),
-                  ],
-                ),
-                style: TextButton.styleFrom(
-                    textStyle: const TextStyle(
-                  fontSize: 16.0,
-                )),
+                  ),
+                ],
               ),
             ),
             const Padding(
@@ -300,24 +294,17 @@ class _BodyState extends State<Body> {
             ),
             const SizedBox(height: 4),
             Expanded(
-              child: TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text(
-                      '*********',
-                      textAlign: TextAlign.right,
-                      style: TextStyle(
-                        color: AppColors.grayClr,
-                      ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  Text(
+                    '*********',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      color: AppColors.grayClr,
                     ),
-                  ],
-                ),
-                style: TextButton.styleFrom(
-                    textStyle: const TextStyle(
-                  fontSize: 16.0,
-                )),
+                  ),
+                ],
               ),
             ),
             const Padding(

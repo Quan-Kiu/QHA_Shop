@@ -8,6 +8,7 @@ class MyTextFormField extends StatelessWidget {
   final IconData prefixIcon;
   final bool obscureText;
   final errorText;
+  final readonly;
   TextEditingController textController;
 
   MyTextFormField({
@@ -17,6 +18,7 @@ class MyTextFormField extends StatelessWidget {
     required this.prefixIcon,
     required this.textController,
     this.errorText,
+    this.readonly,
   }) : super(key: key);
 
   @override
@@ -28,6 +30,7 @@ class MyTextFormField extends StatelessWidget {
             controller: textController,
             focusNode: myFocusNode,
             obscureText: obscureText,
+            
             style: AppTextStyles.mediumTextBold,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 20),

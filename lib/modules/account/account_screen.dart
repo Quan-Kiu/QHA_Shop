@@ -1,4 +1,5 @@
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+// ignore: unused_import
 import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
@@ -15,7 +16,7 @@ class _AccountPageScreenState extends State<AccountPageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Tài khoản'),
-      body: Body(),
+      body: const Body(),
     );
   }
 }

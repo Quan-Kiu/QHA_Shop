@@ -16,7 +16,8 @@ class Address extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Địa chỉ'),
-      body: bodyAddress(),
+      body: const bodyAddress(),
+      // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(
         child: MyButtonWidget(
             text: 'Thêm đia chỉ',
