@@ -10,6 +10,7 @@ import 'package:doan/modules/profile/info/components/profile_widget.dart';
 import 'package:doan/modules/profile/sexScreen/components/body.dart';
 import 'package:doan/providers/auth.dart';
 import 'package:doan/utils/alert.dart';
+import 'package:doan/utils/validations.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -59,45 +60,30 @@ class _BodyState extends State<Body> {
   ];
 
   var selectedUser;
+  String _emailError = '';
+  String _fullnameError = '';
+  String _phoneError = '';
 
   _changeInfo(formData, id) async {
     var response = await MyApi().putData(formData, 'user/$id');
-    print(formData);
     if (response['success'] != null && response['success']) {
       var user = User.fromJson(response['data']);
       context.read<Auth>().updateUser(user);
       AlertMessage.showMsg(context, response['message']);
-      Navigator.pushNamed(context, RoutesName.INFO_PAGE);
     } else {
       AlertMessage.showMsg(context, response['message']);
     }
-  }
-
-  DateTime selectedDate = DateTime.now();
-  TextEditingController _date = TextEditingController();
-
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(1901, 1),
-        lastDate: DateTime(2100));
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-        _date.value = TextEditingValue(text: picked.toString());
-      });
   }
 
   @override
   Widget build(BuildContext context) {
     User user = context.watch<Auth>().myValue['user'];
 
+    TextEditingController _date = TextEditingController(text: user.birthday);
     TextEditingController nameController =
         TextEditingController(text: user.fullname);
     TextEditingController emailController =
         TextEditingController(text: user.email);
-
     TextEditingController genderController =
         TextEditingController(text: user.gender);
     TextEditingController phoneController =
@@ -136,6 +122,7 @@ class _BodyState extends State<Body> {
             hintText: user.fullname,
             prefixIcon: Icons.list_outlined,
             textController: nameController,
+            errorText: _fullnameError,
           ),
           Container(
             padding: const EdgeInsets.all(10.0),
@@ -148,7 +135,9 @@ class _BodyState extends State<Body> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+            decoration: BoxDecoration(
+                border: Border.all(color: AppColors.lightClr, width: 2.0)),
             child: DropdownButton<Item>(
               hint: Text(user.gender,
                   style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -189,14 +178,22 @@ class _BodyState extends State<Body> {
             ),
           ),
           TextFormField(
-              onTap: () => _selectDate(context),
+              onTap: () async {
+                var date = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime(2100));
+                _date.text = date.toString().substring(0, 10);
+              },
               controller: _date,
               readOnly: true,
               keyboardType: TextInputType.datetime,
-              style: AppTextStyles.normalText,
+              style: AppTextStyles.mediumTextBold,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                hintStyle: TextStyle(fontWeight: FontWeight.normal),
+                hintStyle:
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                 prefixIcon: Padding(
                   padding: EdgeInsets.fromLTRB(20.0, 0, 10, 0),
                   child: Icon(
@@ -225,6 +222,7 @@ class _BodyState extends State<Body> {
             hintText: user.email,
             prefixIcon: Icons.email_outlined,
             textController: emailController,
+            errorText: _emailError,
           ),
           Container(
             padding: const EdgeInsets.all(10.0),
@@ -240,6 +238,7 @@ class _BodyState extends State<Body> {
             hintText: user.phone,
             prefixIcon: Icons.phone_android_outlined,
             textController: phoneController,
+            errorText: _phoneError,
           ),
           const SizedBox(
             height: 40.0,
@@ -289,9 +288,7 @@ class _BodyState extends State<Body> {
         Text(
           user.birthday,
           textAlign: TextAlign.right,
-          style: const TextStyle(
-            color: AppColors.grayClr,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ],
     );

@@ -39,8 +39,6 @@ class _BodyState extends State<Body> {
           .map((data) => Product.fromJson(data))
           .toList();
 
-      print(products);
-
       var total = response['data']['total'];
 
       context.read<Products>().update({'products': products, 'total': total});
@@ -52,7 +50,6 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    print('aa');
     _getProducts();
   }
 

@@ -47,4 +47,14 @@ class Validations {
     cb('');
     return true;
   }
+
+  static phonenumber(String string, Function cb) {
+    if (RegExp(r"/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/")
+        .hasMatch(string)) {
+      return throw Exception(cb('Số điện thoại không hợp lệ.'));
+    }
+
+    cb('');
+    return true;
+  }
 }
