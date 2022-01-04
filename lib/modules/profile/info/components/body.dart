@@ -1,5 +1,5 @@
 // ignore_for_file: unused_import
-import 'dart:ui';
+import 'dart:io';
 
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
@@ -17,6 +17,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  File? imageFile;
   FocusNode myFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
@@ -65,10 +67,27 @@ class _BodyState extends State<Body> {
                 const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
             child: Row(
               children: [
-                ProfileWidget(
-                  imagePath: user.avatar,
-                  onClicked: () async {},
-                ),
+                if(imageFile != null)
+                  ClipOval(
+                    child: Material(
+                      child: Ink.image(
+                        image:  const AssetImage('assets/images/bag_1.png'),
+                        fit: BoxFit.cover,
+                        width: 100,
+                        height: 100,
+                        child: InkWell(onTap: () {}),
+                      ),
+                    ),
+                  ),
+                if(imageFile == null)
+                  ProfileWidget(
+                    imagePath: user.avatar,
+                    onClicked: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: ((builder) => ButtomSheet()));
+                    },
+                  ),
                 const Padding(padding: EdgeInsets.only(left: 20.0)),
                 buildName(user),
               ],
@@ -315,4 +334,44 @@ class _BodyState extends State<Body> {
           ],
         ),
       );
+
+  Widget ButtomSheet() {
+    return Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,
+        margin: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 20,
+        ),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Chọn ảnh",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: <Widget>[
+                TextButton.icon(
+                    onPressed: () => getImage(source: ImageSource.gallery),
+                    icon: Icon(Icons.image),
+                    label: Text("Chọn ảnh"))
+              ],
+            )
+          ],
+        ));
+  }
+
+  void getImage({required ImageSource source}) async {
+    final file = await ImagePicker().pickImage(source: source);
+    if (file?.path != null) {
+      setState(() {
+        imageFile = File(file!.path);
+      });
+    }
+  }
 }
