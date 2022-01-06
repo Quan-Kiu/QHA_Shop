@@ -67,11 +67,12 @@ class _BodyState extends State<Body> {
                 const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
             child: Row(
               children: [
-                if(imageFile != null)
+                if (imageFile != null)
                   ClipOval(
                     child: Material(
                       child: Ink.image(
-                        image:  const AssetImage('assets/images/bag_1.png'),
+                        image: FileImage(imageFile!),
+                        /* const AssetImage('assets/images/bag_1.png'), */
                         fit: BoxFit.cover,
                         width: 100,
                         height: 100,
@@ -79,7 +80,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                   ),
-                if(imageFile == null)
+                if (imageFile == null)
                   ProfileWidget(
                     imagePath: user.avatar,
                     onClicked: () {
