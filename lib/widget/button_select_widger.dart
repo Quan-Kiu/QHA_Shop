@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 class ButtonSelect extends StatefulWidget {
   final List<String> data;
   final String type;
-  const ButtonSelect({Key? key, required this.data, required this.type})
+  final Function handle;
+  const ButtonSelect(
+      {Key? key, required this.data, required this.type, required this.handle})
       : super(key: key);
 
   @override
@@ -16,8 +18,10 @@ class ButtonSelect extends StatefulWidget {
 
 class _ButtonSelectState extends State<ButtonSelect> {
   int _currentSize = 0;
+
   @override
   Widget build(BuildContext context) {
+    widget.handle(widget.data[_currentSize]);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(

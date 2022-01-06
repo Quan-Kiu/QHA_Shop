@@ -45,6 +45,16 @@ class _BodyState extends State<Body> {
     } else {
       AlertMessage.showMsg(context, response['message']);
     }
+    var response2 = await MyApi().getData('product/discount');
+    if (response2['success'] != null && response2['success']) {
+      var products = response2['data']['products']
+          .map((data) => Product.fromJson(data))
+          .toList();
+
+      context.read<Products>().updateDiscount({'products': products});
+    } else {
+      AlertMessage.showMsg(context, response['message']);
+    }
   }
 
   @override
@@ -56,7 +66,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     var products = context.watch<Products>().myValue['products'];
-    print(products);
+    var discountProducts = context.watch<Products>().myDiscount['products'];
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -128,9 +138,9 @@ class _BodyState extends State<Body> {
                     crossAxisSpacing: 15,
                     childAspectRatio: 0.70,
                     children: List.generate(
-                        products.length,
+                        discountProducts.length,
                         (index) => ProductCard(
-                              product: products[index],
+                              product: discountProducts[index],
                               isShowRating: false,
                             ))),
               ),

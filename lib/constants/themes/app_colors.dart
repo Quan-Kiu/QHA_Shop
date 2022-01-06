@@ -10,6 +10,7 @@ class AppColors {
   static const grayClr = Color.fromRGBO(144, 152, 177, 1);
   static const lightClr = Color.fromRGBO(235, 240, 255, 1);
   static const whiteClr = Color.fromRGBO(255, 255, 255, 1);
+  static const blackClr = Color.fromRGBO(0, 0, 0, 1);
 
   static getColor(color) {
     switch (color) {
@@ -31,6 +32,8 @@ class AppColors {
         return lightClr;
       case "white":
         return whiteClr;
+      case "black":
+        return blackClr;
       default:
         return whiteClr;
     }

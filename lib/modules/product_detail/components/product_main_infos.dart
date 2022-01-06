@@ -46,7 +46,7 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
                 ))
           ],
         ),
-        const Rating(star_count: 4),
+        Rating(star_count: widget.product.rating),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Text(AppExtension.moneyFormat(widget.product.price.toString()),

@@ -3,9 +3,9 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-AppBar buildAppBar(context) {
+AppBar buildAppBar(context, product) {
   return AppBar(
-    title: const Text("Nike Air Zoom Pegasus 36 Miami"),
+    title: Text(product.name),
     leading: IconButton(
         icon: SvgPicture.asset(AppAssetsPath.leftIcon),
         color: AppColors.grayClr,

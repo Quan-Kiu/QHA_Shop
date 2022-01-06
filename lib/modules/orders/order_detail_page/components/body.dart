@@ -52,7 +52,7 @@ class Body extends StatelessWidget {
                           children: List.generate(
                             products.length,
                             (index) => ProductOrderItem(
-                              product: products[index],
+                              data: products[index],
                               readOnly: true,
                             ),
                           ),
