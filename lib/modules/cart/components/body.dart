@@ -28,14 +28,14 @@ class _BodyState extends State<Body> {
       amount += (element['total'] * element['product'].price) as int;
     });
 
-    var thue = (amount * 0.1).round();
-    var shippingPrice = myCart.length * (amount * 0.02).round();
+    var tax = (amount * 0.05).round();
+    var shippingPrice = myCart.length * (amount * 0.03).round();
 
     final _cartInfos = [
       {'label': 'Số lượng (${myCart.length})', 'text': amount},
       {'label': 'Phí vận chuyển', 'text': shippingPrice},
-      {'label': 'Thuể', 'text': thue},
-      {'label': 'Tổng tiền', 'text': amount + shippingPrice + thue},
+      {'label': 'Thuể', 'text': tax},
+      {'label': 'Tổng tiền', 'text': amount + shippingPrice + tax},
     ];
     return Container(
       padding: const EdgeInsets.all(20),

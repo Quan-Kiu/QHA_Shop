@@ -47,14 +47,12 @@ class Body extends StatelessWidget {
                           data: product.sizes,
                           type: "size",
                           handle: (selected) {
-                            print(selected);
                             size = selected;
                           }),
                       ButtonSelect(
                           data: product.colors,
                           type: "color",
                           handle: (selected) {
-                            print(selected);
                             color = selected;
                           }),
                       const SizedBox(

@@ -1,7 +1,10 @@
 // ignore_for_file: unused_import
+import 'package:doan/api/my_api.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
+import 'package:doan/utils/alert.dart';
+import 'package:doan/utils/validations.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -21,9 +24,65 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   FocusNode myFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  String matkhaucu = '';
-  String matkhaumoi = '';
-  String nhaplaimatkhaumoi = '';
+  TextEditingController currentPasswordController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordconfirmationController =
+      TextEditingController();
+  String _currentPasswordError = '';
+  String _passwordError = '';
+  String _passwordconfirmationError = '';
+  bool _isLoading = false;
+
+  _changePassword() async {
+    var isError;
+    try {
+      isError = Validations.password(currentPasswordController.text, (error) {
+        setState(() {
+          _currentPasswordError = error;
+        });
+      });
+
+      isError = Validations.password(passwordController.text, (error) {
+        setState(() {
+          _passwordError = error;
+        });
+      });
+
+      isError = Validations.confirmPassword(
+          passwordconfirmationController.text, passwordController.text,
+          (error) {
+        setState(() {
+          _passwordconfirmationError = error;
+        });
+      });
+    } catch (e) {
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    var formData = {
+      'current_password': currentPasswordController.text,
+      'password': passwordController.text,
+      'password_confirmation': passwordconfirmationController.text
+    };
+
+    var response = await MyApi().putData(formData, 'user/changePassword');
+
+    print(response);
+
+    if (response['success'] != null && response['success']) {
+      AlertMessage.showMsg(context, response['message']);
+    } else {
+      AlertMessage.showMsg(context, response['message']);
+    }
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +101,14 @@ class _BodyState extends State<Body> {
                   fontSize: 20),
             ),
           ),
-          buildmatkhaucu(),
+          MyTextFormField(
+            hintText: "Mật khẩu cũ",
+            obscureText: true,
+            errorText: _currentPasswordError,
+            prefixIcon: Icons.lock_outline,
+            textController: currentPasswordController,
+          ),
+
           const SizedBox(
             height: 16,
           ),
@@ -56,10 +122,15 @@ class _BodyState extends State<Body> {
                   fontSize: 20),
             ),
           ),
-          buildmatkhaumoi(),
-          const SizedBox(
-            height: 32,
+
+          MyTextFormField(
+            hintText: "Mật khẩu cũ",
+            obscureText: true,
+            errorText: _passwordError,
+            prefixIcon: Icons.lock_outline,
+            textController: passwordController,
           ),
+
           Container(
             padding: const EdgeInsets.all(15.0),
             child: const Text(
@@ -70,103 +141,28 @@ class _BodyState extends State<Body> {
                   fontSize: 20),
             ),
           ),
-          buildnhapmatkhaumoi(),
-          const SizedBox(
-            height: 32,
+
+          MyTextFormField(
+            hintText: "Nhập lại mật khẩu mới",
+            obscureText: true,
+            errorText: _passwordconfirmationError,
+            prefixIcon: Icons.lock_outline,
+            textController: passwordconfirmationController,
           ),
+
           //buidlSubmit(),
           MyButtonWidget(
-                      padding: const EdgeInsets.only(top: 100.0),
-                      text: "Lưu",
-                      textStyle: const TextStyle(
-                          color: AppColors.whiteClr,
-                          fontWeight: FontWeight.bold),
-                      onPress: () {},
-                      color: AppColors.blueClr,
-                    ),
-          
+            padding: const EdgeInsets.only(top: 100.0),
+            text: "Lưu",
+            textStyle: const TextStyle(
+                color: AppColors.whiteClr, fontWeight: FontWeight.bold),
+            onPress: () {
+              _changePassword();
+            },
+            color: AppColors.blueClr,
+          ),
         ],
       )),
     );
   }
-
-  Widget buildmatkhaucu() => TextFormField(
-      keyboardType: TextInputType.multiline,
-      obscureText: true,
-      style: AppTextStyles.normalText,
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-          child: Icon(Icons.lock_open),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-                color: Color.fromRGBO(235, 240, 255, 1), width: 2.0)),
-      ));
-
-  Widget buildmatkhaumoi() => TextFormField(
-      keyboardType: TextInputType.multiline,
-      obscureText: true,
-      style: AppTextStyles.normalText,
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-          child: Icon(Icons.lock_open),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-                color: Color.fromRGBO(235, 240, 255, 1), width: 2.0)),
-      ));
-
-  Widget buildnhapmatkhaumoi() => TextFormField(
-      keyboardType: TextInputType.multiline,
-      obscureText: true,
-      style: AppTextStyles.normalText,
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-        hintStyle: TextStyle(fontWeight: FontWeight.normal),
-        prefixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-          child: Icon(Icons.lock_open),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.blueClr, width: 2.0),
-        ),
-        // ignore: unnecessary_const
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-                color: Color.fromRGBO(235, 240, 255, 1), width: 2.0)),
-      ));
-
-  Widget buidlSubmit() => Builder(
-    builder: (context) => ButtonWidget(text: "Lưu", onClicked: (){
-      final isValid = formKey.currentState!.validate();
-      if (isValid){
-        formKey.currentState!.save();
-        const message =
-                  'Username: \nPassword: ';
-          final snackBar = const SnackBar(
-                content: const Text(
-                  message,
-                  style: TextStyle(fontSize: 20),
-                ));
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      }
-    }
-    )
-    
-    );
-  
 }

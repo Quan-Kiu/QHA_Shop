@@ -1,7 +1,8 @@
 import 'package:doan/config/routes/routes_name.dart';
-import 'package:doan/models/product.dart';
+import 'package:doan/providers/products.dart';
 import 'package:doan/widget/searchInput.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 
 // ignore: camel_case_types
 class Search_Page extends StatefulWidget {
@@ -12,17 +13,22 @@ class Search_Page extends StatefulWidget {
 
 // ignore: camel_case_types
 class Search_PageState extends State<Search_Page> {
-  List<Product> _resultLst = [];
+  List<dynamic> _resultLst = [];
   @override
   Widget build(BuildContext context) {
+    List<dynamic> products = context.watch<Products>().myValue['products'];
     return Scaffold(
       appBar: searchInput(context, (query) {
-        List<Product> newArr = [];
+        List<dynamic> newArr = [];
         !query.isEmpty
-            ? newArr.addAll(products
-                .where((element) =>
-                    element.name.toLowerCase().contains(query.toLowerCase()))
-                .take(10))
+            ? products.forEach((element) {
+                if (newArr.length == 10) {
+                  return;
+                }
+                if (element.name.toLowerCase().contains(query.toLowerCase())) {
+                  newArr.add(element);
+                }
+              })
             : newArr = [];
         setState(() {
           _resultLst = newArr;
