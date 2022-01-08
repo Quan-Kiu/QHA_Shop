@@ -16,7 +16,7 @@ class Search_PageState extends State<Search_Page> {
   List<dynamic> _resultLst = [];
   @override
   Widget build(BuildContext context) {
-    List<dynamic> products = context.watch<Products>().myValue['products'];
+    List<dynamic> products = context.watch<Products>().myValue;
     return Scaffold(
       appBar: searchInput(context, (query) {
         List<dynamic> newArr = [];

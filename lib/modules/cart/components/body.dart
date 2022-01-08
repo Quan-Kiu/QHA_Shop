@@ -1,8 +1,6 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
-import 'package:doan/models/carts.dart';
-import 'package:doan/models/product.dart';
 import 'package:doan/modules/cart/components/discount_code_input.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/providers/carts.dart';
@@ -25,7 +23,7 @@ class _BodyState extends State<Body> {
     var myCart = context.watch<CartsProvider>().myCart;
     var amount = 0;
     myCart.forEach((element) {
-      amount += (element['total'] * element['product'].price) as int;
+      amount += (element.quantity * element.product.price) as int;
     });
 
     var tax = (amount * 0.05).round();
@@ -40,8 +38,14 @@ class _BodyState extends State<Body> {
     return Container(
       padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
-        child: myCart != null && myCart.length > 0
-            ? Column(
+        child: myCart.isEmpty
+            ? const AlertModal(
+                icon: AppAssetsPath.cancleIcon,
+                mycolor: AppColors.redClr,
+                subtitle: 'Chưa có sản phẩm nào trong giỏ hàng của bạn',
+                title: "Rỗng",
+              )
+            : Column(
                 children: [
                   Column(
                       children: List.generate(
@@ -64,12 +68,6 @@ class _BodyState extends State<Body> {
                       color: AppColors.blueClr,
                       textStyle: const TextStyle(color: AppColors.whiteClr))
                 ],
-              )
-            : const AlertModal(
-                icon: AppAssetsPath.cancleIcon,
-                mycolor: AppColors.redClr,
-                subtitle: 'Chưa có sản phẩm nào trong giỏ hàng của bạn',
-                title: "Rỗng",
               ),
       ),
     );

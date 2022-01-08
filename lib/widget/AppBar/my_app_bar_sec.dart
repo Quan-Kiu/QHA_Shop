@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ AppBar buildSecondaryAppBar(
         icon: SvgPicture.asset(AppAssetsPath.leftIcon),
         color: AppColors.grayClr,
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, RoutesName.HOME_PAGE);
         }),
   );
 }

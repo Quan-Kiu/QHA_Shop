@@ -5,7 +5,9 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/buttoncate.dart';
+import 'package:doan/models/carts.dart';
 import 'package:doan/models/product.dart';
+import 'package:doan/providers/carts.dart';
 import 'package:doan/providers/products.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mybutton_cate_widget.dart';
@@ -32,41 +34,10 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  _getProducts() async {
-    var response = await MyApi().getData('product');
-    if (response['success'] != null && response['success']) {
-      var products = response['data']['products']
-          .map((data) => Product.fromJson(data))
-          .toList();
-
-      var total = response['data']['total'];
-
-      context.read<Products>().update({'products': products, 'total': total});
-    } else {
-      AlertMessage.showMsg(context, response['message']);
-    }
-    var response2 = await MyApi().getData('product/discount');
-    if (response2['success'] != null && response2['success']) {
-      var products = response2['data']['products']
-          .map((data) => Product.fromJson(data))
-          .toList();
-
-      context.read<Products>().updateDiscount({'products': products});
-    } else {
-      AlertMessage.showMsg(context, response['message']);
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _getProducts();
-  }
-
   @override
   Widget build(BuildContext context) {
-    var products = context.watch<Products>().myValue['products'];
-    var discountProducts = context.watch<Products>().myDiscount['products'];
+    var products = context.watch<Products>().myValue;
+    var discountProducts = context.watch<Products>().myDiscount;
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -128,22 +99,24 @@ class _BodyState extends State<Body> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
-                    childAspectRatio: 0.70,
-                    children: List.generate(
-                        discountProducts.length,
-                        (index) => ProductCard(
-                              product: discountProducts[index],
-                              isShowRating: false,
-                            ))),
-              ),
+              discountProducts != null
+                  ? Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: GridView.count(
+                          crossAxisCount: 2,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: 0.70,
+                          children: List.generate(
+                              discountProducts.length,
+                              (index) => ProductCard(
+                                    product: discountProducts[index],
+                                    isShowRating: false,
+                                  ))),
+                    )
+                  : Container(),
               Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -151,18 +124,22 @@ class _BodyState extends State<Body> {
                     AppAssetsPath.banner2Image,
                     fit: BoxFit.cover,
                   )),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
-                    childAspectRatio: .55,
-                    children: List.generate(products.length,
-                        (index) => ProductCard(product: products[index]))),
-              ),
+              products != null
+                  ? Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: GridView.count(
+                          crossAxisCount: 2,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: .55,
+                          children: List.generate(
+                              products.length,
+                              (index) =>
+                                  ProductCard(product: products[index]))),
+                    )
+                  : Container(),
             ],
           ),
         ),

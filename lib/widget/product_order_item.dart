@@ -1,8 +1,11 @@
+import 'package:doan/api/my_api.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
-import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/extenstion/app_extension.dart';
+import 'package:doan/models/carts.dart';
+import 'package:doan/models/product.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mytext_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,6 +23,22 @@ class ProductOrderItem extends StatefulWidget {
 }
 
 class _ProductOrderItemState extends State<ProductOrderItem> {
+  _onHandleQuantity(qty) async {
+    if (qty >= 1) {
+      var formData = {'quantity': qty};
+      var response = await MyApi().putData(formData, 'cart/${widget.data.id}');
+
+      if (response['success'] != null && response['success']) {
+        Cart newCart = Cart.fromJson(response['data']);
+
+        newCart.product = Product.fromJson(newCart.product);
+        context.read<CartsProvider>().update(newCart);
+      } else {
+        AlertMessage.showMsg(context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +50,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
         children: [
           SizedBox(
             width: 100.0,
-            child: Image.network(widget.data['product'].thumbnail),
+            child: Image.network(widget.data.product.thumbnail),
           ),
           const SizedBox(
             width: 15.0,
@@ -44,7 +63,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                   children: [
                     Expanded(
                       child: MyTextWidget(
-                        text: widget.data['product'].name,
+                        text: widget.data.product.name,
                         isBold: true,
                         color: AppColors.darkClr,
                         fontSize: 16.0,
@@ -53,8 +72,18 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                     !widget.readOnly
                         ? IconButton(
                             icon: SvgPicture.asset(AppAssetsPath.trashIcon),
-                            onPressed: () {
-                              context.read<CartsProvider>().delete(widget.data);
+                            onPressed: () async {
+                              var response = await MyApi()
+                                  .delete('cart/${widget.data.id}');
+                              if (response['success'] != null &&
+                                  response['success']) {
+                                context
+                                    .read<CartsProvider>()
+                                    .delete(widget.data);
+                              } else {
+                                AlertMessage.showMsg(context,
+                                    'Có lỗi xảy ra, vui lòng thử lại sau.');
+                              }
                             },
                           )
                         : const Text('')
@@ -64,7 +93,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                   height: 5.0,
                 ),
                 Text(
-                  widget.data['description'],
+                  widget.data.description,
                   style: const TextStyle(fontSize: 15.0),
                 ),
                 const SizedBox(
@@ -75,7 +104,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                     Expanded(
                       child: Text(
                         AppExtension.moneyFormat(
-                            widget.data['product'].price.toString()),
+                            widget.data.product.price.toString()),
                         style: const TextStyle(
                             fontSize: 16.0,
                             color: AppColors.blueClr,
@@ -92,14 +121,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                             child: Row(
                               children: [
                                 handleAmount('minus', () {
-                                  setState(() {
-                                    if (widget.data['total'] > 1) {
-                                      context.read<CartsProvider>().update(
-                                          widget.data,
-                                          "total",
-                                          --widget.data['total']);
-                                    }
-                                  });
+                                  _onHandleQuantity(widget.data.quantity - 1);
                                 }),
                                 Container(
                                     alignment: Alignment.center,
@@ -107,14 +129,9 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                                     width: 30.0,
                                     color: AppColors.lightClr,
                                     child:
-                                        Text(widget.data['total'].toString())),
+                                        Text(widget.data.quantity.toString())),
                                 handleAmount('plus', () {
-                                  setState(() {
-                                    context.read<CartsProvider>().update(
-                                        widget.data,
-                                        "total",
-                                        ++widget.data['total']);
-                                  });
+                                  _onHandleQuantity(widget.data.quantity + 1);
                                 }),
                               ],
                             ),

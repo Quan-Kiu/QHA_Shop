@@ -26,6 +26,22 @@ class MyApi {
         headers: await _setHeaders(), body: jsonEncode(data));
     return json.decode(response.body);
   }
+
+  patch(data, url) async {
+    var fullUrl = _baseUrl + url;
+
+    final response = await http.patch(Uri.parse(fullUrl),
+        headers: await _setHeaders(), body: jsonEncode(data));
+    return json.decode(response.body);
+  }
+
+  delete(url) async {
+    var fullUrl = _baseUrl + url;
+
+    final response =
+        await http.delete(Uri.parse(fullUrl), headers: await _setHeaders());
+    return json.decode(response.body);
+  }
 }
 
 _setHeaders() async {

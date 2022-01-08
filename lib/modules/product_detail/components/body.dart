@@ -1,11 +1,14 @@
+import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
+import 'package:doan/models/carts.dart';
 import 'package:doan/models/product.dart';
 import 'package:doan/modules/product_detail/components/product_main_infos.dart';
 import 'package:doan/modules/product_detail/components/product_slider.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/utils/alert.dart';
 
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/comment_item_widget.dart';
@@ -114,14 +117,28 @@ class Body extends StatelessWidget {
           color: AppColors.blueClr,
           width: double.infinity,
           text: "Thêm vào giỏ hàng",
-          onPress: () {
+          onPress: () async {
             var newCart = {
-              "product": product,
-              "total": 1,
-              "description": "size: $size,color: $color",
+              "product_id": product.id,
+              "quantity": 1,
+              "description": "size: $size, color: $color",
             };
-            context.read<CartsProvider>().add(newCart);
-            Navigator.pushNamed(context, RoutesName.CART_PAGE);
+            bool isExist = Provider.of<CartsProvider>(context, listen: false)
+                .isExist(newCart);
+            if (isExist) {
+              return AlertMessage.showMsg(
+                  context, 'Sản phẩm này đã tồn tại trong giỏ hàng.');
+            }
+            var response = await MyApi().postData(newCart, 'cart');
+
+            if (response['success'] != null && response['success']) {
+              Cart myCart = Cart.fromJson(response['data']);
+              myCart.product = Product.fromJson(myCart.product);
+              context.read<CartsProvider>().add(myCart);
+              return Navigator.pushNamed(context, RoutesName.CART_PAGE);
+            } else {
+              return AlertMessage.showMsg(context, response['message']);
+            }
           },
           textStyle: const TextStyle(
               color: AppColors.whiteClr,

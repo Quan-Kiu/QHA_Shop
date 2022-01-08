@@ -20,9 +20,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    var token = context.watch<Auth>().myValue['token'];
     return GestureDetector(
       onTap: () =>
           WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus(),
@@ -31,8 +31,7 @@ class MyApp extends StatelessWidget {
         title: "QHAShop",
         theme: theme(),
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute:
-            token == '' ? RoutesName.LOGIN_PAGE : RoutesName.HOME_PAGE,
+        initialRoute: RoutesName.LOGIN_PAGE,
       ),
     );
   }
