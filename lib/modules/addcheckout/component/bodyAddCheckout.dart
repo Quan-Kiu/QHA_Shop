@@ -8,12 +8,12 @@ class bodyaddcheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: type.length,
+        itemCount: checkoutType.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {},
             title: Text(
-              type[index].name,
+              checkoutType[index].name,
               style: const TextStyle(
                   fontSize: 15,
                   color: AppColors.darkClr,
@@ -21,8 +21,8 @@ class bodyaddcheckout extends StatelessWidget {
                   letterSpacing: 0.75),
             ),
             leading: IconButton(
-                icon:
-                    SvgPicture.asset(AppAssetsPath.iconPath + type[index].icon),
+                icon: SvgPicture.asset(
+                    AppAssetsPath.iconPath + checkoutType[index].icon),
                 color: AppColors.grayClr,
                 onPressed: () {}),
           );

@@ -86,7 +86,11 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                               }
                             },
                           )
-                        : const Text('')
+                        : Text(
+                            'x' + widget.data.quantity.toString(),
+                            style: const TextStyle(
+                                fontSize: 14.0, color: AppColors.darkClr),
+                          )
                   ],
                 ),
                 const SizedBox(

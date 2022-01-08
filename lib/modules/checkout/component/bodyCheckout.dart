@@ -4,20 +4,21 @@ import 'package:doan/models/checkoutType.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+// ignore: camel_case_types
 class bodyCheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: type.length,
+        itemCount: checkoutType.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              if (type[index].router != '') {
-                Navigator.pushNamed(context, type[index].router);
+              if (checkoutType[index].router != '') {
+                Navigator.pushNamed(context, checkoutType[index].router);
               }
             },
             title: Text(
-              type[index].name,
+              checkoutType[index].name,
               style: const TextStyle(
                   fontSize: 15,
                   color: AppColors.darkClr,
@@ -25,8 +26,8 @@ class bodyCheckoutPage extends StatelessWidget {
                   letterSpacing: 0.75),
             ),
             leading: IconButton(
-                icon:
-                    SvgPicture.asset(AppAssetsPath.iconPath + type[index].icon),
+                icon: SvgPicture.asset(
+                    AppAssetsPath.iconPath + checkoutType[index].icon),
                 color: AppColors.grayClr,
                 onPressed: () {}),
           );

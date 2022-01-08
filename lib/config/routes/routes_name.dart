@@ -2,6 +2,8 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String LOGIN_PAGE = 'LoginPage';
   // ignore: constant_identifier_names
+  static const String FLASH_PAGE = 'FlashPage';
+  // ignore: constant_identifier_names
   static const String REGISTER_PAGE = 'RegisterPage';
   // ignore: constant_identifier_names
   static const String FORGOT_PASS_PAGE = 'ForgotPasswordPage';
@@ -33,6 +35,8 @@ class RoutesName {
   static const String COMMENT_PAGE = 'Comment_Page';
   // ignore: constant_identifier_names
   static const String ORDER_DETAUL_PAGE = 'Order_Detail_Page';
+  // ignore: constant_identifier_names
+  static const String ORDER_CHECK_PAGE = 'Order_Check_Page';
   // ignore: constant_identifier_names
   static const String CREATE_COMMENT_PAGE = 'Create_Comment_Page';
   // ignore: constant_identifier_names

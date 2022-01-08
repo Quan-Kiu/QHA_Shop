@@ -3,6 +3,7 @@ import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/providers/auth.dart';
 import 'package:doan/providers/products.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/providers/shippingInfo.dart';
 import "package:flutter/material.dart";
 import 'constants/themes/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,8 @@ void main() {
     providers: [
       ChangeNotifierProvider(create: (_) => Auth()),
       ChangeNotifierProvider(create: (_) => Products()),
-      ChangeNotifierProvider(create: (_) => CartsProvider())
+      ChangeNotifierProvider(create: (_) => CartsProvider()),
+      ChangeNotifierProvider(create: (_) => ShippingInfoProvider())
     ],
     child: const MyApp(),
   ));
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
         title: "QHAShop",
         theme: theme(),
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute: RoutesName.LOGIN_PAGE,
+        initialRoute: RoutesName.FLASH_PAGE,
       ),
     );
   }

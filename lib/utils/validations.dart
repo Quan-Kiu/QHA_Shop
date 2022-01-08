@@ -48,6 +48,14 @@ class Validations {
     return true;
   }
 
+  static textRequired(String label, String string, Function cb) {
+    if (string == '' || string.trim().length == 0) {
+      return throw Exception(cb('Trường $label không được để trống.'));
+    }
+    cb('');
+    return true;
+  }
+
   static phonenumber(String string, Function cb) {
     if (RegExp(r"/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/")
         .hasMatch(string)) {

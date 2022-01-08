@@ -89,6 +89,16 @@ class _BodyState extends State<Body> {
     TextEditingController phoneController =
         TextEditingController(text: user.phone);
 
+    @override
+    void dispose() {
+      _date.dispose();
+      nameController.dispose();
+      emailController.dispose();
+      genderController.dispose();
+      phoneController.dispose();
+      super.dispose();
+    }
+
     return SafeArea(
       child: Form(
           child: ListView(

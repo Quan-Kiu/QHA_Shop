@@ -23,7 +23,7 @@ AppBar buildSecondaryAppBar(
         icon: SvgPicture.asset(AppAssetsPath.leftIcon),
         color: AppColors.grayClr,
         onPressed: () {
-          Navigator.pushNamed(context, RoutesName.HOME_PAGE);
+          Navigator.pop(context);
         }),
   );
 }

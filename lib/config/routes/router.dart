@@ -12,11 +12,13 @@ import 'package:doan/modules/checkout_complete/ckout_complete.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
 import 'package:doan/modules/comments/create_comment_page/create_comment_page.dart';
 import 'package:doan/modules/discount_page/discount_page.dart';
+import 'package:doan/modules/flash/flash_screen.dart';
 import 'package:doan/modules/home/home_screen.dart';
 import 'package:doan/modules/list_category/list_category.dart';
 import 'package:doan/modules/notify/activitys/activitys_notify_page.dart';
 import 'package:doan/modules/notify/notify_page.dart';
 import 'package:doan/modules/notify/posts/posts_notify_page.dart';
+import 'package:doan/modules/orders/order_check_page/order_check.dart';
 import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
@@ -43,6 +45,9 @@ import 'package:flutter/widgets.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RoutesName.FLASH_PAGE:
+        return _GeneratePageRoute(
+            widget: const FlashScreen(), routeName: settings.name);
       case RoutesName.LOGIN_PAGE:
         return _GeneratePageRoute(
             widget: const LoginScreen(), routeName: settings.name);
@@ -89,6 +94,11 @@ class RouteGenerator {
         return _GeneratePageRoute(
             widget: const OrdersPage(), routeName: settings.name);
 
+      case RoutesName.ORDER_CHECK_PAGE:
+        return _GeneratePageRoute(
+            widget: OrderCheck(shippingInfo: settings.arguments),
+            routeName: settings.name);
+
       case RoutesName.ORDER_DETAUL_PAGE:
         return _GeneratePageRoute(
             widget: const OrderDetail(), routeName: settings.name);
@@ -114,7 +124,7 @@ class RouteGenerator {
 
       case RoutesName.ADD_ADDRESS_PAGE:
         return _GeneratePageRoute(
-            widget: const AddAddressPageScreen(), routeName: settings.name);
+            widget: const AddAddressPage(), routeName: settings.name);
 
       case RoutesName.ADD_CARD_PAGE:
         return _GeneratePageRoute(

@@ -5,6 +5,7 @@ import 'package:doan/models/carts.dart';
 import 'package:doan/models/product.dart';
 import 'package:doan/providers/carts.dart';
 import 'package:doan/providers/products.dart';
+import 'package:doan/providers/shippingInfo.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:provider/src/provider.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Provider.of<Products>(context).getProducts();
     Provider.of<Products>(context).getDiscountProducts();
+    Provider.of<ShippingInfoProvider>(context, listen: false).getShippingInfo();
     Provider.of<CartsProvider>(context, listen: false).getCart();
     return Scaffold(
       appBar: buildPrimaryAppBar(context),

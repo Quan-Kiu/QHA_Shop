@@ -23,7 +23,7 @@ class _BodyState extends State<Body> {
     var myCart = context.watch<CartsProvider>().myCart;
     var amount = 0;
     myCart.forEach((element) {
-      amount += (element.quantity * element.product.price) as int;
+      amount += (element.quantity * element.product.discount) as int;
     });
 
     var tax = (amount * 0.05).round();
@@ -60,7 +60,7 @@ class _BodyState extends State<Body> {
                   ),
                   MyButtonWidget(
                       padding: EdgeInsets.zero,
-                      text: 'Đặt hàng',
+                      text: 'Thanh toán',
                       onPress: () {
                         Navigator.pushNamed(
                             context, RoutesName.CHECKOUT_TYPE_PAGE);

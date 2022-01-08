@@ -21,6 +21,7 @@ class AppAssetsPath {
   static const image_46 = imagePath + "image_46.png";
 
   static const googleIcon = iconPath + "Google.svg";
+  static const logoIcon = iconPath + "myLogo.svg";
   static const TransactionIcon = iconPath + "Transaction.svg";
   static const notificationIcon = iconPath + "Notification.svg";
   static const listIcon = iconPath + "List.svg";

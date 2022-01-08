@@ -49,12 +49,24 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
         Rating(star_count: widget.product.rating),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Text(AppExtension.moneyFormat(widget.product.price.toString()),
-              textAlign: TextAlign.left,
-              style: const TextStyle(
-                  color: AppColors.blueClr,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(AppExtension.moneyFormat(widget.product.discount.toString()),
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                      color: AppColors.blueClr,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+              const SizedBox(
+                width: 10.0,
+              ),
+              Text(AppExtension.moneyFormat(widget.product.price.toString()),
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                      decoration: TextDecoration.lineThrough, fontSize: 16.0)),
+            ],
+          ),
         ),
       ],
     );

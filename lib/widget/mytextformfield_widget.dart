@@ -33,6 +33,7 @@ class MyTextFormField extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(vertical: 20),
                 errorText: errorText != '' ? errorText : null,
                 hintText: hintText,
+                errorStyle: const TextStyle(fontSize: 14.0),
                 hintStyle: const TextStyle(fontWeight: FontWeight.normal),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),

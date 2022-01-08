@@ -85,6 +85,14 @@ class _BodyState extends State<Body> {
   }
 
   @override
+  void dispose() {
+    currentPasswordController.dispose();
+    passwordController.dispose();
+    passwordconfirmationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Form(

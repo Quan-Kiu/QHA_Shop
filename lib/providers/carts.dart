@@ -32,9 +32,8 @@ class CartsProvider extends ChangeNotifier {
     }
   }
 
-  void set(data) {
+  set(data) {
     myCart = data;
-    notifyListeners();
   }
 
   void add(data) {
