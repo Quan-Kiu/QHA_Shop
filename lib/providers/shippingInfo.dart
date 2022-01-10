@@ -18,6 +18,12 @@ class ShippingInfoProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  updateShippingInfo(data) {
+    var index = _myShippingInfo.indexWhere((element) => element.id == data.id);
+    _myShippingInfo[index] = data;
+    notifyListeners();
+  }
+
   getShippingInfo() async {
     if (!_isFirts) {
       var response =

@@ -179,7 +179,7 @@ class _BodyState extends State<Body> {
               errorText: districtError,
             ),
             MyTextFormField(
-                hintText: 'Nhập Ấp/Xã',
+                hintText: 'Nhập Phường/Xã',
                 prefixIcon: Icons.commute_outlined,
                 textController: communeController,
                 errorText: communeError),

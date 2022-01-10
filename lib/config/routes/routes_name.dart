@@ -81,4 +81,6 @@ class RoutesName {
   static const String ACCOUNT_PAGE = 'AccountPage';
   // ignore: constant_identifier_names
   static const String CHANGEPROFILE_PAGE = 'ChangeProfilePage';
+  // ignore: constant_identifier_names
+  static const String UPDATE_ADDRESS_PAGE = 'UpdateAddressPage';
 }
