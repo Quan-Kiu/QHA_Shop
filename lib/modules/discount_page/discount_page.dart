@@ -10,7 +10,7 @@ class DiscountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Siêu giảm giá'),
+      appBar: buildSecondaryAppBar(context, 'Siêu giảm giá', null),
       body: const Body(),
     );
   }

@@ -25,16 +25,17 @@ class OrderCheck extends StatelessWidget {
 
     var tax = (amount * 0.05).round();
     var shippingPrice = myCart.length * (amount * 0.03).round();
+    var unitPrice = amount + shippingPrice + tax;
 
     final _cartInfos = [
       {'label': 'Số lượng (${myCart.length})', 'text': amount},
       {'label': 'Phí vận chuyển', 'text': shippingPrice},
       {'label': 'Thuể', 'text': tax},
-      {'label': 'Tổng tiền', 'text': amount + shippingPrice + tax},
+      {'label': 'Tổng tiền', 'text': unitPrice},
     ];
 
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Đặt hàng'),
+      appBar: buildSecondaryAppBar(context, 'Đặt hàng', null),
       body: Container(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -106,7 +107,7 @@ class OrderCheck extends StatelessWidget {
               "fullname": shippingInfo.fullname,
               "address": shippingInfo.address,
               "phone": shippingInfo.phone,
-              "unit_price": amount,
+              "unit_price": unitPrice,
             };
 
             var response = await MyApi().postData(formData, 'order');

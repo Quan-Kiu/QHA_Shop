@@ -20,7 +20,7 @@ class PageList extends StatelessWidget {
     RoutesName.PHONE_PAGE,
     RoutesName.CHANGEPASSWORD_PAGE,
     RoutesName.ORDERS_PAGE,
-    RoutesName.ORDER_DETAUL_PAGE,
+    RoutesName.ORDER_DETAIL_PAGE,
     RoutesName.CART_PAGE,
     RoutesName.COMMENT_PAGE,
     RoutesName.NOTIFY_PAGE,

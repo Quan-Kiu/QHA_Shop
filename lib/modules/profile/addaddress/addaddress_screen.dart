@@ -8,7 +8,7 @@ class AddAddressPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thêm địa chỉ'),
+      appBar: buildSecondaryAppBar(context, 'Thêm địa chỉ', null),
       body: const Body(),
     );
   }

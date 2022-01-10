@@ -14,7 +14,7 @@ class _ChangePasswordPageScreenState extends State<ChangePasswordPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thay đổi mật khẩu'),
+      appBar: buildSecondaryAppBar(context, 'Thay đổi mật khẩu', null),
       body: Body(),
     );
   }

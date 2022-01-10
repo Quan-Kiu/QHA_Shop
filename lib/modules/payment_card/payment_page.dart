@@ -10,7 +10,8 @@ class Paymentcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, "Thẻ tín dụng hoặc thẻ ghi nợ"),
+      appBar:
+          buildSecondaryAppBar(context, "Thẻ tín dụng hoặc thẻ ghi nợ", null),
       body: Body(),
       bottomNavigationBar: SizedBox(
         child: MyButtonWidget(

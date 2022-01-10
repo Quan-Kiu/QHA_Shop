@@ -133,7 +133,6 @@ class Body extends StatelessWidget {
 
             if (response['success'] != null && response['success']) {
               Cart myCart = Cart.fromJson(response['data']);
-              myCart.product = Product.fromJson(myCart.product);
               context.read<CartsProvider>().add(myCart);
               return Navigator.pushNamed(context, RoutesName.CART_PAGE);
             } else {

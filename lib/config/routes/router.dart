@@ -92,16 +92,21 @@ class RouteGenerator {
 
       case RoutesName.ORDERS_PAGE:
         return _GeneratePageRoute(
-            widget: const OrdersPage(), routeName: settings.name);
+            widget: OrdersPage(
+              type: settings.arguments,
+            ),
+            routeName: settings.name);
 
       case RoutesName.ORDER_CHECK_PAGE:
         return _GeneratePageRoute(
             widget: OrderCheck(shippingInfo: settings.arguments),
             routeName: settings.name);
 
-      case RoutesName.ORDER_DETAUL_PAGE:
+      case RoutesName.ORDER_DETAIL_PAGE:
         return _GeneratePageRoute(
-            widget: const OrderDetail(), routeName: settings.name);
+          widget: OrderDetail(order: settings.arguments),
+          routeName: settings.name,
+        );
 
       case RoutesName.CART_PAGE:
         return _GeneratePageRoute(
@@ -196,25 +201,27 @@ class _GeneratePageRoute extends PageRouteBuilder {
   final Widget widget;
   // ignore: prefer_typing_uninitialized_variables
   final routeName;
-  _GeneratePageRoute({required this.widget, required this.routeName})
-      : super(
-            settings: RouteSettings(name: routeName),
-            pageBuilder: (BuildContext context, Animation<double> animation,
-                Animation<double> secondaryAnimation) {
-              return widget;
-            },
-            transitionDuration: const Duration(milliseconds: 500),
-            transitionsBuilder: (BuildContext context,
-                Animation<double> animation,
-                Animation<double> secondaryAnimation,
-                Widget child) {
-              return SlideTransition(
-                textDirection: TextDirection.rtl,
-                position: Tween<Offset>(
-                  begin: const Offset(-1.0, 0.0),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
-              );
-            });
+  _GeneratePageRoute({
+    required this.widget,
+    required this.routeName,
+  }) : super(
+          settings: RouteSettings(name: routeName),
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return widget;
+          },
+          transitionDuration: const Duration(milliseconds: 500),
+          // transitionsBuilder: (BuildContext context,
+          //     Animation<double> animation,
+          //     Animation<double> secondaryAnimation,
+          //     Widget child) {
+          //   return SlideTransition(
+          //     textDirection: TextDirection.rtl,
+          //     position: Tween<Offset>(
+          //       begin: const Offset(-1.0, 0.0),
+          //       end: Offset.zero,
+          //     ).animate(animation),
+          //     child: child,
+          //   );
+        );
 }

@@ -10,7 +10,7 @@ class NotifyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thông báo'),
+      appBar: buildSecondaryAppBar(context, 'Thông báo', null),
       body: SizedBox(
         child: Column(
           children: const [

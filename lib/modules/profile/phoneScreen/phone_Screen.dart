@@ -14,7 +14,7 @@ class _PhonePageScreenState extends State<PhonePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Số điện thoại'),
+      appBar: buildSecondaryAppBar(context, 'Số điện thoại', null),
       body: Body(),
     );
   }

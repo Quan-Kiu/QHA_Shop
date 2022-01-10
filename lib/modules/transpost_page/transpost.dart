@@ -14,7 +14,7 @@ class TransPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Vận chuyển đến'),
+      appBar: buildSecondaryAppBar(context, 'Vận chuyển đến', null),
       body: const bodyTranspost(),
       bottomNavigationBar: SizedBox(
         child: MyButtonWidget(

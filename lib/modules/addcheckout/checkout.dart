@@ -14,7 +14,7 @@ class AddCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thanh toán'),
+      appBar: buildSecondaryAppBar(context, 'Thanh toán', null),
       body: bodyaddcheckout(),
       bottomNavigationBar: Container(
         child: MyButtonWidget(

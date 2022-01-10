@@ -14,7 +14,7 @@ class _DateOBPageScreenState extends State<DateOBPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Ngày sinh'),
+      appBar: buildSecondaryAppBar(context, 'Ngày sinh', null),
       body: Body(),
     );
   }

@@ -14,7 +14,7 @@ class _EmailPageScreenState extends State<EmailPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Email'),
+      appBar: buildSecondaryAppBar(context, 'Email', null),
       body: Body(),
     );
   }

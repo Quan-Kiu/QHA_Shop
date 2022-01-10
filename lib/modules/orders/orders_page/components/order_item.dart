@@ -13,7 +13,8 @@ class OrderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, RoutesName.ORDER_DETAUL_PAGE),
+      onTap: () => Navigator.pushNamed(context, RoutesName.ORDER_DETAIL_PAGE,
+          arguments: order),
       child: Padding(
         padding: const EdgeInsets.only(top: 10.0),
         child: Container(
@@ -25,7 +26,7 @@ class OrderItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyTextWidget(
-                text: order.id,
+                text: order.code,
                 isBold: true,
                 color: AppColors.darkClr,
                 fontSize: 18.0,
@@ -34,7 +35,7 @@ class OrderItem extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                'Ngày đặt hàng : ${order.createdAt}',
+                'Ngày đặt hàng : ${order.created_at.substring(0, 10)}',
                 style: const TextStyle(fontSize: 14.0),
               ),
               const SizedBox(
@@ -51,7 +52,7 @@ class OrderItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Trạng thái'),
-                  Text(order.status,
+                  Text(order.orderStatus.name,
                       style: const TextStyle(
                           color: AppColors.darkClr, fontSize: 14.0))
                 ],
@@ -63,7 +64,7 @@ class OrderItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Số lượng'),
-                  Text(order.total.toString(),
+                  Text(order.quantity.toString(),
                       style:
                           TextStyle(color: AppColors.darkClr, fontSize: 14.0))
                 ],

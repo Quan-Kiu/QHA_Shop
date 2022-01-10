@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 // ignore: unused_import
 import 'package:doan/widget/NavBar/bottom_navbar.dart';
@@ -15,7 +16,7 @@ class _AccountPageScreenState extends State<AccountPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Tài khoản'),
+      appBar: buildSecondaryAppBar(context, 'Tài khoản', RoutesName.HOME_PAGE),
       body: const Body(),
     );
   }

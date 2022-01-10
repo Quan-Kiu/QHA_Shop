@@ -13,7 +13,7 @@ class _AddCardPageScreenState extends State<AddCardPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Địa chỉ'),
+      appBar: buildSecondaryAppBar(context, 'Địa chỉ', null),
       body: Body(),
     );
   }

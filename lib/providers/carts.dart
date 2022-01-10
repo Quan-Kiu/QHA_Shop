@@ -25,7 +25,6 @@ class CartsProvider extends ChangeNotifier {
       if (response['success'] != null && response['success']) {
         List carts = response['data'].map((data) {
           var cart = Cart.fromJson(data);
-          cart.product = Product.fromJson(cart.product);
           return cart;
         }).toList();
         myCart = carts;
