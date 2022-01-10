@@ -1,10 +1,14 @@
+import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/shipping_info.dart';
+import 'package:doan/providers/shippingInfo.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/src/provider.dart';
 
 import 'mytext_widget.dart';
 
@@ -49,7 +53,21 @@ class TransPost_Card extends StatelessWidget {
                     fontSize: 18.0,
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () 
+                        async {
+                              var response = await MyApi()
+                                  .delete('shipping_info/${shippingInfo.id}');
+                              if (response['success'] != null &&
+                                  response['success']) {
+                                context
+                                    .read<ShippingInfoProvider>()
+                                    .removeShippingInfo(shippingInfo);
+                              } else {
+                                AlertMessage.showMsg(context,
+                                    'Có lỗi xảy ra, vui lòng thử lại sau.');
+                              }
+                            },
+                      
                       icon: SvgPicture.asset(AppAssetsPath.trashIcon))
                 ],
               ),
@@ -88,7 +106,8 @@ class TransPost_Card extends StatelessWidget {
                             borderSide: const BorderSide(
                                 color: Color.fromRGBO(235, 240, 255, 1),
                                 width: 2.0)),
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, RoutesName.UPDATE_ADDRESS_PAGE,
+                        arguments: shippingInfo),
                         child: Row(children: const [
                           Expanded(
                               child: Text(
@@ -98,6 +117,7 @@ class TransPost_Card extends StatelessWidget {
                               color: Colors.white,
                               fontSize: 18,
                             ),
+                            
                           ))
                         ]),
                       )),

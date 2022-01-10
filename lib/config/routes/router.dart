@@ -34,6 +34,7 @@ import 'package:doan/modules/profile/info/info_screen.dart';
 import 'package:doan/modules/profile/phoneScreen/phone_Screen.dart';
 import 'package:doan/modules/profile/renameScreen/rename_screen.dart';
 import 'package:doan/modules/profile/sexScreen/sex_screen.dart';
+import 'package:doan/modules/profile/updateaddress/updateaddress_screen.dart';
 import 'package:doan/modules/rmaddress/removeAddress.dart';
 import 'package:doan/modules/search/search_page.dart';
 import 'package:doan/modules/search_error/search_error.dart';
@@ -191,6 +192,11 @@ class RouteGenerator {
       case RoutesName.LISTCATEGORY:
         return _GeneratePageRoute(
             widget: const List_Category(), routeName: settings.name);
+      case RoutesName.UPDATE_ADDRESS_PAGE:
+        return _GeneratePageRoute(
+            widget: UpdateAddressPage(
+              shippingInfo: settings.arguments,
+            ), routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }

@@ -72,7 +72,6 @@ class _BodyState extends State<Body> {
                     child: Material(
                       child: Ink.image(
                         image: FileImage(imageFile!),
-                        /* const AssetImage('assets/images/bag_1.png'), */
                         fit: BoxFit.cover,
                         width: 100,
                         height: 100,
