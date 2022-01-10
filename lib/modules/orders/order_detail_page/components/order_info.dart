@@ -8,7 +8,11 @@ class OrderInFo extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final type;
 
-  const OrderInFo({Key? key, this.data, this.type}) : super(key: key);
+  const OrderInFo({
+    Key? key,
+    this.data,
+    this.type,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,6 @@ class OrderInFo extends StatelessWidget {
                                       index == data.length - 1)
                                   ? const TextStyle(
                                       fontSize: 14.0,
-
                                       fontWeight: FontWeight.bold)
                                   : const TextStyle(fontSize: 14.0))),
                       Expanded(
@@ -50,7 +53,6 @@ class OrderInFo extends StatelessWidget {
                                         color: AppColors.blueClr)
                                     : const TextStyle(
                                         height: 1.5,
-
                                         fontSize: 14.0,
                                         color: AppColors.darkClr),
                           )),

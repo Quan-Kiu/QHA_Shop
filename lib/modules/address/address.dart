@@ -6,10 +6,6 @@ import 'package:flutter/material.dart';
 
 import 'component/bodyAddress.dart';
 
-void main() {
-  runApp(const Address());
-}
-
 class Address extends StatelessWidget {
   const Address({Key? key}) : super(key: key);
 

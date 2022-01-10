@@ -64,14 +64,14 @@ class _BodyState extends State<Body> {
           districtError = error;
         });
       });
-      isError =
-          Validations.textRequired('Ấp/Xã', communeController.text, (error) {
+      isError = Validations.textRequired('Phường/Xã', communeController.text,
+          (error) {
         setState(() {
           communeError = error;
         });
       });
       isError = Validations.textRequired(
-          'Số nhà,thôn,xóm,làng..', moreController.text, (error) {
+          'Số nhà,ấp,thôn,xóm,làng..', moreController.text, (error) {
         setState(() {
           moreError = error;
         });

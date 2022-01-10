@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class CartsProvider extends ChangeNotifier {
   List myCart = [];
+  bool isFirst = false;
 
   get getMyCart => myCart;
 
@@ -19,7 +20,7 @@ class CartsProvider extends ChangeNotifier {
   }
 
   getCart() async {
-    if (myCart.isEmpty) {
+    if (!isFirst) {
       var response = await MyApi().getData('cart/getCartByUser');
       if (response['success'] != null && response['success']) {
         List carts = response['data'].map((data) {
@@ -28,6 +29,7 @@ class CartsProvider extends ChangeNotifier {
           return cart;
         }).toList();
         myCart = carts;
+        isFirst = true;
       }
     }
   }

@@ -18,9 +18,7 @@ class bodyAddress extends StatelessWidget {
     return ListView.builder(
         itemCount: shippingInfos.length,
         itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [TransPost_Card(shippingInfo: shippingInfos[index])],
-          );
+          return TransPost_Card(shippingInfo: shippingInfos[index]);
         });
   }
 }

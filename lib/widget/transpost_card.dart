@@ -10,9 +10,11 @@ import 'mytext_widget.dart';
 
 class TransPost_Card extends StatelessWidget {
   final ShippingInfo shippingInfo;
+  final bool isPayment;
   const TransPost_Card({
     Key? key,
     required this.shippingInfo,
+    this.isPayment = false,
   }) : super(key: key);
 
   @override
@@ -22,8 +24,10 @@ class TransPost_Card extends StatelessWidget {
         AppExtension.capitalize(Address[Address.length - 1].trim());
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, RoutesName.ORDER_CHECK_PAGE,
-            arguments: shippingInfo);
+        if (isPayment) {
+          Navigator.pushNamed(context, RoutesName.ORDER_CHECK_PAGE,
+              arguments: shippingInfo);
+        }
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 10.0),

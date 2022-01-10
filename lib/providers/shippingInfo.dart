@@ -28,7 +28,6 @@ class ShippingInfoProvider extends ChangeNotifier {
             .toList();
         _myShippingInfo = shippings;
         _isFirts = true;
-        notifyListeners();
       }
     }
   }
