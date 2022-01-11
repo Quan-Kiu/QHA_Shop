@@ -79,10 +79,15 @@ List<Product> products = [
       id: 1,
       name: "Nike Air Zoom Pegasus 36 Miami",
       price: 680000,
-      thumbnail: "image_46",
+      thumbnail:
+          "https://res.cloudinary.com/quankiu/image/upload/v1641440703/php1AAE_jmmqjb.png",
       description:
           "Nike Air Zoom Pegasus 36 Miami React ENG kết hợp đế giữa bằng bọt React có chiều dài đầy đủ với bộ phận 270 Max Air để mang lại sự thoải mái vô song và trải nghiệm hình ảnh ấn tượng.",
-      images: ["image_46.png", "image_47.png", "image_48.png", "image_49.png"],
+      images: [
+        "https://res.cloudinary.com/quankiu/image/upload/v1641440707/php1AAF_ew2fbt.png",
+        "https://res.cloudinary.com/quankiu/image/upload/v1641440709/php1ACF_x4ua3s.png",
+        "https://res.cloudinary.com/quankiu/image/upload/v1641440710/php1AE0_pu7ybo.png"
+      ],
       sizes: ["48", "49", "50", "51"],
       colors: ["red", "green"],
       discount: 500000,
@@ -94,10 +99,15 @@ List<Product> products = [
       id: 2,
       name: "Nike Air Zoom Pegasus 37 QK",
       price: 800000,
-      thumbnail: "image_46",
+      thumbnail:
+          "https://res.cloudinary.com/quankiu/image/upload/v1641441559/php5649_soqyxr.jpg",
       description:
           "Nike Air Zoom Pegasus 36 Miami React ENG kết hợp đế giữa bằng bọt React có chiều dài đầy đủ với bộ phận 270 Max Air để mang lại sự thoải mái vô song và trải nghiệm hình ảnh ấn tượng.",
-      images: ["image_46.png", "image_47.png", "image_48.png", "image_49.png"],
+      images: [
+        "https://res.cloudinary.com/quankiu/image/upload/v1641441561/php5659_s6lhtd.jpg",
+        "https://res.cloudinary.com/quankiu/image/upload/v1641441564/php565A_nduyfy.jpg",
+        "https://res.cloudinary.com/quankiu/image/upload/v1641441566/php565B_qoefws.jpg"
+      ],
       sizes: ["48", "49", "50", "51"],
       colors: ["red", "green"],
       discount: 700000,

@@ -1,8 +1,10 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
+import 'package:doan/providers/products.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/models/product.dart';
+import 'package:provider/src/provider.dart';
 
 import 'components/banner.dart';
 
@@ -21,6 +23,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var discountProducts = context.watch<Products>().myDiscount;
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -40,8 +43,8 @@ class Body extends StatelessWidget {
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15,
                   childAspectRatio: .55,
-                  children: List.generate(products.length,
-                      (index) => ProductCard(product: products[index]))),
+                  children: List.generate(discountProducts.length,
+                      (index) => ProductCard(product: discountProducts[index]))),
             ),
           ],
         ),
