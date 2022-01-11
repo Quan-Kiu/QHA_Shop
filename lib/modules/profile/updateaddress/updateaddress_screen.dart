@@ -7,13 +7,16 @@ import 'compoment/body.dart';
 
 class UpdateAddressPage extends StatelessWidget {
   final shippingInfo;
-  const UpdateAddressPage({Key? key, required this.shippingInfo}) : super(key: key);
+  const UpdateAddressPage({Key? key, required this.shippingInfo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thay đổi địa chỉ'),
-      body: Body(shippinginfo: shippingInfo,),
+      appBar: buildSecondaryAppBar(context, 'Thay đổi địa chỉ', null),
+      body: Body(
+        shippinginfo: shippingInfo,
+      ),
     );
   }
 }

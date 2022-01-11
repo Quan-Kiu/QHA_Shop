@@ -30,7 +30,7 @@ class _ButtonSelectState extends State<ButtonSelect> {
           MyTextWidget(
               text: AppExtension.capitalize(widget.type),
               isBold: true,
-              fontSize: 14,
+              fontSize: 16,
               color: AppColors.darkClr),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

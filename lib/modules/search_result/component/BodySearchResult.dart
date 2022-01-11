@@ -23,8 +23,9 @@ class BodySearchResult extends StatelessWidget {
               mainAxisSpacing: 15,
               crossAxisSpacing: 15,
               childAspectRatio: .55,
-              children: List.generate(products.length,
-                  (index) => ProductCard(product: products[index]))),
+              children: [
+                Text('aa'),
+              ]),
         ),
       ),
     );

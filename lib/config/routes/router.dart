@@ -115,11 +115,13 @@ class RouteGenerator {
 
       case RoutesName.COMMENT_PAGE:
         return _GeneratePageRoute(
-            widget: const CommentPage(), routeName: settings.name);
+            widget: CommentPage(data: settings.arguments),
+            routeName: settings.name);
 
       case RoutesName.CREATE_COMMENT_PAGE:
         return _GeneratePageRoute(
-            widget: const CreateCommentPage(), routeName: settings.name);
+            widget: CreateCommentPage(product: settings.arguments),
+            routeName: settings.name);
 
       case RoutesName.PRODUCT_FAVORITE_PAGE:
         return _GeneratePageRoute(
@@ -196,7 +198,8 @@ class RouteGenerator {
         return _GeneratePageRoute(
             widget: UpdateAddressPage(
               shippingInfo: settings.arguments,
-            ), routeName: settings.name);
+            ),
+            routeName: settings.name);
       default:
         return _GeneratePageRoute(widget: PageList(), routeName: settings.name);
     }

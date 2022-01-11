@@ -28,7 +28,7 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
                 style: const TextStyle(
                     color: AppColors.darkClr,
                     fontWeight: FontWeight.w700,
-                    fontSize: 20),
+                    fontSize: 22),
               ),
             ),
             const SizedBox(

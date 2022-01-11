@@ -1,5 +1,6 @@
 import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
+import 'package:doan/constants/pay.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/providers/carts.dart';
@@ -23,8 +24,8 @@ class OrderCheck extends StatelessWidget {
       amount += (element.quantity * element.product.discount) as int;
     });
 
-    var tax = (amount * 0.05).round();
-    var shippingPrice = myCart.length * (amount * 0.03).round();
+    var tax = (amount * Pay().taxPercent).round();
+    var shippingPrice = myCart.length * (amount * Pay().taxPercent).round();
     var unitPrice = amount + shippingPrice + tax;
 
     final _cartInfos = [
@@ -111,6 +112,7 @@ class OrderCheck extends StatelessWidget {
             };
 
             var response = await MyApi().postData(formData, 'order');
+            print(response);
             if (response['success'] != null && response['success']) {
               AlertMessage.showMsg(context, response['message']);
               Navigator.pushNamed(context, RoutesName.HOME_PAGE);

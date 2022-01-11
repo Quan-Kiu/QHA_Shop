@@ -21,7 +21,8 @@ AppBar buildSecondaryAppBar(context, title, route) {
         color: AppColors.grayClr,
         onPressed: () {
           if (route != null) {
-            Navigator.pushNamed(context, route);
+            Navigator.pushNamed(context, route['route'],
+                arguments: route['arguments']);
           } else {
             Navigator.pop(context);
           }

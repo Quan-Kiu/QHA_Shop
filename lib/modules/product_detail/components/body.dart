@@ -30,6 +30,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(product.comments.length);
     return Column(
       children: [
         Expanded(
@@ -67,14 +68,14 @@ class Body extends StatelessWidget {
                           const MyTextWidget(
                             text: "Chi tiết",
                             isBold: true,
-                            fontSize: 14,
+                            fontSize: 16.0,
                             color: MyColor.darkClr,
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(product.description,
-                              style: AppTextStyles.normalText)
+                              style: AppTextStyles.largeText)
                         ],
                       ),
                       Padding(
@@ -86,11 +87,17 @@ class Body extends StatelessWidget {
                                 text: "Đánh giá",
                                 isBold: true,
                                 color: AppColors.darkClr,
-                                fontSize: MyTextSize.mediumText),
+                                fontSize: 16.0),
                             TextButton(
                               onPressed: () {
                                 Navigator.pushNamed(
-                                    context, RoutesName.COMMENT_PAGE);
+                                  context,
+                                  RoutesName.COMMENT_PAGE,
+                                  arguments: {
+                                    "product": product,
+                                    "rating": null
+                                  },
+                                );
                               },
                               style: TextButton.styleFrom(
                                 minimumSize: Size.zero,
@@ -103,9 +110,22 @@ class Body extends StatelessWidget {
                         ),
                       ),
                       Rating(star_count: product.rating, countTextShow: true),
-                      CommentItem(),
-                      CommentItem(),
-                      CommentItem(),
+                      product.comments.length > 0
+                          ? Column(
+                              children: List.generate(
+                                  product.comments.length,
+                                  (index) => CommentItem(
+                                      comment: product.comments[index])),
+                            )
+                          : const Center(
+                              child: Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Text(
+                                  'Không có bình luận nào',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            )
                     ],
                   ),
                 ),

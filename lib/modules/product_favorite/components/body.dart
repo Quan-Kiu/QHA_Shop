@@ -13,14 +13,14 @@ class Body extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
         child: GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 15,
-            crossAxisSpacing: 15,
-            childAspectRatio: .55,
-            children: List.generate(products.length,
-                (index) => ProductCard(product: products[index]))),
+          crossAxisCount: 2,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          mainAxisSpacing: 15,
+          crossAxisSpacing: 15,
+          childAspectRatio: .55,
+          children: [Text('aaa')],
+        ),
       ),
     );
   }

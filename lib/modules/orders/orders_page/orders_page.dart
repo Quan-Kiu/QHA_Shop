@@ -57,8 +57,8 @@ class _OrdersPageState extends State<OrdersPage> {
   Widget build(BuildContext context) {
     var orderStatus = context.watch<OrderStatusProvider>().myOrderStatus;
     return Scaffold(
-        appBar:
-            buildSecondaryAppBar(context, 'Đặt hàng', RoutesName.ACCOUNT_PAGE),
+        appBar: buildSecondaryAppBar(
+            context, 'Đặt hàng', {"route": RoutesName.ACCOUNT_PAGE}),
         body: Container(
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
           child: SingleChildScrollView(

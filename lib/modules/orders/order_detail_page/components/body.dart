@@ -28,9 +28,8 @@ class _BodyState extends State<Body> {
     });
     var res = await MyApi().getData('order/${widget.order.id}');
     if (res['success'] != null && res['success']) {
-      List order_details = res['data']
-          .map<OrderDetail>((item) => OrderDetail.fromJson(item))
-          .toList();
+      List order_details =
+          res['data'].map((item) => OrderDetail.fromJson(item)).toList();
       setState(() {
         _order_details = order_details;
         _isLoading = false;

@@ -16,7 +16,8 @@ class _AccountPageScreenState extends State<AccountPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Tài khoản', RoutesName.HOME_PAGE),
+      appBar: buildSecondaryAppBar(
+          context, 'Tài khoản', {"route": RoutesName.HOME_PAGE}),
       body: const Body(),
     );
   }
