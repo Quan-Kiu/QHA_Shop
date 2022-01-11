@@ -8,7 +8,7 @@ class CreateCommentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Viết đánh giá'),
+      appBar: buildSecondaryAppBar(context, 'Viết đánh giá', null),
       body: const Body(),
     );
   }

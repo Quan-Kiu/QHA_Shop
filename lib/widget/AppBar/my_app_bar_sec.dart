@@ -4,10 +4,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-AppBar buildSecondaryAppBar(
-  context,
-  title,
-) {
+AppBar buildSecondaryAppBar(context, title, route) {
   return AppBar(
     title: Text(
       title,
@@ -23,7 +20,11 @@ AppBar buildSecondaryAppBar(
         icon: SvgPicture.asset(AppAssetsPath.leftIcon),
         color: AppColors.grayClr,
         onPressed: () {
-          Navigator.pop(context);
+          if (route != null) {
+            Navigator.pushNamed(context, route);
+          } else {
+            Navigator.pop(context);
+          }
         }),
   );
 }

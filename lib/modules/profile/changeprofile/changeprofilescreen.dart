@@ -14,7 +14,7 @@ class _ChangeProfileScreenState extends State<ChangeProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Chỉnh sửa hồ sơ'),
+      appBar: buildSecondaryAppBar(context, 'Chỉnh sửa hồ sơ', null),
       body: Body(),
     );
   }

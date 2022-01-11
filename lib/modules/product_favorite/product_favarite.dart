@@ -7,7 +7,7 @@ class Product_Favorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Sản phẩm yêu thích'),
+      appBar: buildSecondaryAppBar(context, 'Sản phẩm yêu thích', null),
       body: Body(),
     );
   }

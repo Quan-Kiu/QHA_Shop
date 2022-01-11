@@ -1,13 +1,13 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/providers/order_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/src/provider.dart';
 
 class StatusOrder extends StatefulWidget {
   final current_status;
   StatusOrder({Key? key, this.current_status}) : super(key: key);
-
-  List<String> status = ['Kho', 'Đang vận chuyển', 'Đang giao', 'Thành công'];
 
   @override
   _StatusOrderState createState() => _StatusOrderState();
@@ -36,6 +36,7 @@ class _StatusOrderState extends State<StatusOrder> {
 
   @override
   Widget build(BuildContext context) {
+    var status = context.watch<OrderStatusProvider>().myOrderStatus;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Stack(
@@ -62,20 +63,22 @@ class _StatusOrderState extends State<StatusOrder> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
-                  widget.status.length,
+                  status.length,
                   (index) => Column(
                         crossAxisAlignment: index == 0
                             ? CrossAxisAlignment.start
-                            : index == widget.status.length - 1
+                            : index == status.length - 1
                                 ? CrossAxisAlignment.end
                                 : CrossAxisAlignment.center,
                         children: [
                           Opacity(
-                            key: widget.current_status - 1 == index
-                                ? _key
-                                : null,
-                            opacity:
-                                index > widget.current_status - 1 ? 0.2 : 1,
+                            key:
+                                widget.current_status.name == status[index].name
+                                    ? _key
+                                    : null,
+                            opacity: status[index].id > widget.current_status.id
+                                ? 0.2
+                                : 1,
                             child: SvgPicture.asset(
                               AppAssetsPath.successIcon,
                             ),
@@ -84,7 +87,7 @@ class _StatusOrderState extends State<StatusOrder> {
                             height: 15.0,
                           ),
                           Text(
-                            widget.status[index],
+                            status[index].name,
                             style: const TextStyle(
                                 fontSize: 14.0, fontWeight: FontWeight.w300),
                           ),

@@ -8,7 +8,7 @@ class Activities_Notify_Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Hoạt động'),
+      appBar: buildSecondaryAppBar(context, 'Hoạt động', null),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),

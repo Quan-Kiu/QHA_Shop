@@ -34,7 +34,7 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String COMMENT_PAGE = 'Comment_Page';
   // ignore: constant_identifier_names
-  static const String ORDER_DETAUL_PAGE = 'Order_Detail_Page';
+  static const String ORDER_DETAIL_PAGE = 'Order_Detail_Page';
   // ignore: constant_identifier_names
   static const String ORDER_CHECK_PAGE = 'Order_Check_Page';
   // ignore: constant_identifier_names

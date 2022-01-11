@@ -25,7 +25,6 @@ class _BodyState extends State<Body> {
     myCart.forEach((element) {
       amount += (element.quantity * element.product.discount) as int;
     });
-
     var tax = (amount * 0.05).round();
     var shippingPrice = myCart.length * (amount * 0.03).round();
 

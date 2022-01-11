@@ -3,7 +3,6 @@ import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/carts.dart';
-import 'package:doan/models/product.dart';
 import 'package:doan/providers/carts.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -30,8 +29,6 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
 
       if (response['success'] != null && response['success']) {
         Cart newCart = Cart.fromJson(response['data']);
-
-        newCart.product = Product.fromJson(newCart.product);
         context.read<CartsProvider>().update(newCart);
       } else {
         AlertMessage.showMsg(context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
@@ -108,7 +105,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                     Expanded(
                       child: Text(
                         AppExtension.moneyFormat(
-                            widget.data.product.price.toString()),
+                            widget.data.product.discount.toString()),
                         style: const TextStyle(
                             fontSize: 16.0,
                             color: AppColors.blueClr,

@@ -12,7 +12,7 @@ class Address extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Địa chỉ'),
+      appBar: buildSecondaryAppBar(context, 'Địa chỉ', null),
       body: const bodyAddress(),
       // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(

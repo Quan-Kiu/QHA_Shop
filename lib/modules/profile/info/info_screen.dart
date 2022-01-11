@@ -14,7 +14,7 @@ class _InfoPageScreenState extends State<InfoPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Thông tin cá nhân'),
+      appBar: buildSecondaryAppBar(context, 'Thông tin cá nhân', null),
       body: Body(),
     );
   }

@@ -14,7 +14,7 @@ class _CommentPageState extends State<CommentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Đánh giá'),
+      appBar: buildSecondaryAppBar(context, 'Đánh giá', null),
       body: const Body(),
     );
   }

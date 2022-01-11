@@ -13,7 +13,7 @@ class _SexPageScreenState extends State<SexPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Giới tính'),
+      appBar: buildSecondaryAppBar(context, 'Giới tính', null),
       body: Body(),
     );
   }

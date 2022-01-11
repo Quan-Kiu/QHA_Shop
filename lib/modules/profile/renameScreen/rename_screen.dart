@@ -14,7 +14,7 @@ class _RenamePageScreenState extends State<RenamePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Họ tên'),
+      appBar: buildSecondaryAppBar(context, 'Họ tên', null),
       body: Body(),
     );
   }

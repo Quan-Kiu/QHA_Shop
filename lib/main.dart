@@ -1,6 +1,7 @@
 import 'package:doan/config/routes/router.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/providers/auth.dart';
+import 'package:doan/providers/order_status.dart';
 import 'package:doan/providers/products.dart';
 import 'package:doan/providers/carts.dart';
 import 'package:doan/providers/shippingInfo.dart';
@@ -14,7 +15,8 @@ void main() {
       ChangeNotifierProvider(create: (_) => Auth()),
       ChangeNotifierProvider(create: (_) => Products()),
       ChangeNotifierProvider(create: (_) => CartsProvider()),
-      ChangeNotifierProvider(create: (_) => ShippingInfoProvider())
+      ChangeNotifierProvider(create: (_) => ShippingInfoProvider()),
+      ChangeNotifierProvider(create: (_) => OrderStatusProvider())
     ],
     child: const MyApp(),
   ));

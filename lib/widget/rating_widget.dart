@@ -30,24 +30,6 @@ class Rating extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            children: List.generate(
-              5,
-              (index) => GestureDetector(
-                child: SvgPicture.asset(
-                  AppAssetsPath.starIcon,
-                  color: index < star_count
-                      ? AppColors.yellowClr
-                      : AppColors.lightClr,
-                  width: iconSize,
-                  height: iconSize,
-                ),
-                onTap: () {
-                  onPress(index);
-                },
-              ),
-            ),
-          ),
           countTextShow
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -67,6 +49,24 @@ class Rating extends StatelessWidget {
                   ),
                 )
               : const Text(""),
+          Row(
+            children: List.generate(
+              5,
+              (index) => GestureDetector(
+                child: SvgPicture.asset(
+                  AppAssetsPath.starIcon,
+                  color: index < star_count
+                      ? AppColors.yellowClr
+                      : AppColors.lightClr,
+                  width: iconSize,
+                  height: iconSize,
+                ),
+                onTap: () {
+                  onPress(index);
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );

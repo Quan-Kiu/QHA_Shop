@@ -8,7 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Giỏ hàng của bạn'),
+      appBar: buildSecondaryAppBar(context, 'Giỏ hàng của bạn', null),
       body: const Body(),
     );
   }

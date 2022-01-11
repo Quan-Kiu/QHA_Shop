@@ -8,7 +8,7 @@ class Posts_Notify_Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSecondaryAppBar(context, 'Bài viết'),
+      appBar: buildSecondaryAppBar(context, 'Bài viết', null),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
