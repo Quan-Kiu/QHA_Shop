@@ -6,6 +6,7 @@ class User {
   final String avatar;
   final String address;
   final String gender;
+  final List<dynamic> liked;
   final int status;
   final int userTypeId;
   final birthday;
@@ -29,6 +30,7 @@ class User {
     this.emailVerifiedAt,
     this.createdAt,
     this.updatedAt,
+    this.liked,
   );
 
   User.fromJson(Map<String, dynamic> json)
@@ -40,6 +42,7 @@ class User {
         address = json['address'] ?? '',
         gender = json['gender'] ?? '',
         birthday = json['birthday'],
+        liked = json['liked'] ?? [],
         status = json['status'],
         deletedAt = json['deleted_at'],
         userTypeId = json['user_type_id'],

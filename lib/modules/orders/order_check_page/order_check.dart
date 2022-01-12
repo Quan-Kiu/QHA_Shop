@@ -25,7 +25,8 @@ class OrderCheck extends StatelessWidget {
     });
 
     var tax = (amount * Pay().taxPercent).round();
-    var shippingPrice = myCart.length * (amount * Pay().taxPercent).round();
+    var shippingPrice =
+        myCart.length * (amount * Pay().shippingPercent).round();
     var unitPrice = amount + shippingPrice + tax;
 
     final _cartInfos = [

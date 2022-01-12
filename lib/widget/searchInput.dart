@@ -21,6 +21,7 @@ PreferredSize searchInput(context, cb) {
                   color: AppColors.darkClr,
                   fontSize: 16.0),
               onChanged: (query) => cb(query),
+              autofocus: true,
               onSubmitted: (value) =>
                   Navigator.pushNamed(context, RoutesName.SEARCH_RESULT),
               decoration: InputDecoration(

@@ -93,10 +93,7 @@ class RouteGenerator {
 
       case RoutesName.ORDERS_PAGE:
         return _GeneratePageRoute(
-            widget: OrdersPage(
-              type: settings.arguments,
-            ),
-            routeName: settings.name);
+            widget: OrdersPage(), routeName: settings.name);
 
       case RoutesName.ORDER_CHECK_PAGE:
         return _GeneratePageRoute(

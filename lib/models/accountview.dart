@@ -24,13 +24,18 @@ List<TypeCheckout> type = [
       icon: "Carts.svg",
       router: RoutesName.ORDERS_PAGE),
   TypeCheckout(
-      id: 2,
+      id: 3,
       name: "Địa chỉ",
       icon: "Location.svg",
       router: RoutesName.ADDRESS_PAGE),
   TypeCheckout(
-      id: 2,
+      id: 4,
       name: "Thanh toán",
       icon: "Pay.svg",
+      router: RoutesName.CHECKOUT_TYPE_PAGE),
+  TypeCheckout(
+      id: 5,
+      name: "Đăng xuất",
+      icon: "Logout.svg",
       router: RoutesName.CHECKOUT_TYPE_PAGE),
 ];

@@ -1,9 +1,14 @@
+import 'package:doan/api/my_api.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
+import 'package:doan/models/category.dart';
+import 'package:doan/models/user.dart';
+import 'package:doan/providers/auth.dart';
 import 'package:doan/widget/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/src/provider.dart';
 
 class ProductMainInfos extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -14,9 +19,21 @@ class ProductMainInfos extends StatefulWidget {
 }
 
 class _ProductMainInfosState extends State<ProductMainInfos> {
-  bool _isLike = false;
+  late bool isLiked = false;
+  _checkLiked() {
+    var user = context.watch<Auth>().myValue['user'];
+    user.liked.forEach((item) {
+      if (item == widget.product.id) {
+        setState(() {
+          isLiked = true;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    _checkLiked();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,14 +52,26 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
               width: 60,
             ),
             IconButton(
-                onPressed: () {
-                  setState(() {
-                    _isLike = !_isLike;
-                  });
+                onPressed: () async {
+                  var res;
+                  if (isLiked == false) {
+                    res = await MyApi()
+                        .patch(null, 'user/like/${widget.product.id}');
+                  } else {
+                    res = await MyApi()
+                        .patch(null, 'user/unlike/${widget.product.id}');
+                  }
+                  if (res['success'] != null && res['success']) {
+                    var user = User.fromJson(res['data']);
+                    context.read<Auth>().updateUser(user);
+                    setState(() {
+                      isLiked = !isLiked;
+                    });
+                  }
                 },
                 icon: SvgPicture.asset(
                   AppAssetsPath.likeIcon,
-                  color: _isLike ? AppColors.redClr : AppColors.grayClr,
+                  color: isLiked ? AppColors.redClr : AppColors.grayClr,
                 ))
           ],
         ),

@@ -15,6 +15,6 @@ class Category_List extends StatelessWidget {
     return Scaffold(
         appBar: buildPrimaryAppBar(context),
         body: Body(),
-        bottomNavigationBar: buildBottomNavBar());
+        bottomNavigationBar: buildBottomNavBar(context));
   }
 }

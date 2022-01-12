@@ -1,9 +1,11 @@
 import 'package:doan/api/my_api.dart';
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/pay.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/models/order_detail.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/modules/orders/order_detail_page/components/status_order.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
 import 'package:doan/widget/product_order_item.dart';
@@ -144,9 +146,27 @@ class _BodyState extends State<Body> {
                 ),
               ),
               MyButtonWidget(
-                  text: 'Trở lại',
-                  onPress: () => Navigator.pop(context),
-                  color: AppColors.blueClr,
+                  text: widget.order.orderStatus.name == 'Kho'
+                      ? 'Hủy đơn hàng'
+                      : 'Trở lại',
+                  onPress: () async {
+                    if (widget.order.orderStatus.name == 'Kho') {
+                      var res =
+                          await MyApi().delete('order/${widget.order.id}');
+                      if (res['success'] != null && res['success']) {
+                        AlertMessage.showMsg(context, res['message']);
+                      } else {
+                        AlertMessage.showMsg(
+                            context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+                      }
+                      Navigator.pushNamed(context, RoutesName.ORDERS_PAGE);
+                    } else {
+                      Navigator.pop(context);
+                    }
+                  },
+                  color: widget.order.orderStatus.name == 'Kho'
+                      ? AppColors.redClr
+                      : AppColors.blueClr,
                   textStyle: const TextStyle(
                       color: AppColors.whiteClr, fontSize: 16.0),
                   padding: const EdgeInsets.all(10.0))

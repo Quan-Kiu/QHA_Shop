@@ -1,8 +1,11 @@
 // ignore_for_file: unused_import
+import 'package:doan/api/my_api.dart';
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/accountview.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -19,18 +22,25 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  FocusNode myFocusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
-  String sodienthoai = '';
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: type.length,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () {
-              Navigator.pushNamed(context, type[index].router);
+            onTap: () async {
+              if (type[index].name == 'Đăng xuất') {
+                var res = await MyApi().getData('logout');
+                if (res['success'] != null && res['success']) {
+                  AlertMessage.showMsg(context, res['message']);
+                  Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+                } else {
+                  AlertMessage.showMsg(
+                      context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+                }
+              } else {
+                Navigator.pushNamed(context, type[index].router);
+              }
             },
             title: Text(
               type[index].name,
@@ -41,8 +51,10 @@ class _BodyState extends State<Body> {
                   letterSpacing: 0.75),
             ),
             leading: IconButton(
-                icon:
-                    SvgPicture.asset(AppAssetsPath.iconPath + type[index].icon),
+                icon: SvgPicture.asset(
+                    AppAssetsPath.iconPath + type[index].icon,
+                    color: AppColors.blueClr,
+                    width: 20.0),
                 color: AppColors.grayClr,
                 onPressed: () {}),
           );

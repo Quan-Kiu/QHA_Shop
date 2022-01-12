@@ -30,7 +30,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(product.comments.length);
     return Column(
       children: [
         Expanded(

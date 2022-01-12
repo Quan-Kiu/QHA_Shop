@@ -22,6 +22,9 @@ PreferredSize buildPrimaryAppBar(context) {
                 width: 280,
                 child: SizedBox(
                   child: TextField(
+                    onTap: () =>
+                        Navigator.pushNamed(context, RoutesName.SEARCH_PAGE),
+                    readOnly: true,
                     decoration: InputDecoration(
                       hintText: 'Tìm kiếm sản phẩm',
                       prefixIcon: const Icon(Icons.search, color: Colors.blue),

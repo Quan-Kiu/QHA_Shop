@@ -40,7 +40,7 @@ class OrderInFo extends StatelessWidget {
                       Expanded(
                           flex: 1,
                           child: Text(
-                            type == 'payment'
+                            type.toString() == 'payment'
                                 ? AppExtension.moneyFormat(
                                     data[index]['text'].toString())
                                 : data[index]['text'],

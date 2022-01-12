@@ -13,8 +13,7 @@ import 'package:provider/src/provider.dart';
 import 'components/order_item.dart';
 
 class OrdersPage extends StatefulWidget {
-  var type;
-  OrdersPage({Key? key, this.type}) : super(key: key);
+  OrdersPage({Key? key}) : super(key: key);
 
   @override
   _OrdersPageState createState() => _OrdersPageState();
@@ -23,11 +22,13 @@ class OrdersPage extends StatefulWidget {
 class _OrdersPageState extends State<OrdersPage> {
   late List _orders = [];
   bool _isLoading = false;
+  var _currentPage = 1;
 
   // The function that fetches data from the API
   getOrder(type) async {
     setState(() {
       _isLoading = true;
+      _currentPage = type;
     });
     var res = await MyApi().getData('order?id=$type');
     if (res['success'] != null && res['success']) {
@@ -46,19 +47,15 @@ class _OrdersPageState extends State<OrdersPage> {
   @override
   void initState() {
     super.initState();
-    if (widget.type == null) {
-      widget.type = 1;
-    }
 
-    getOrder(widget.type);
+    getOrder(_currentPage);
   }
 
   @override
   Widget build(BuildContext context) {
     var orderStatus = context.watch<OrderStatusProvider>().myOrderStatus;
     return Scaffold(
-        appBar: buildSecondaryAppBar(
-            context, 'Đặt hàng', {"route": RoutesName.ACCOUNT_PAGE}),
+        appBar: buildSecondaryAppBar(context, 'Đặt hàng', null),
         body: Container(
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
           child: SingleChildScrollView(
@@ -72,13 +69,12 @@ class _OrdersPageState extends State<OrdersPage> {
                       orderStatus.length,
                       (index) => GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, RoutesName.ORDERS_PAGE,
-                              arguments: orderStatus[index].id);
+                          getOrder(orderStatus[index].id);
                         },
                         child: Container(
                             margin: const EdgeInsets.only(right: 15.0),
                             decoration: BoxDecoration(
-                                color: orderStatus[index].id == widget.type
+                                color: orderStatus[index].id == _currentPage
                                     ? AppColors.lightClr
                                     : AppColors.whiteClr,
                                 border: Border.all(color: AppColors.lightClr)),

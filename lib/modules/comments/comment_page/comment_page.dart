@@ -20,10 +20,12 @@ class CommentPage extends StatefulWidget {
 class _CommentPageState extends State<CommentPage> {
   late List _comments = [];
   bool _isLoading = false;
+  var current_rating = null;
 
   // The function that fetches data from the API
   getComment(data) async {
     setState(() {
+      current_rating = data['rating'];
       _isLoading = true;
     });
     var id = data['product'].id;
@@ -74,19 +76,17 @@ class _CommentPageState extends State<CommentPage> {
                               6,
                               (index) => GestureDetector(
                                 onTap: () => {
-                                  Navigator.pushNamed(
-                                      context, RoutesName.COMMENT_PAGE,
-                                      arguments: {
-                                        "product": widget.data['product'],
-                                        "rating": index == 0 ? null : index
-                                      })
+                                  getComment({
+                                    "product": widget.data['product'],
+                                    "rating": index == 0 ? null : index
+                                  })
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.only(right: 15.0),
                                   decoration: BoxDecoration(
-                                      color: index == widget.data['rating'] ||
+                                      color: index == current_rating ||
                                               (index == 0 &&
-                                                  widget.data['rating'] == null)
+                                                  current_rating == null)
                                           ? AppColors.lightClr
                                           : AppColors.whiteClr,
                                       border: Border.all(

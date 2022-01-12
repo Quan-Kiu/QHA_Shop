@@ -49,7 +49,11 @@ class Product {
     if (json['comments'] != null) {
       comments = <Comment>[];
       json['comments'].forEach((v) {
-        comments.add(Comment.fromJson(v));
+        if (comments.length <= 5) {
+          comments.add(Comment.fromJson(v));
+        } else {
+          return;
+        }
       });
     }
   }

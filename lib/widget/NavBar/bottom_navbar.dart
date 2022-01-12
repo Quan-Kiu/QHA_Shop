@@ -1,11 +1,12 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/providers/carts.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/src/provider.dart';
 import 'nav_item.dart';
 
-buildBottomNavBar() => Container(
+buildBottomNavBar(context) => Container(
       height: 75,
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -14,7 +15,7 @@ buildBottomNavBar() => Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           NavItem(
               icon: AppAssetsPath.homeIcon,
               title: 'Home',

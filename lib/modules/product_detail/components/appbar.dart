@@ -13,9 +13,9 @@ AppBar buildAppBar(context, product) {
         onPressed: () {
           Navigator.pushNamed(context, RoutesName.HOME_PAGE);
         }),
-    actions: [
-      IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-    ],
+    // actions: [
+    //   IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+    //   IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
+    // ],
   );
 }

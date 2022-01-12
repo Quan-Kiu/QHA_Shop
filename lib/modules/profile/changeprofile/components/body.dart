@@ -24,7 +24,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 class Body extends StatefulWidget {
-  
   Body({Key? key}) : super(key: key);
 
   @override
@@ -51,9 +50,6 @@ uploadImage() async {
 }
 
 class _BodyState extends State<Body> {
-  FocusNode myFocusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
-
   List<Item> users = <Item>[
     const Item('Nam'),
     const Item('Nữ'),
@@ -195,7 +191,9 @@ class _BodyState extends State<Body> {
                     initialDate: DateTime.now(),
                     firstDate: DateTime(1900),
                     lastDate: DateTime(2100));
-                _date.text = date.toString().substring(0, 10);
+                if (date.toString().length >= 10) {
+                  _date.text = date.toString().substring(0, 10);
+                }
               },
               controller: _date,
               readOnly: true,
