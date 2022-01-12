@@ -120,7 +120,7 @@ class Body extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsets.all(10.0),
                                 child: Text(
-                                  'Không có bình luận nào',
+                                  'Không có đánh giá nào',
                                   textAlign: TextAlign.center,
                                 ),
                               ),

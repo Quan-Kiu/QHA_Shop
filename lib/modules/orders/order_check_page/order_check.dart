@@ -113,10 +113,9 @@ class OrderCheck extends StatelessWidget {
             };
 
             var response = await MyApi().postData(formData, 'order');
-            print(response);
             if (response['success'] != null && response['success']) {
               AlertMessage.showMsg(context, response['message']);
-              Navigator.pushNamed(context, RoutesName.HOME_PAGE);
+              Navigator.pushNamed(context, RoutesName.ORDERS_PAGE);
               context.read<CartsProvider>().set([]);
             } else {
               AlertMessage.showMsg(

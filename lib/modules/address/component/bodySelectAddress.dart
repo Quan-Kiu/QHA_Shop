@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 
 // ignore: camel_case_types
-class bodyAddress extends StatelessWidget {
-  const bodyAddress({
+class bodySelectAddress extends StatelessWidget {
+  const bodySelectAddress({
     Key? key,
   }) : super(key: key);
 
@@ -20,6 +20,7 @@ class bodyAddress extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return TransPost_Card(
             shippingInfo: shippingInfos[index],
+            isPayment: true,
           );
         });
   }

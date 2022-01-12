@@ -1,5 +1,6 @@
 import 'package:doan/widget/AppBar/my_app_bar_pri.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
@@ -16,6 +17,7 @@ class _InfoPageScreenState extends State<InfoPageScreen> {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Thông tin cá nhân', null),
       body: Body(),
+      bottomNavigationBar: buildBottomNavBar(context, 'Tài khoản'),
     );
   }
 }

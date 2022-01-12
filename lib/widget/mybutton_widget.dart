@@ -15,17 +15,17 @@ class MyButtonWidget extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   var icon;
 
-  MyButtonWidget(
-      {Key? key,
-      this.width = double.infinity,
-      required this.text,
-      required this.onPress,
-      required this.color,
-      this.isSocial = false,
-      this.icon = "",
-      this.textStyle = AppTextStyles.normalText,
-      required this.padding})
-      : super(key: key);
+  MyButtonWidget({
+    Key? key,
+    this.width = double.infinity,
+    required this.text,
+    required this.onPress,
+    required this.color,
+    this.isSocial = false,
+    this.icon = "",
+    this.textStyle = AppTextStyles.normalText,
+    required this.padding,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -19,6 +19,7 @@ class _AccountPageScreenState extends State<AccountPageScreen> {
       appBar: buildSecondaryAppBar(
           context, 'Tài khoản', {"route": RoutesName.HOME_PAGE}),
       body: const Body(),
+      bottomNavigationBar: buildBottomNavBar(context, 'Tài khoản'),
     );
   }
 }

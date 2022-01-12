@@ -99,7 +99,7 @@ class _BodyState extends State<Body> {
                   ],
                 ),
               ),
-              discountProducts != null
+              !discountProducts.isEmpty
                   ? Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: GridView.count(
@@ -110,7 +110,7 @@ class _BodyState extends State<Body> {
                           crossAxisSpacing: 15,
                           childAspectRatio: 0.70,
                           children: List.generate(
-                              discountProducts.length,
+                              4,
                               (index) => ProductCard(
                                     product: discountProducts[index],
                                     isShowRating: false,
@@ -124,7 +124,7 @@ class _BodyState extends State<Body> {
                     AppAssetsPath.banner2Image,
                     fit: BoxFit.cover,
                   )),
-              products != null
+              !products.isEmpty
                   ? Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: GridView.count(

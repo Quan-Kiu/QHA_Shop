@@ -1,6 +1,7 @@
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/providers/products.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:doan/widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/models/product.dart';
@@ -14,6 +15,7 @@ class DiscountPage extends StatelessWidget {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Siêu giảm giá', null),
       body: const Body(),
+      bottomNavigationBar: buildBottomNavBar(context, 'Deal'),
     );
   }
 }
@@ -34,18 +36,20 @@ class Body extends StatelessWidget {
               image: AppAssetsPath.banner1Image,
               title: 'Giảm giá sốc',
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 20.0),
-            //   child: GridView.count(
-            //       crossAxisCount: 2,
-            //       shrinkWrap: true,
-            //       physics: const NeverScrollableScrollPhysics(),
-            //       mainAxisSpacing: 15,
-            //       crossAxisSpacing: 15,
-            //       childAspectRatio: .55,
-            //       children: List.generate(products.length,
-            //           (index) => ProductCard(product: products[index]))),
-            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: GridView.count(
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
+                  childAspectRatio: .55,
+                  children: List.generate(
+                      discountProducts.length,
+                      (index) =>
+                          ProductCard(product: discountProducts[index]))),
+            ),
           ],
         ),
       ),

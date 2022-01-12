@@ -1,5 +1,6 @@
 import 'package:doan/modules/cart/components/body.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Giỏ hàng của bạn', null),
       body: const Body(),
+      bottomNavigationBar: buildBottomNavBar(context, 'Giỏ hàng'),
     );
   }
 }

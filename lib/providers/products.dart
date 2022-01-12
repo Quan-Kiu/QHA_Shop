@@ -12,6 +12,7 @@ class Products extends ChangeNotifier {
   getProducts() async {
     if (_myProduct.isEmpty) {
       var response = await MyApi().getData('product');
+
       if (response['success'] != null && response['success']) {
         var products = response['data']['products']
             .map((data) => Product.fromJson(data))

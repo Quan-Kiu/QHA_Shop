@@ -17,18 +17,12 @@ List<TypeCheckout> checkoutType = [
     id: 1,
     name: "Thanh toán khi nhận hàng",
     icon: "Location.svg",
-    router: RoutesName.ADDRESS_PAGE,
+    router: RoutesName.SELECT_ADDRESS_PAGE,
   ),
   TypeCheckout(
     id: 2,
     name: "Thẻ tín dụng hoặc thẻ ghi nợ",
     icon: "Bank.svg",
     router: RoutesName.PAYMENTCARD_PAGE,
-  ),
-  TypeCheckout(
-    id: 3,
-    name: "Ngân hàng nội địa",
-    icon: "Group.svg",
-    router: '',
   ),
 ];

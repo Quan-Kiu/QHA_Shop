@@ -63,11 +63,11 @@ class _StatusOrderState extends State<StatusOrder> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
-                  status.length,
+                  status.length - 1,
                   (index) => Column(
                         crossAxisAlignment: index == 0
                             ? CrossAxisAlignment.start
-                            : index == status.length - 1
+                            : index == status.length - 2
                                 ? CrossAxisAlignment.end
                                 : CrossAxisAlignment.center,
                         children: [

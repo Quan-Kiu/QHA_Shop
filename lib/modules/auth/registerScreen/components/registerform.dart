@@ -69,9 +69,9 @@ class _RegisterFormState extends State<RegisterForm> {
     };
 
     var response = await MyApi().postData(formData, 'register');
-    if (response['success']) {
-      Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+    if (response['success'] != null && response['success']) {
       AlertMessage.showMsg(context, response['message']);
+      Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
     } else {
       AlertMessage.showMsg(context, response['message']);
     }
@@ -82,47 +82,58 @@ class _RegisterFormState extends State<RegisterForm> {
   }
 
   @override
+  void dispose() {
+    fullnameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return _isLoading? const Padding(
+    return _isLoading
+        ? const Padding(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             child: CircularProgressIndicator(),
-          ): Form(
-      child: Column(
-        children: [
-          MyTextFormField(
-              textController: fullnameController,
-              hintText: "Họ Tên",
-              errorText: _fullnameError,
-              prefixIcon: Icons.person_outline_outlined),
-          MyTextFormField(
-              textController: emailController,
-              errorText: _emailError,
-              hintText: "Email",
-              prefixIcon: Icons.email_outlined),
-          MyTextFormField(
-              textController: passwordController,
-              hintText: "Mật khẩu",
-              errorText: _passwordError,
-              obscureText: true,
-              prefixIcon: Icons.lock_outline),
-          MyTextFormField(
-              textController: confirmPasswordController,
-              errorText: _confirmPasswordError,
-              hintText: "Nhập lại mật khẩu",
-              obscureText: true,
-              prefixIcon: Icons.lock_outline),
-          MyButtonWidget(
-            padding: const EdgeInsets.only(top: 47.0),
-            text: "Đăng ký",
-            textStyle: const TextStyle(
-                color: AppColors.whiteClr, fontWeight: FontWeight.bold),
-            onPress: () {
-              _register();
-            },
-            color: AppColors.blueClr,
-          ),
-        ],
-      ),
-    );
+          )
+        : Form(
+            child: Column(
+              children: [
+                MyTextFormField(
+                    textController: fullnameController,
+                    hintText: "Họ Tên",
+                    errorText: _fullnameError,
+                    prefixIcon: Icons.person_outline_outlined),
+                MyTextFormField(
+                    textController: emailController,
+                    errorText: _emailError,
+                    hintText: "Email",
+                    prefixIcon: Icons.email_outlined),
+                MyTextFormField(
+                    textController: passwordController,
+                    hintText: "Mật khẩu",
+                    errorText: _passwordError,
+                    obscureText: true,
+                    prefixIcon: Icons.lock_outline),
+                MyTextFormField(
+                    textController: confirmPasswordController,
+                    errorText: _confirmPasswordError,
+                    hintText: "Nhập lại mật khẩu",
+                    obscureText: true,
+                    prefixIcon: Icons.lock_outline),
+                MyButtonWidget(
+                  padding: const EdgeInsets.only(top: 47.0),
+                  text: "Đăng ký",
+                  textStyle: const TextStyle(
+                      color: AppColors.whiteClr, fontWeight: FontWeight.bold),
+                  onPress: () {
+                    _register();
+                  },
+                  color: AppColors.blueClr,
+                ),
+              ],
+            ),
+          );
   }
 }

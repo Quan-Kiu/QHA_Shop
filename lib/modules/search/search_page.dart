@@ -1,5 +1,6 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/providers/products.dart';
+import 'package:doan/widget/NavBar/bottom_navbar.dart';
 import 'package:doan/widget/searchInput.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
@@ -18,6 +19,7 @@ class Search_PageState extends State<Search_Page> {
   Widget build(BuildContext context) {
     List<dynamic> products = context.watch<Products>().myValue;
     return Scaffold(
+      bottomNavigationBar: buildBottomNavBar(context, 'Tìm kiếm'),
       appBar: searchInput(context, (query) {
         List<dynamic> newArr = [];
         !query.isEmpty

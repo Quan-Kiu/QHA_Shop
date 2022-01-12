@@ -32,7 +32,7 @@ List<TypeCheckout> type = [
       id: 4,
       name: "Thanh toán",
       icon: "Pay.svg",
-      router: RoutesName.CHECKOUT_TYPE_PAGE),
+      router: RoutesName.PAYMENTCARD_PAGE),
   TypeCheckout(
       id: 5,
       name: "Đăng xuất",

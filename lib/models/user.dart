@@ -41,7 +41,7 @@ class User {
         avatar = json['avatar'],
         address = json['address'] ?? '',
         gender = json['gender'] ?? '',
-        birthday = json['birthday'],
+        birthday = json['birthday'] ?? '',
         liked = json['liked'] ?? [],
         status = json['status'],
         deletedAt = json['deleted_at'],

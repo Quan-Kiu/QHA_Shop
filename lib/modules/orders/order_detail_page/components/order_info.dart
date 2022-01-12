@@ -43,7 +43,7 @@ class OrderInFo extends StatelessWidget {
                             type.toString() == 'payment'
                                 ? AppExtension.moneyFormat(
                                     data[index]['text'].toString())
-                                : data[index]['text'],
+                                : data[index]['text'].toString(),
                             textAlign: TextAlign.end,
                             style:
                                 (type == 'payment' && index == data.length - 1)

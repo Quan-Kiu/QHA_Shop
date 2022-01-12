@@ -27,36 +27,39 @@ class _BodyState extends State<Body> {
     return ListView.builder(
         itemCount: type.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () async {
-              if (type[index].name == 'Đăng xuất') {
-                var res = await MyApi().getData('logout');
-                if (res['success'] != null && res['success']) {
-                  AlertMessage.showMsg(context, res['message']);
-                  Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+          return Container(
+            width: double.infinity,
+            child: ListTile(
+              onTap: () async {
+                if (type[index].name == 'Đăng xuất') {
+                  var res = await MyApi().getData('logout');
+                  if (res['success'] != null && res['success']) {
+                    AlertMessage.showMsg(context, res['message']);
+                    Navigator.pushNamed(context, RoutesName.LOGIN_PAGE);
+                  } else {
+                    AlertMessage.showMsg(
+                        context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+                  }
                 } else {
-                  AlertMessage.showMsg(
-                      context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+                  Navigator.pushNamed(context, type[index].router);
                 }
-              } else {
-                Navigator.pushNamed(context, type[index].router);
-              }
-            },
-            title: Text(
-              type[index].name,
-              style: const TextStyle(
-                  fontSize: 15,
-                  color: AppColors.darkClr,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 0.75),
+              },
+              title: Text(
+                type[index].name,
+                style: const TextStyle(
+                    fontSize: 15,
+                    color: AppColors.darkClr,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.75),
+              ),
+              leading: IconButton(
+                  icon: SvgPicture.asset(
+                      AppAssetsPath.iconPath + type[index].icon,
+                      color: AppColors.blueClr,
+                      width: 20.0),
+                  color: AppColors.grayClr,
+                  onPressed: () {}),
             ),
-            leading: IconButton(
-                icon: SvgPicture.asset(
-                    AppAssetsPath.iconPath + type[index].icon,
-                    color: AppColors.blueClr,
-                    width: 20.0),
-                color: AppColors.grayClr,
-                onPressed: () {}),
           );
         });
     ;

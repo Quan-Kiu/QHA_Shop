@@ -1,5 +1,6 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
+import 'package:doan/constants/pay.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/cart/components/discount_code_input.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
@@ -25,8 +26,9 @@ class _BodyState extends State<Body> {
     myCart.forEach((element) {
       amount += (element.quantity * element.product.discount) as int;
     });
-    var tax = (amount * 0.05).round();
-    var shippingPrice = myCart.length * (amount * 0.03).round();
+    var tax = (amount * Pay().taxPercent).round();
+    var shippingPrice =
+        myCart.length * (amount * Pay().shippingPercent).round();
 
     final _cartInfos = [
       {'label': 'Số lượng (${myCart.length})', 'text': amount},
@@ -40,7 +42,7 @@ class _BodyState extends State<Body> {
         child: myCart.isEmpty
             ? const AlertModal(
                 icon: AppAssetsPath.cancleIcon,
-                mycolor: AppColors.redClr,
+                mycolor: AppColors.blueClr,
                 subtitle: 'Chưa có sản phẩm nào trong giỏ hàng của bạn',
                 title: "Rỗng",
               )

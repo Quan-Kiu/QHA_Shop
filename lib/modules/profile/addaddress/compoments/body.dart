@@ -88,7 +88,7 @@ class _BodyState extends State<Body> {
       'fullname': fullnameController.text,
       'phone': phoneController.text,
       'address':
-          '${districtController.text}, ${communeController.text}, ${districtController.text}, ${province_cityController.text}',
+          '${moreController.text}, ${communeController.text}, ${districtController.text}, ${province_cityController.text}',
     };
 
     var response = await MyApi().postData(formData, 'shipping_info');

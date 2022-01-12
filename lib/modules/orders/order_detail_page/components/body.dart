@@ -86,7 +86,10 @@ class _BodyState extends State<Body> {
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Column(
                       children: [
-                        StatusOrder(current_status: widget.order.orderStatus),
+                        widget.order.orderStatusId == 5
+                            ? const Text('')
+                            : StatusOrder(
+                                current_status: widget.order.orderStatus),
                         Container(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
                           child: Column(children: [
@@ -151,10 +154,19 @@ class _BodyState extends State<Body> {
                       : 'Trở lại',
                   onPress: () async {
                     if (widget.order.orderStatus.name == 'Kho') {
-                      var res =
-                          await MyApi().delete('order/${widget.order.id}');
+                      var formData = {
+                        "address": widget.order.address,
+                        "fullname": widget.order.fullname,
+                        "phone": widget.order.phone,
+                        "delivery_date": widget.order.deliveryDate,
+                        "order_status_id": 5,
+                      };
+
+                      var res = await MyApi()
+                          .putData(formData, 'order/${widget.order.id}');
                       if (res['success'] != null && res['success']) {
-                        AlertMessage.showMsg(context, res['message']);
+                        AlertMessage.showMsg(
+                            context, 'Hủy đơn hàng thành công.');
                       } else {
                         AlertMessage.showMsg(
                             context, 'Có lỗi xảy ra, vui lòng thử lại sau.');

@@ -13,8 +13,8 @@ class Category_List extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildPrimaryAppBar(context),
-        body: Body(),
-        bottomNavigationBar: buildBottomNavBar(context));
+      appBar: buildPrimaryAppBar(context),
+      body: Body(),
+    );
   }
 }

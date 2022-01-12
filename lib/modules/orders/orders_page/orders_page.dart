@@ -30,7 +30,7 @@ class _OrdersPageState extends State<OrdersPage> {
       _isLoading = true;
       _currentPage = type;
     });
-    var res = await MyApi().getData('order?id=$type');
+    var res = await MyApi().getData('order/getOrderByUser?id=$type');
     if (res['success'] != null && res['success']) {
       List orders = res['data'].map((item) => Order.fromJson(item)).toList();
       setState(() {

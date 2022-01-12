@@ -36,32 +36,20 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    _changeShippingInfo(formData) async {
-      var response = await MyApi()
-          .putData(formData, 'shipping_info/${widget.shippinginfo.id}');
-      if (response['success'] != null && response['success']) {
-        var shipping = ShippingInfo.fromJson(response['data']);
-        context.read<ShippingInfoProvider>().updateShippingInfo(shipping);
-        AlertMessage.showMsg(context, response['message']);
-      } else {
-        AlertMessage.showMsg(context, response['message']);
-      }
-    }
-
     TextEditingController fullnameController =
         TextEditingController(text: widget.shippinginfo.fullname);
     TextEditingController phoneController =
         TextEditingController(text: widget.shippinginfo.phone);
-    TextEditingController province_cityController =
-        TextEditingController(text: widget.shippinginfo.address.split(",")[3]);
-    TextEditingController districtController =
-        TextEditingController(text: widget.shippinginfo.address.split(",")[2]);
-    TextEditingController communeController =
-        TextEditingController(text: widget.shippinginfo.address.split(",")[1]);
-    TextEditingController moreController =
-        TextEditingController(text: widget.shippinginfo.address.split(",")[0]);
+    TextEditingController province_cityController = TextEditingController(
+        text: widget.shippinginfo.address.split(",")[3].trim());
+    TextEditingController districtController = TextEditingController(
+        text: widget.shippinginfo.address.split(",")[2].trim());
+    TextEditingController communeController = TextEditingController(
+        text: widget.shippinginfo.address.split(",")[1].trim());
+    TextEditingController moreController = TextEditingController(
+        text: widget.shippinginfo.address.split(",")[0].trim());
 
-    _addShippingInfo() async {
+    _changeShippingInfo() async {
       var isError;
       try {
         isError = Validations.fullname(fullnameController.text, (error) {
@@ -110,14 +98,14 @@ class _BodyState extends State<Body> {
         'fullname': fullnameController.text,
         'phone': phoneController.text,
         'address':
-            '${districtController.text}, ${communeController.text}, ${districtController.text}, ${province_cityController.text}',
+            '${moreController.text}, ${communeController.text}, ${districtController.text}, ${province_cityController.text}',
       };
 
-      var response = await MyApi().postData(formData, 'shipping_info');
-
+      var response = await MyApi()
+          .putData(formData, 'shipping_info/${widget.shippinginfo.id}');
       if (response['success'] != null && response['success']) {
         var shippingInfo = ShippingInfo.fromJson(response['data']);
-        context.read<ShippingInfoProvider>().addShippingInfo(shippingInfo);
+        context.read<ShippingInfoProvider>().updateShippingInfo(shippingInfo);
         Navigator.pop(context);
       } else {
         AlertMessage.showMsg(context, response['message']);
@@ -215,13 +203,7 @@ class _BodyState extends State<Body> {
               textStyle: const TextStyle(
                   color: AppColors.whiteClr, fontWeight: FontWeight.bold),
               onPress: () {
-                var formData = {
-                  'fullname': fullnameController.text,
-                  'phone': phoneController.text,
-                  'address':
-                      '${districtController.text}, ${communeController.text}, ${districtController.text}, ${province_cityController.text}',
-                };
-                _changeShippingInfo(formData);
+                _changeShippingInfo();
               },
               color: AppColors.blueClr,
             ),

@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildPrimaryAppBar(context),
       body: const Body(),
-      bottomNavigationBar: buildBottomNavBar(context),
+      bottomNavigationBar: buildBottomNavBar(context, 'Home'),
     );
   }
 }
