@@ -28,7 +28,6 @@ PreferredSize searchInput(context, cb) {
                 hintText: 'Tìm kiếm sản phẩm',
                 prefixIcon: const Icon(Icons.search, color: AppColors.blueClr),
                 hintStyle: const TextStyle(color: Colors.grey),
-                filled: true,
                 fillColor: Colors.white70,
                 contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 focusedBorder: const OutlineInputBorder(

@@ -1,22 +1,37 @@
 class Notify {
-  final String title;
-  final String description;
-  final String media;
-  final String link;
-  final DateTime createdAt;
+  late int id;
+  late String title;
+  late String description;
+  late int userId;
+  late int isRead;
+  late String createdAt;
 
-  Notify(this.title, this.description, this.media, this.link, this.createdAt);
+  Notify({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.userId,
+    required this.isRead,
+    required this.createdAt,
+  });
+
+  Notify.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    description = json['description'];
+    userId = json['user_id'];
+    isRead = json['isRead'];
+    createdAt = json['created_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['description'] = this.description;
+    data['user_id'] = this.userId;
+    data['isRead'] = this.isRead;
+    data['created_at'] = this.createdAt;
+    return data;
+  }
 }
-
-Notify postNotifyItem = Notify(
-    'Sản phẩm mới',
-    'Nike Air Zoom Pegasus 36 Miami - Đặc biệt cho hoạt động của bạn',
-    'https://anv.vn/wp-content/uploads/2020/09/giay-dior-H4.jpg',
-    '',
-    DateTime.now());
-Notify activityNotifyItem = Notify(
-    'Giao dịch sản phẩm Nike Air Zoom',
-    'Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',
-    '',
-    '',
-    DateTime.now());

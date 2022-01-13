@@ -13,7 +13,7 @@ class Category_List extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildPrimaryAppBar(context),
+      appBar: buildPrimaryAppBar(context, 1),
       body: Body(),
     );
   }

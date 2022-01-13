@@ -20,6 +20,7 @@ class CommentPage extends StatefulWidget {
 class _CommentPageState extends State<CommentPage> {
   late List _comments = [];
   bool _isLoading = false;
+  bool _isBought = false;
   var current_rating = null;
 
   // The function that fetches data from the API
@@ -33,10 +34,12 @@ class _CommentPageState extends State<CommentPage> {
     var url = 'comment/getCommentByProduct/$id?$query';
     var res = await MyApi().getData(url);
     if (res['success'] != null && res['success']) {
-      List _comment =
-          res['data'].map((item) => Comment.fromJson(item)).toList();
+      List _comment = res['data']['comments']
+          .map((item) => Comment.fromJson(item))
+          .toList();
       setState(() {
         _comments = List.from(_comment.reversed);
+        _isBought = res['data']['isBought'];
         _isLoading = false;
       });
     } else {
@@ -141,18 +144,24 @@ class _CommentPageState extends State<CommentPage> {
                                       _comments.length,
                                       (index) => CommentItem(
                                           comment: _comments[index])))
-                              : const Text(
-                                  'Hãy là người đầu tiên đánh giá sản phẩm này.')
+                              : const Padding(
+                                  padding: EdgeInsets.only(top: 20.0),
+                                  child: Text(
+                                      'Hãy là người đầu tiên đánh giá sản phẩm này.'),
+                                )
                     ],
                   ),
                 ),
               ),
               MyButtonWidget(
                   padding: EdgeInsets.zero,
-                  text: 'Viết đánh giá',
+                  text: _isBought ? 'Viết đánh giá' : 'Quay trở lại',
                   onPress: () {
-                    Navigator.pushNamed(context, RoutesName.CREATE_COMMENT_PAGE,
-                        arguments: widget.data['product']);
+                    _isBought
+                        ? Navigator.pushNamed(
+                            context, RoutesName.CREATE_COMMENT_PAGE,
+                            arguments: widget.data['product'])
+                        : Navigator.pop(context);
                   },
                   color: AppColors.blueClr,
                   textStyle: const TextStyle(color: AppColors.whiteClr))

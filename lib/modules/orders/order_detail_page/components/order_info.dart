@@ -11,7 +11,7 @@ class OrderInFo extends StatelessWidget {
   const OrderInFo({
     Key? key,
     this.data,
-    this.type = '',
+    this.type,
   }) : super(key: key);
 
   @override

@@ -1,10 +1,11 @@
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/providers/notify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-PreferredSize buildPrimaryAppBar(context) {
+PreferredSize buildPrimaryAppBar(context, unreadCount) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(80.0),
     child: Container(
@@ -52,13 +53,46 @@ PreferredSize buildPrimaryAppBar(context) {
                         context, RoutesName.PRODUCT_FAVORITE_PAGE);
                   },
                 ),
-                IconButton(
-                  icon: SvgPicture.asset(AppAssetsPath.notificationIcon,
-                      color: Colors.grey),
-                  color: Colors.grey,
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     Navigator.pushNamed(context, RoutesName.NOTIFY_PAGE);
                   },
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      IconButton(
+                        icon: SvgPicture.asset(AppAssetsPath.notificationIcon,
+                            color: Colors.grey),
+                        onPressed: () {
+                          Navigator.pushNamed(context, RoutesName.NOTIFY_PAGE);
+                        },
+                      ),
+                      unreadCount != null && unreadCount != 0
+                          ? Positioned(
+                              left: 5,
+                              top: 10,
+                              child: Container(
+                                width: 20,
+                                height: 20,
+                                child: Center(
+                                  child: Text(
+                                    unreadCount.toString(),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.whiteClr),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(50),
+                                  ),
+                                  color: AppColors.redClr,
+                                ),
+                              ))
+                          : const Text(''),
+                    ],
+                  ),
                 )
               ]),
         ],

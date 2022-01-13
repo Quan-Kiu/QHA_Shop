@@ -15,12 +15,7 @@ class Notify_Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget media = notify.media != ''
-        ? Image.network(
-            notify.media,
-            width: 60.0,
-          )
-        : SvgPicture.asset(AppAssetsPath.TransactionIcon);
+    Widget media = SvgPicture.asset(AppAssetsPath.TransactionIcon);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Row(
@@ -44,11 +39,11 @@ class Notify_Item extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Text(
                     notify.description,
-                    style: const TextStyle(fontSize: 14.0),
+                    style: const TextStyle(fontSize: 14.0, height: 1.5),
                   ),
                 ),
                 Text(
-                  notify.createdAt.toString(),
+                  notify.createdAt,
                   style: const TextStyle(color: AppColors.darkClr),
                 )
               ],

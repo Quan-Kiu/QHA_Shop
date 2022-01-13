@@ -14,12 +14,12 @@ class Posts_Notify_Page extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
             children: [
-              Notify_Item(
-                notify: postNotifyItem,
-              ),
-              Notify_Item(
-                notify: postNotifyItem,
-              ),
+              // Notify_Item(
+              //   notify: postNotifyItem,
+              // ),
+              // Notify_Item(
+              //   notify: postNotifyItem,
+              // ),
             ],
           ),
         ),
