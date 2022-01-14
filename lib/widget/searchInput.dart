@@ -2,7 +2,7 @@ import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
-PreferredSize searchInput(context, cb) {
+PreferredSize searchInput(context, autofocus, cb) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(80.0),
     child: Container(
@@ -21,7 +21,7 @@ PreferredSize searchInput(context, cb) {
                   color: AppColors.darkClr,
                   fontSize: 16.0),
               onChanged: (query) => cb(query),
-              autofocus: true,
+              autofocus: autofocus,
               onSubmitted: (value) =>
                   Navigator.pushNamed(context, RoutesName.SEARCH_RESULT),
               decoration: InputDecoration(

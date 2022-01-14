@@ -7,7 +7,6 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/user.dart';
 import 'package:doan/modules/profile/info/components/profile_widget.dart';
-import 'package:doan/modules/profile/sexScreen/components/body.dart';
 import 'package:doan/providers/auth.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/utils/validations.dart';
@@ -50,10 +49,10 @@ uploadImage() async {
 }
 
 class _BodyState extends State<Body> {
-  List<Item> users = <Item>[
-    const Item('Nam'),
-    const Item('Nữ'),
-    const Item('Khác'),
+  List<String> users = <String>[
+    'Nam',
+    'Nữ',
+    'Khác',
   ];
 
   var selectedUser;
@@ -145,34 +144,32 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             decoration: BoxDecoration(
                 border: Border.all(color: AppColors.lightClr, width: 2.0)),
-            child: DropdownButton<Item>(
-              hint: Text(user.gender,
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              value: selectedUser,
-              isExpanded: true,
-              // ignore: non_constant_identifier_names
-              onChanged: (Value) {
-                setState(() {
-                  selectedUser = Value;
-                });
-              },
-              items: users.map((Item user) {
-                return DropdownMenuItem<Item>(
-                  value: user,
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        user.name,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
+            child: DropdownButton<String>(
+                hint: Text(genderController.text,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                value: selectedUser,
+                isExpanded: true,
+                onChanged: (Value) {
+                  setState(() {
+                    selectedUser = Value;
+                  });
+                },
+                items: List.generate(
+                    users.length,
+                    (index) => DropdownMenuItem<String>(
+                          value: users[index],
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                users[index],
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ))),
           ),
           Container(
             padding: const EdgeInsets.all(10.0),

@@ -7,7 +7,6 @@ import 'package:doan/modules/auth/forgotPassScreen/forgot_pass_screen.dart';
 import 'package:doan/modules/auth/loginScreen/login_screen.dart';
 import 'package:doan/modules/auth/registerScreen/register_screen.dart';
 import 'package:doan/modules/cart/cart_page.dart';
-import 'package:doan/modules/category/category_list.dart';
 import 'package:doan/modules/checkout/checkout.dart';
 import 'package:doan/modules/checkout_complete/ckout_complete.dart';
 import 'package:doan/modules/comments/comment_page/comment_page.dart';
@@ -15,7 +14,6 @@ import 'package:doan/modules/comments/create_comment_page/create_comment_page.da
 import 'package:doan/modules/discount_page/discount_page.dart';
 import 'package:doan/modules/flash/flash_screen.dart';
 import 'package:doan/modules/home/home_screen.dart';
-import 'package:doan/modules/list_category/list_category.dart';
 import 'package:doan/modules/notify/activitys/activitys_notify_page.dart';
 import 'package:doan/modules/notify/notify_page.dart';
 import 'package:doan/modules/notify/posts/posts_notify_page.dart';
@@ -24,22 +22,15 @@ import 'package:doan/modules/orders/order_detail_page/order_detail_page.dart';
 import 'package:doan/modules/orders/orders_page/orders_page.dart';
 import 'package:doan/modules/page_list_screen.dart';
 import 'package:doan/modules/payment_card/payment_page.dart';
+import 'package:doan/modules/product_category/product_category.dart';
 import 'package:doan/modules/product_detail/product_detail_screen.dart';
 import 'package:doan/modules/product_favorite/product_favarite.dart';
 import 'package:doan/modules/profile/addaddress/addaddress_screen.dart';
 import 'package:doan/modules/profile/addcard/addcard_screen.dart';
 import 'package:doan/modules/profile/changePasswordScreen/changePassword_screen.dart';
-import 'package:doan/modules/profile/dateofbirthScreen/dateofbith_screen.dart';
-import 'package:doan/modules/profile/emailScreen/email_screen.dart';
 import 'package:doan/modules/profile/info/info_screen.dart';
-import 'package:doan/modules/profile/phoneScreen/phone_Screen.dart';
-import 'package:doan/modules/profile/renameScreen/rename_screen.dart';
-import 'package:doan/modules/profile/sexScreen/sex_screen.dart';
 import 'package:doan/modules/profile/updateaddress/updateaddress_screen.dart';
-import 'package:doan/modules/rmaddress/removeAddress.dart';
 import 'package:doan/modules/search/search_page.dart';
-import 'package:doan/modules/search_error/search_error.dart';
-import 'package:doan/modules/search_result/search_result.dart';
 import 'package:doan/modules/transpost_page/transpost.dart';
 import 'package:doan/modules/profile/changeprofile/changeprofilescreen.dart';
 import 'package:flutter/widgets.dart';
@@ -71,21 +62,7 @@ class RouteGenerator {
       case RoutesName.INFO_PAGE:
         return _GeneratePageRoute(
             widget: const InfoPageScreen(), routeName: settings.name);
-      case RoutesName.RENAME_PAGE:
-        return _GeneratePageRoute(
-            widget: const RenamePageScreen(), routeName: settings.name);
-      case RoutesName.SEX_PAGE:
-        return _GeneratePageRoute(
-            widget: const SexPageScreen(), routeName: settings.name);
-      case RoutesName.DATEOFBIRTH_PAGE:
-        return _GeneratePageRoute(
-            widget: const DateOBPageScreen(), routeName: settings.name);
-      case RoutesName.EMAIL_PAGE:
-        return _GeneratePageRoute(
-            widget: const EmailPageScreen(), routeName: settings.name);
-      case RoutesName.PHONE_PAGE:
-        return _GeneratePageRoute(
-            widget: const PhonePageScreen(), routeName: settings.name);
+
       case RoutesName.CHANGEPASSWORD_PAGE:
         return _GeneratePageRoute(
             widget: const ChangePasswordPageScreen(), routeName: settings.name);
@@ -124,9 +101,11 @@ class RouteGenerator {
       case RoutesName.PRODUCT_FAVORITE_PAGE:
         return _GeneratePageRoute(
             widget: Product_Favorite(), routeName: settings.name);
-      case RoutesName.SEARCH_RESULT:
+
+      case RoutesName.PRODUCT_CATEGORY:
         return _GeneratePageRoute(
-            widget: const Search_Result(), routeName: settings.name);
+            widget: ProductCategory(type: settings.arguments),
+            routeName: settings.name);
 
       case RoutesName.ADD_ADDRESS_PAGE:
         return _GeneratePageRoute(
@@ -143,10 +122,6 @@ class RouteGenerator {
         return _GeneratePageRoute(
             widget: const AccountPageScreen(), routeName: settings.name);
 
-      case RoutesName.CATEGORY_PAGE:
-        return _GeneratePageRoute(
-            widget: const Category_List(), routeName: settings.name);
-
       case RoutesName.POSTS_NOTIFY_PAGE:
         return _GeneratePageRoute(
             widget: const Posts_Notify_Page(), routeName: settings.name);
@@ -162,9 +137,7 @@ class RouteGenerator {
       case RoutesName.NOTIFY_PAGE:
         return _GeneratePageRoute(
             widget: const NotifyPage(), routeName: settings.name);
-      case RoutesName.SEARCH_ERROR:
-        return _GeneratePageRoute(
-            widget: const Search_error(), routeName: settings.name);
+
       case RoutesName.DISCOUNT_PAGE:
         return _GeneratePageRoute(
             widget: DiscountPage(), routeName: settings.name);
@@ -179,9 +152,7 @@ class RouteGenerator {
             widget: const Checkout_Complete(), routeName: settings.name);
       case RoutesName.ADDRESS_PAGE:
         return _GeneratePageRoute(widget: Address(), routeName: settings.name);
-      case RoutesName.RMADDRESS_PAGE:
-        return _GeneratePageRoute(
-            widget: const RemoveAddress(), routeName: settings.name);
+
       case RoutesName.PAYMENTCARD_PAGE:
         return _GeneratePageRoute(
             widget: const Paymentcard(), routeName: settings.name);
@@ -192,9 +163,6 @@ class RouteGenerator {
         return _GeneratePageRoute(
             widget: const ChangeProfile(), routeName: settings.name);
 
-      case RoutesName.LISTCATEGORY:
-        return _GeneratePageRoute(
-            widget: const List_Category(), routeName: settings.name);
       case RoutesName.UPDATE_ADDRESS_PAGE:
         return _GeneratePageRoute(
             widget: UpdateAddressPage(

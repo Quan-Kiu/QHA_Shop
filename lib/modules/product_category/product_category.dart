@@ -13,19 +13,49 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 
 // ignore: camel_case_types
-class Search_Page extends StatefulWidget {
-  const Search_Page({Key? key}) : super(key: key);
+class ProductCategory extends StatefulWidget {
+  final type;
+  const ProductCategory({Key? key, required this.type}) : super(key: key);
   @override
-  Search_PageState createState() => Search_PageState();
+  ProductCategoryState createState() => ProductCategoryState();
 }
 
 // ignore: camel_case_types
-class Search_PageState extends State<Search_Page> {
+class ProductCategoryState extends State<ProductCategory> {
   Timer debounce = Timer(const Duration(milliseconds: 100), () {});
   List<dynamic> _resultLst = [];
   String? _value;
   bool _isLoading = false;
   int _total = 0;
+
+  getProduct(type) async {
+    setState(() {
+      _isLoading = true;
+    });
+    var res = await MyApi().getData('product/search?product_type_id=$type');
+    if (res['success'] != null && res['success']) {
+      var products = res['data']['products']
+          .map((item) => Product.fromJson(item))
+          .toList();
+      setState(() {
+        _resultLst = products;
+        _isLoading = false;
+        _total = res['data']['total'];
+      });
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    getProduct(widget.type);
+  }
+
   @override
   void dispose() {
     debounce.cancel();
@@ -34,10 +64,9 @@ class Search_PageState extends State<Search_Page> {
 
   @override
   Widget build(BuildContext context) {
-    var productType = context.watch<ProductTypeProvider>().get;
     return Scaffold(
       bottomNavigationBar: buildBottomNavBar(context, 'Tìm kiếm'),
-      appBar: searchInput(context,true, (query) {
+      appBar: searchInput(context, false, (query) {
         if (debounce.isActive) debounce.cancel();
         debounce = Timer(const Duration(milliseconds: 500), () async {
           List<dynamic> newArr = [];
@@ -46,8 +75,7 @@ class Search_PageState extends State<Search_Page> {
             setState(() {
               _isLoading = true;
             });
-            var product_type_id =
-                _value != null ? 'product_type_id=$_value' : '';
+            var product_type_id = widget.type;
             var api_query = 'name=$query&$product_type_id';
             var res = await MyApi().getData('product/search?$api_query');
             if (res['success'] != null && res['success']) {
@@ -80,27 +108,6 @@ class Search_PageState extends State<Search_Page> {
                           fontWeight: FontWeight.bold,
                           fontSize: 14.0,
                         )),
-                    DropdownButton<String>(
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                      items: List.generate(
-                          productType.length,
-                          (index) => DropdownMenuItem<String>(
-                                child: Text(
-                                  productType[index].name,
-                                  style: const TextStyle(
-                                      color: AppColors.blackClr),
-                                ),
-                                value: productType[index].id.toString(),
-                              )),
-                      onChanged: (String? value) {
-                        setState(() {
-                          _value = value;
-                        });
-                      },
-                      hint: const Text('Chọn loại'),
-                      value: _value,
-                    ),
                   ],
                 ),
                 _isLoading

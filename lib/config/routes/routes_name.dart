@@ -10,6 +10,8 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String PRODUCT_DETAIL_PAGE = 'ProductDetailPage';
   // ignore: constant_identifier_names
+  static const String PRODUCT_CATEGORY = 'Product_Categorys';
+  // ignore: constant_identifier_names
   static const String HOME_PAGE = 'HomePage';
   // ignore: constant_identifier_names
   static const String INFO_PAGE = 'InfoPage';
@@ -75,7 +77,7 @@ class RoutesName {
   static const String ADDRESS_PAGE = 'AddressPage';
   // ignore: constant_identifier_names
   static const String RMADDRESS_PAGE = 'RemoveAddressPage';
-  // ignore: constant_identifier_names
+  // ignore: constant_identifier_namespro
   static const String PAYMENTCARD_PAGE = 'PaymentCardPage';
   // ignore: constant_identifier_names
   static const String ADDCHECKOUT_PAGE = 'AddcheckoutPage';

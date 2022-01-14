@@ -1,3 +1,4 @@
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/buttoncate.dart';
@@ -28,7 +29,10 @@ class MyButtonCategory extends StatelessWidget {
                 width: 25.0,
               ),
               color: AppColors.blueClr,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.PRODUCT_CATEGORY,
+                    arguments: buttonCate.link);
+              },
             ),
           ),
         ),

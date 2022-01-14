@@ -2,7 +2,6 @@ import 'package:doan/api/my_api.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
-import 'package:doan/models/category.dart';
 import 'package:doan/models/user.dart';
 import 'package:doan/providers/auth.dart';
 import 'package:doan/widget/rating_widget.dart';

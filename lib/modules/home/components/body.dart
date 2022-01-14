@@ -8,6 +8,7 @@ import 'package:doan/models/buttoncate.dart';
 import 'package:doan/models/carts.dart';
 import 'package:doan/models/product.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/providers/product_type.dart';
 import 'package:doan/providers/products.dart';
 import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/mybutton_cate_widget.dart';
@@ -16,15 +17,6 @@ import 'package:doan/widget/mytext_widget.dart';
 import 'package:doan/widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
-
-List<ButtonCate> buttonCate = [
-  ButtonCate("Áo thun nam", AppAssetsPath.shirtIcon, "none"),
-  ButtonCate("Đầm", AppAssetsPath.skirtIcon, "none"),
-  ButtonCate("Túi xách nam", AppAssetsPath.manbagIcon, "none"),
-  ButtonCate("Túi xách nữ", AppAssetsPath.womanbagIcon, "none"),
-  ButtonCate("Giày Nam", AppAssetsPath.manshoesIcon, "none"),
-  ButtonCate("Giày nữ", AppAssetsPath.womanshoesIcon, "none"),
-];
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -38,6 +30,9 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     var products = context.watch<Products>().myValue;
     var discountProducts = context.watch<Products>().myDiscount;
+    var productTypes = context.watch<ProductTypeProvider>().get;
+    var buttonCate = context.watch<ProductTypeProvider>().getMyButtonCate;
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -64,20 +59,28 @@ class _BodyState extends State<Body> {
               const SizedBox(
                 height: 20.0,
               ),
-              SizedBox(
-                  height: 250,
-                  child: GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 100,
-                              childAspectRatio: .8,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10),
-                      itemCount: buttonCate.length,
-                      itemBuilder: (BuildContext context, index) {
-                        return MyButtonCategory(buttonCate: buttonCate[index]);
-                      })),
+              productTypes.isNotEmpty
+                  ? SizedBox(
+                      height: 250,
+                      child: GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                                  maxCrossAxisExtent: 100,
+                                  childAspectRatio: .8,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10),
+                          itemCount: buttonCate.length,
+                          itemBuilder: (BuildContext context, index) {
+                            return MyButtonCategory(
+                                buttonCate: buttonCate[index]);
+                          }))
+                  : Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(vertical: 30.0),
+                      child: const CircularProgressIndicator(
+                        strokeWidth: 3.0,
+                      )),
               SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
