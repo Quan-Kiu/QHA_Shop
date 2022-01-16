@@ -1,13 +1,21 @@
 import 'package:doan/api/my_api.dart';
 import 'package:doan/models/carts.dart';
+import 'package:doan/models/discount.dart';
 import 'package:doan/models/product.dart';
 import 'package:flutter/material.dart';
 
 class CartsProvider extends ChangeNotifier {
   List myCart = [];
+  var _discount = null;
+
+  set discount(discount) {
+    _discount = discount;
+  }
+
   bool isFirst = false;
 
   get getMyCart => myCart;
+  get getDiscount => _discount;
 
   isExist(data) {
     for (var i = 0; i < myCart.length; i++) {
@@ -21,7 +29,8 @@ class CartsProvider extends ChangeNotifier {
 
   getCart() async {
     if (!isFirst) {
-      var response = await MyApi().getData('cart/getCartByUser');
+      Map<String, dynamic> response =
+          await MyApi().getData('cart/getCartByUser');
       if (response['success'] != null && response['success']) {
         List carts = response['data'].map((data) {
           var cart = Cart.fromJson(data);
@@ -35,6 +44,11 @@ class CartsProvider extends ChangeNotifier {
 
   set(data) {
     myCart = data;
+  }
+
+  setDiscount(data) {
+    discount = data;
+    notifyListeners();
   }
 
   void add(data) {

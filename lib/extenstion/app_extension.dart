@@ -9,6 +9,8 @@ class AppExtension {
       value = value.replaceAll(RegExp(r'\D'), '');
       value = value.replaceAll(RegExp(r'\B(?=(\d{3})+(?!\d))'), '.');
       return value + "đ";
+    } else {
+      return price + "đ";
     }
   }
 }

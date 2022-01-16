@@ -5,6 +5,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/cart/components/discount_code_input.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/utils/handleOrderPayment.dart';
 import 'package:doan/widget/alert_modal.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/product_order_item.dart';
@@ -22,20 +23,11 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     var myCart = context.watch<CartsProvider>().myCart;
-    var amount = 0;
-    myCart.forEach((element) {
-      amount += (element.quantity * element.product.discount) as int;
-    });
-    var tax = (amount * Pay().taxPercent).round();
-    var shippingPrice =
-        myCart.length * (amount * Pay().shippingPercent).round();
-
-    final _cartInfos = [
-      {'label': 'Số lượng (${myCart.length})', 'text': amount},
-      {'label': 'Phí vận chuyển', 'text': shippingPrice},
-      {'label': 'Thuể', 'text': tax},
-      {'label': 'Tổng tiền', 'text': amount + shippingPrice + tax},
-    ];
+    var discount = context.watch<CartsProvider>().getDiscount;
+    var handleOrderPay = handlePriceOrder(myCart, discount);
+    var _cartInfos = handleOrderPay['cartInfos'];
+    // ignore: unused_local_variable
+    var unitPrice = handleOrderPay['unitPrice'];
     return Container(
       padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
@@ -54,7 +46,9 @@ class _BodyState extends State<Body> {
                           (index) => ProductOrderItem(
                                 data: myCart[index],
                               ))),
-                  const DiscountCodeInput(),
+                  DiscountCodeInput(
+                    discount: discount != null ? discount.code : '',
+                  ),
                   OrderInFo(data: _cartInfos, type: 'payment'),
                   const SizedBox(
                     height: 15.0,

@@ -25,8 +25,8 @@ class HomeScreen extends StatelessWidget {
     Provider.of<NotifyProvider>(context, listen: false).getNotifies();
     Provider.of<Products>(context).getProducts();
     Provider.of<Products>(context).getDiscountProducts();
-    Provider.of<ShippingInfoProvider>(context, listen: false).getShippingInfo();
     Provider.of<CartsProvider>(context, listen: false).getCart();
+    Provider.of<ShippingInfoProvider>(context, listen: false).getShippingInfo();
     Provider.of<OrderStatusProvider>(context, listen: false).getOrderStatus();
     var unreadCount = context.watch<NotifyProvider>().unReadCount;
     return Scaffold(

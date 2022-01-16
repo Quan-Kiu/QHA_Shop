@@ -2,10 +2,12 @@ import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/pay.dart';
 import 'package:doan/constants/themes/app_colors.dart';
+import 'package:doan/extenstion/app_extension.dart';
 import 'package:doan/models/order_detail.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/modules/orders/order_detail_page/components/status_order.dart';
 import 'package:doan/utils/alert.dart';
+import 'package:doan/utils/handleOrderPayment.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
 import 'package:doan/widget/product_order_item.dart';
@@ -51,27 +53,35 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    var amount = 0;
-    _order_details.forEach((element) {
-      amount += (element.quantity * element.product.discount) as int;
-    });
-    var tax = (amount * Pay().taxPercent).round();
-    var shippingPrice =
-        _order_details.length * (amount * Pay().shippingPercent).round();
-    var totalPrice = amount + shippingPrice + tax;
+    var handleOrderPay = handlePriceOrder(_order_details, null);
+    var paymentInfos = handleOrderPay['cartInfos'];
+    // ignore: unused_local_variable
 
     List shippingInfos = [
       {'label': 'Thời gian', 'text': widget.order.deliveryDate},
       {'label': 'Đơn vị vận chuyển', 'text': 'QHA POS'},
-      {'label': 'Mã đơn hàng', 'text': widget.order.code},
+      {
+        'label': 'Mã đơn hàng',
+        'text': AppExtension.capitalize(widget.order.code)
+      },
       {'label': 'Địa chỉ', 'text': widget.order.address},
     ];
-    List paymentInfos = [
-      {'label': 'Số lượng (${widget.order.quantity})', 'text': amount},
-      {'label': 'Phí vận chuyển', 'text': shippingPrice},
-      {'label': 'Thuể', 'text': tax},
-      {'label': 'Tổng tiền', 'text': totalPrice},
-    ];
+    var unitPrice = widget.order.unitPrice;
+    var discount = (handleOrderPay['amount'] +
+            handleOrderPay['shippingPrice'] +
+            handleOrderPay['tax']) -
+        unitPrice;
+
+    paymentInfos[paymentInfos.length - 1] = {
+      'label': 'Tổng tiền',
+      'text': unitPrice
+    };
+
+    paymentInfos[paymentInfos.length - 2] = {
+      'label': 'Giảm giá',
+      'text': discount
+    };
+
     return _isLoading
         ? Container(
             alignment: Alignment.center,

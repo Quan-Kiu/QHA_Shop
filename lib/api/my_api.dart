@@ -7,16 +7,16 @@ class MyApi {
 
   postData(data, url) async {
     var fullUrl = _baseUrl + url;
-    final response = await http.post(Uri.parse(fullUrl),
+    var response = await http.post(Uri.parse(fullUrl),
         headers: await _setHeaders(), body: jsonEncode(data));
-    return await json.decode(response.body);
+    return json.decode(response.body);
   }
 
   getData(url) async {
     var fullUrl = _baseUrl + url;
-    final response =
+    var response =
         await http.get(Uri.parse(fullUrl), headers: await _setHeaders());
-    return await json.decode(response.body);
+    return json.decode(response.body);
   }
 
   putData(data, url) async {
@@ -24,7 +24,7 @@ class MyApi {
 
     final response = await http.put(Uri.parse(fullUrl),
         headers: await _setHeaders(), body: jsonEncode(data));
-    return await json.decode(response.body);
+    return json.decode(response.body);
   }
 
   patch(data, url) async {
@@ -32,7 +32,7 @@ class MyApi {
 
     final response = await http.patch(Uri.parse(fullUrl),
         headers: await _setHeaders(), body: jsonEncode(data));
-    return await json.decode(response.body);
+    return json.decode(response.body);
   }
 
   delete(url) async {
@@ -40,7 +40,7 @@ class MyApi {
 
     final response =
         await http.delete(Uri.parse(fullUrl), headers: await _setHeaders());
-    return await json.decode(response.body);
+    return json.decode(response.body);
   }
 }
 

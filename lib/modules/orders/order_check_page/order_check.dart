@@ -5,6 +5,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/providers/carts.dart';
 import 'package:doan/utils/alert.dart';
+import 'package:doan/utils/handleOrderPayment.dart';
 import 'package:doan/widget/AppBar/my_app_bar_sec.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/product_order_item.dart';
@@ -19,22 +20,10 @@ class OrderCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var myCart = context.watch<CartsProvider>().myCart;
-    var amount = 0;
-    myCart.forEach((element) {
-      amount += (element.quantity * element.product.discount) as int;
-    });
-
-    var tax = (amount * Pay().taxPercent).round();
-    var shippingPrice =
-        myCart.length * (amount * Pay().shippingPercent).round();
-    var unitPrice = amount + shippingPrice + tax;
-
-    final _cartInfos = [
-      {'label': 'Số lượng (${myCart.length})', 'text': amount},
-      {'label': 'Phí vận chuyển', 'text': shippingPrice},
-      {'label': 'Thuể', 'text': tax},
-      {'label': 'Tổng tiền', 'text': unitPrice},
-    ];
+    var discount = context.watch<CartsProvider>().getDiscount;
+    var handleOrderPay = handlePriceOrder(myCart, discount);
+    var _cartInfos = handleOrderPay['cartInfos'];
+    var unitPrice = handleOrderPay['unitPrice'];
 
     return Scaffold(
       appBar: buildSecondaryAppBar(context, 'Đặt hàng', null),
@@ -112,11 +101,16 @@ class OrderCheck extends StatelessWidget {
               "unit_price": unitPrice,
             };
 
+            if (discount != null) {
+              formData['discount_code'] = discount.code;
+            }
+
             var response = await MyApi().postData(formData, 'order');
             if (response['success'] != null && response['success']) {
               AlertMessage.showMsg(context, response['message']);
               Navigator.pushNamed(context, RoutesName.ORDERS_PAGE);
               context.read<CartsProvider>().set([]);
+              context.read<CartsProvider>().setDiscount(null);
             } else {
               AlertMessage.showMsg(
                   context, 'Có lỗi xảy ra, vui lòng thử lại sau.');

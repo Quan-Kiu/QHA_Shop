@@ -11,7 +11,7 @@ class Products extends ChangeNotifier {
 
   getProducts() async {
     if (_myProduct.isEmpty) {
-      var response = await MyApi().getData('product');
+      Map<String, dynamic> response = await MyApi().getData('product');
 
       if (response['success'] != null && response['success']) {
         var products = response['data']['products']
@@ -26,9 +26,9 @@ class Products extends ChangeNotifier {
 
   getDiscountProducts() async {
     if (_myDiscountProduct.isEmpty) {
-      var response2 = await MyApi().getData('product/discount');
-      if (response2['success'] != null && response2['success']) {
-        var products = response2['data']['products']
+      Map<String, dynamic> response = await MyApi().getData('product/discount');
+      if (response['success'] != null && response['success']) {
+        var products = response['data']['products']
             .map((data) => Product.fromJson(data))
             .toList();
         _myDiscountProduct = products;

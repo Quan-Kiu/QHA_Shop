@@ -12,7 +12,7 @@ class NotifyProvider extends ChangeNotifier {
 
   getNotifies() async {
     if (!isFirst) {
-      var response = await MyApi().getData('notify');
+      Map<String, dynamic> response = await MyApi().getData('notify');
 
       if (response['success'] != null && response['success']) {
         var counter = 0;
@@ -30,7 +30,7 @@ class NotifyProvider extends ChangeNotifier {
 
   updateIsRead() async {
     if (unReadCount > 0) {
-      var response = await MyApi().getData('notify/isRead');
+      Map<String, dynamic> response = await MyApi().getData('notify/isRead');
       if (response['success'] != null && response['success']) {
         unReadCount = 0;
         notifyListeners();

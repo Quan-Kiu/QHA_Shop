@@ -26,7 +26,7 @@ class OrderItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyTextWidget(
-                text: order.code,
+                text: AppExtension.capitalize(order.code),
                 isBold: true,
                 color: AppColors.darkClr,
                 fontSize: 18.0,

@@ -15,7 +15,7 @@ class FlashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _refeshToken() async {
-      var response = await MyApi().getData('refreshtoken');
+      Map<String, dynamic> response = await MyApi().getData('refreshtoken');
       if (response['success'] != null && response['success']) {
         var user = User.fromJson(response['data']['user']);
         var token = response['data']['token'];
