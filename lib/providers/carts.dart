@@ -57,7 +57,7 @@ class CartsProvider extends ChangeNotifier {
   }
 
   void delete(data) {
-    myCart.remove(data);
+    myCart.removeWhere((element) => element.id == data.id);
     notifyListeners();
   }
 

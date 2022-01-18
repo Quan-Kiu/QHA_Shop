@@ -137,6 +137,9 @@ class Body extends StatelessWidget {
           width: double.infinity,
           text: "Thêm vào giỏ hàng",
           onPress: () async {
+            if (product.stock <= 0)
+              return AlertMessage.showMsg(context,
+                  'Sản phẩm này hiện đã hết hàng, vui lòng quay trở lại sau.');
             var newCart = {
               "product_id": product.id,
               "quantity": 1,

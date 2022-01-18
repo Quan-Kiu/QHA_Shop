@@ -1,4 +1,5 @@
 import 'package:doan/api/my_api.dart';
+import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/extenstion/app_extension.dart';
@@ -31,7 +32,7 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
         Cart newCart = Cart.fromJson(response['data']);
         context.read<CartsProvider>().update(newCart);
       } else {
-        AlertMessage.showMsg(context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+        AlertMessage.showMsg(context, response['message']);
       }
     }
   }
@@ -59,11 +60,16 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                 Row(
                   children: [
                     Expanded(
-                      child: MyTextWidget(
-                        text: widget.data.product.name,
-                        isBold: true,
-                        color: AppColors.darkClr,
-                        fontSize: 16.0,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pushNamed(
+                            context, RoutesName.PRODUCT_DETAIL_PAGE,
+                            arguments: widget.data.product),
+                        child: MyTextWidget(
+                          text: widget.data.product.name,
+                          isBold: true,
+                          color: AppColors.darkClr,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                     !widget.readOnly
@@ -97,6 +103,23 @@ class _ProductOrderItemState extends State<ProductOrderItem> {
                   widget.data.description,
                   style: const TextStyle(fontSize: 15.0),
                 ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                widget.data.product.stock > 0
+                    ? Text('Còn ${widget.data.product.stock} sản phẩm')
+                    : const Text(
+                        'Hết hàng',
+                        style:
+                            TextStyle(fontSize: 15.0, color: AppColors.redClr),
+                      ),
+                widget.data.product.stock < widget.data.quantity
+                    ? const Text(
+                        'Không đủ hàng',
+                        style:
+                            TextStyle(fontSize: 15.0, color: AppColors.redClr),
+                      )
+                    : Container(),
                 const SizedBox(
                   height: 20.0,
                 ),

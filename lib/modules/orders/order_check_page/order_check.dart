@@ -112,8 +112,7 @@ class OrderCheck extends StatelessWidget {
               context.read<CartsProvider>().set([]);
               context.read<CartsProvider>().setDiscount(null);
             } else {
-              AlertMessage.showMsg(
-                  context, 'Có lỗi xảy ra, vui lòng thử lại sau.');
+              AlertMessage.showMsg(context, response['message']);
             }
           },
           textStyle: const TextStyle(fontSize: 16.0, color: AppColors.whiteClr),

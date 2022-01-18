@@ -17,7 +17,9 @@ class Notify_Item extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget media = SvgPicture.asset(AppAssetsPath.TransactionIcon);
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
       padding: const EdgeInsets.symmetric(vertical: 20.0),
+      color: notify.isRead == 1 ? AppColors.whiteClr : AppColors.lightClr,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +45,7 @@ class Notify_Item extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  notify.createdAt,
+                  notify.createdAt.replaceFirst('T', ' ').substring(0, 16),
                   style: const TextStyle(color: AppColors.darkClr),
                 )
               ],

@@ -2,11 +2,15 @@ import 'package:doan/constants/pay.dart';
 
 handlePriceOrder(myCart, discount) {
   var discount_price = 0;
+  var isOutOfStock = false;
   if (discount != null) {
     discount_price = discount.price;
   }
   var amount = 0;
   myCart.forEach((element) {
+    if (element.quantity > element.product.stock) {
+      isOutOfStock = true;
+    }
     amount += (element.quantity * element.product.discount) as int;
   });
   var tax = (amount * Pay().taxPercent).round();
@@ -27,5 +31,6 @@ handlePriceOrder(myCart, discount) {
     'tax': tax,
     "unitPrice": unitPrice,
     "cartInfos": _cartInfos,
+    "isOutOfStock": isOutOfStock,
   };
 }

@@ -96,6 +96,14 @@ class _ProductMainInfosState extends State<ProductMainInfos> {
             ],
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15.0),
+          child: widget.product.stock > 0
+              ? Text('Còn lại ${widget.product.stock} sản phẩm')
+              : const Text('Hết hàng',
+                  style: TextStyle(
+                      color: AppColors.redClr, fontWeight: FontWeight.bold)),
+        )
       ],
     );
   }

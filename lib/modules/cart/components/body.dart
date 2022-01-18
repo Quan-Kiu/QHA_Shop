@@ -5,6 +5,7 @@ import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/modules/cart/components/discount_code_input.dart';
 import 'package:doan/modules/orders/order_detail_page/components/order_info.dart';
 import 'package:doan/providers/carts.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/utils/handleOrderPayment.dart';
 import 'package:doan/widget/alert_modal.dart';
 import 'package:doan/widget/mybutton_widget.dart';
@@ -26,6 +27,7 @@ class _BodyState extends State<Body> {
     var discount = context.watch<CartsProvider>().getDiscount;
     var handleOrderPay = handlePriceOrder(myCart, discount);
     var _cartInfos = handleOrderPay['cartInfos'];
+    var _isOutOfStock = handleOrderPay['isOutOfStock'];
     // ignore: unused_local_variable
     var unitPrice = handleOrderPay['unitPrice'];
     return Container(
@@ -57,6 +59,10 @@ class _BodyState extends State<Body> {
                       padding: EdgeInsets.zero,
                       text: 'Thanh toán',
                       onPress: () {
+                        if (_isOutOfStock) {
+                          return AlertMessage.showMsg(context,
+                              'Giỏ hàng tồn tại sản phẩm không đủ số lượng tồn kho để cung cấp, vui lòng kiểm tra lại.');
+                        }
                         Navigator.pushNamed(
                             context, RoutesName.CHECKOUT_TYPE_PAGE);
                       },
