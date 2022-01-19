@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
@@ -18,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:doan/constants/assets/app_assets_path.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/src/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -29,26 +31,9 @@ class Body extends StatefulWidget {
   State<Body> createState() => _BodyState();
 }
 
-uploadImage() async {
-  var request =
-      http.MultipartRequest("POST", Uri.parse("https://api.imgur.com/3/image"));
-  request.fields['title'] = "";
-  request.headers['Authorization'] = "";
-
-  var picture = http.MultipartFile.fromBytes(
-      'image',
-      (await rootBundle.load("assets/images/PromotionImage.png"))
-          .buffer
-          .asUint8List(),
-      filename: 'PromotionImage.png');
-
-  request.files.add(picture);
-  var response = await request.send();
-  var responseData = await response.stream.toBytes();
-  var result = String.fromCharCodes(responseData);
-}
-
 class _BodyState extends State<Body> {
+  final cloudinary = CloudinaryPublic('quankiu', 'mfym3il5', cache: false);
+  bool isLoading = false;
   List<String> users = <String>[
     'Nam',
     'Nữ',
@@ -101,19 +86,25 @@ class _BodyState extends State<Body> {
         padding: const EdgeInsets.all(15.0),
         children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(vertical: 30.0, horizontal: 130.0),
-            child: Row(
-              children: [
-                ProfileWidget(
-                  imagePath: user.avatar,
-                  onClicked: () async {
-                    uploadImage();
-                  },
-                ),
-              ],
-            ),
-          ),
+              alignment: Alignment.center,
+              padding:
+                  const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  ProfileWidget(
+                    imagePath: user.avatar,
+                    onClicked: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: ((builder) => ButtomSheet()));
+                    },
+                  ),
+                  isLoading
+                      ? Positioned(child: CircularProgressIndicator())
+                      : Container(),
+                ],
+              )),
           Container(
             padding: const EdgeInsets.all(10.0),
             child: const Text(
@@ -314,5 +305,69 @@ class _BodyState extends State<Body> {
         ],
       ),
     );
+  }
+
+  Widget ButtomSheet() {
+    return Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,
+        margin: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 20,
+        ),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Chọn ảnh",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: <Widget>[
+                TextButton.icon(
+                    onPressed: () => getImage(source: ImageSource.gallery),
+                    icon: Icon(Icons.image),
+                    label: Text("Chọn ảnh"))
+              ],
+            )
+          ],
+        ));
+  }
+
+  void getImage({required ImageSource source}) async {
+    setState(() {
+      isLoading = true;
+    });
+    final file = await ImagePicker().pickImage(source: source);
+
+    try {
+      CloudinaryResponse response = await cloudinary.uploadFile(
+        CloudinaryFile.fromFile(file!.path,
+            resourceType: CloudinaryResourceType.Image),
+      );
+
+      var formData = {"avatar": response.secureUrl};
+
+      var res = await MyApi().patch(formData, 'user/changeAvatar');
+
+      if (res['success'] != null && res['success']) {
+        var user = User.fromJson(res['data']);
+        context.read<Auth>().updateUser(user);
+        AlertMessage.showMsg(context, res['message']);
+      }
+
+      setState(() {
+        isLoading = false;
+      });
+    } on CloudinaryException catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      AlertMessage.showMsg(context, e.message);
+    }
   }
 }

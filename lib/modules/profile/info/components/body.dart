@@ -1,12 +1,13 @@
 // ignore_for_file: unused_import
 import 'dart:io';
-
+import 'package:doan/api/my_api.dart';
 import 'package:doan/config/routes/routes_name.dart';
 import 'package:doan/constants.dart';
 import 'package:doan/constants/themes/app_colors.dart';
 import 'package:doan/constants/themes/app_text_styles.dart';
 import 'package:doan/models/user.dart';
 import 'package:doan/providers/auth.dart';
+import 'package:doan/utils/alert.dart';
 import 'package:doan/widget/button_select_widger.dart';
 import 'package:doan/widget/mybutton_widget.dart';
 import 'package:doan/widget/mytext_widget.dart';
@@ -18,6 +19,8 @@ import '../components/profile_widget.dart';
 import '../components/button_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'package:cloudinary_public/cloudinary_public.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -27,10 +30,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  File? imageFile;
-  FocusNode myFocusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
-
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController ganderController = TextEditingController();
@@ -67,27 +66,10 @@ class _BodyState extends State<Body> {
                 const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
             child: Row(
               children: [
-                if (imageFile != null)
-                  ClipOval(
-                    child: Material(
-                      child: Ink.image(
-                        image: FileImage(imageFile!),
-                        fit: BoxFit.cover,
-                        width: 100,
-                        height: 100,
-                        child: InkWell(onTap: () {}),
-                      ),
-                    ),
-                  ),
-                if (imageFile == null)
-                  ProfileWidget(
-                    imagePath: user.avatar,
-                    onClicked: () {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: ((builder) => ButtomSheet()));
-                    },
-                  ),
+                ProfileWidget(
+                  imagePath: user.avatar,
+                  onClicked: () {},
+                ),
                 const Padding(padding: EdgeInsets.only(left: 20.0)),
                 buildName(user),
               ],
@@ -334,44 +316,4 @@ class _BodyState extends State<Body> {
           ],
         ),
       );
-
-  Widget ButtomSheet() {
-    return Container(
-        height: 100,
-        width: MediaQuery.of(context).size.width,
-        margin: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 20,
-        ),
-        child: Column(
-          children: <Widget>[
-            Text(
-              "Chọn ảnh",
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: <Widget>[
-                TextButton.icon(
-                    onPressed: () => getImage(source: ImageSource.gallery),
-                    icon: Icon(Icons.image),
-                    label: Text("Chọn ảnh"))
-              ],
-            )
-          ],
-        ));
-  }
-
-  void getImage({required ImageSource source}) async {
-    final file = await ImagePicker().pickImage(source: source);
-    if (file?.path != null) {
-      setState(() {
-        imageFile = File(file!.path);
-      });
-    }
-  }
 }

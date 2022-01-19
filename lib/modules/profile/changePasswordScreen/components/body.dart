@@ -71,8 +71,6 @@ class _BodyState extends State<Body> {
 
     var response = await MyApi().putData(formData, 'user/changePassword');
 
-    print(response);
-
     if (response['success'] != null && response['success']) {
       AlertMessage.showMsg(context, response['message']);
     } else {
