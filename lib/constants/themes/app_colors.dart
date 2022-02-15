@@ -11,29 +11,35 @@ class AppColors {
   static const lightClr = Color.fromRGBO(235, 240, 255, 1);
   static const whiteClr = Color.fromRGBO(255, 255, 255, 1);
   static const blackClr = Color.fromRGBO(0, 0, 0, 1);
+  static const pinkClr = Color.fromRGBO(255, 182, 193, 1);
+  static const orangeClr = Color.fromRGBO(255, 165, 0, 1);
 
   static getColor(color) {
     switch (color) {
-      case "blue":
+      case "Xanh da trời":
         return blueClr;
-      case "red":
+      case "Đỏ":
         return redClr;
-      case "yellow":
+      case "Vàng":
         return yellowClr;
-      case "green":
+      case "Xanh lá":
         return greenClr;
-      case "purple":
+      case "Tím":
         return purpleClr;
-      case "dark":
+      case "Xanh đen":
         return darkClr;
-      case "gray":
+      case "Xám":
         return grayClr;
       case "light":
         return lightClr;
-      case "white":
+      case "Trắng":
         return whiteClr;
-      case "black":
+      case "Đen":
         return blackClr;
+      case "Hồng":
+        return pinkClr;
+      case "Cam":
+        return orangeClr;
       default:
         return whiteClr;
     }

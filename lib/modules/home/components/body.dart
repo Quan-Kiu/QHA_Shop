@@ -112,7 +112,8 @@ class _BodyState extends State<Body> {
                           mainAxisSpacing: 15,
                           crossAxisSpacing: 15,
                           childAspectRatio: 0.70,
-                          children: List.generate(
+                          children:
+                           List.generate(
                               4,
                               (index) => ProductCard(
                                     product: discountProducts[index],
