@@ -47,7 +47,7 @@ class _ButtonSelectState extends State<ButtonSelect> {
                                 side: widget.type == "size"
                                     ? BorderSide(
                                         color: _currentSize == index
-                                            ? AppColors.getColor("blue")
+                                            ? AppColors.getColor("Xanh da trời")
                                             : AppColors.lightClr,
                                         width: 2.0)
                                     : BorderSide.none,
