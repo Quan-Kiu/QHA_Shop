@@ -88,12 +88,12 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 MyTextFormField(
-                    hintText: "Your Email",
+                    hintText: "Email của bạn",
                     prefixIcon: Icons.email_outlined,
                     errorText: _emailError,
                     textController: emailController),
                 MyTextFormField(
-                  hintText: "Your Password",
+                  hintText: "Mật khẩu",
                   obscureText: true,
                   errorText: _passwordError,
                   prefixIcon: Icons.lock_outline,

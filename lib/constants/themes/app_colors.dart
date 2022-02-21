@@ -13,6 +13,7 @@ class AppColors {
   static const blackClr = Color.fromRGBO(0, 0, 0, 1);
   static const pinkClr = Color.fromRGBO(255, 182, 193, 1);
   static const orangeClr = Color.fromRGBO(255, 165, 0, 1);
+  static const mossgreenClr = Color.fromRGBO(34, 139, 34, 1);
 
   static getColor(color) {
     switch (color) {
@@ -40,6 +41,8 @@ class AppColors {
         return pinkClr;
       case "Cam":
         return orangeClr;
+      case "Xanh rêu":
+        return mossgreenClr;
       default:
         return whiteClr;
     }
