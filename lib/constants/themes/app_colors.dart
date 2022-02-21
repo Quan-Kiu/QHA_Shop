@@ -33,7 +33,7 @@ class AppColors {
       case "light":
         return lightClr;
       case "Trắng":
-        return whiteClr;
+        return lightClr;
       case "Đen":
         return blackClr;
       case "Hồng":

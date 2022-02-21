@@ -34,13 +34,13 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   final cloudinary = CloudinaryPublic('quankiu', 'mfym3il5', cache: false);
   bool isLoading = false;
-  List<String> users = <String>[
+  List<String> genders = <String>[
     'Nam',
     'Nữ',
     'Khác',
   ];
 
-  var selectedUser;
+  var selectedGender;
   String _emailError = '';
   String _fullnameError = '';
   String _phoneError = '';
@@ -138,21 +138,21 @@ class _BodyState extends State<Body> {
             child: DropdownButton<String>(
                 hint: Text(genderController.text,
                     style: const TextStyle(fontWeight: FontWeight.bold)),
-                value: selectedUser,
+                value: selectedGender,
                 isExpanded: true,
                 onChanged: (Value) {
                   setState(() {
-                    selectedUser = Value;
+                    selectedGender = Value;
                   });
                 },
                 items: List.generate(
-                    users.length,
+                    genders.length,
                     (index) => DropdownMenuItem<String>(
-                          value: users[index],
+                          value: genders[index],
                           child: Row(
                             children: <Widget>[
                               Text(
-                                users[index],
+                                genders[index],
                                 style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 20.0,
@@ -257,11 +257,12 @@ class _BodyState extends State<Body> {
                 color: AppColors.whiteClr, fontWeight: FontWeight.bold),
             onPress: () {
               var gender;
-              if (selectedUser == null) {
+              if (selectedGender == null) {
                 gender = user.gender;
               } else {
-                gender = selectedUser.name;
+                gender = selectedGender;
               }
+
               var formData = {
                 'email': emailController.text,
                 'fullname': nameController.text,
@@ -269,6 +270,7 @@ class _BodyState extends State<Body> {
                 'birthday': _date.text,
                 'phone': phoneController.text
               };
+
               _changeInfo(formData, user.id);
             },
             color: AppColors.blueClr,

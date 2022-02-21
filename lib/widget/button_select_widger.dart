@@ -71,7 +71,7 @@ class _ButtonSelectState extends State<ButtonSelect> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: _currentSize == index
-                                          ? widget.data[index] == "white"
+                                          ? widget.data[index] == "Trắng"
                                               ? AppColors.darkClr
                                               : AppColors.whiteClr
                                           : AppColors.getColor(
