@@ -1,12 +1,12 @@
 class Validations {
   static email(String string, Function cb) {
     if (string == '' || string.trim().length == 0) {
-      return throw Exception(cb('Trường email không được để trống.'));
+      return throw Exception(cb('Email không được để trống.'));
     }
     if (!RegExp(
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(string)) {
-      return throw Exception(cb('Trường email không hợp lệ.'));
+      return throw Exception(cb('Email không hợp lệ.'));
     }
 
     cb('');
@@ -15,10 +15,10 @@ class Validations {
 
   static password(String string, Function cb) {
     if (string == '' || string.trim().length == 0) {
-      return throw Exception(cb('Trường password không được để trống.'));
+      return throw Exception(cb('Mật khẩu không được để trống.'));
     }
     if (string.length < 6) {
-      return throw Exception(cb('Trường mật khẩu ít nhât 6 ký tự.'));
+      return throw Exception(cb('Mật khẩu ít nhât 6 ký tự.'));
     }
 
     cb('');
@@ -35,13 +35,13 @@ class Validations {
 
   static fullname(String string, Function cb) {
     if (string == '' || string.trim().length == 0) {
-      return throw Exception(cb('Trường họ tên không được để trống.'));
+      return throw Exception(cb('Họ tên không được để trống.'));
     }
     if (string.length < 6) {
-      return throw Exception(cb('Trường họ tên ít nhât 6 ký tự.'));
+      return throw Exception(cb('Họ tên ít nhât 6 ký tự.'));
     }
     if (string.length > 35) {
-      return throw Exception(cb('Trường họ tên nhiều nhât 35 ký tự.'));
+      return throw Exception(cb('Họ tên nhiều nhât 35 ký tự.'));
     }
 
     cb('');
@@ -50,7 +50,7 @@ class Validations {
 
   static textRequired(String label, String string, Function cb) {
     if (string == '' || string.trim().length == 0) {
-      return throw Exception(cb('Trường $label không được để trống.'));
+      return throw Exception(cb('$label không được để trống.'));
     }
     cb('');
     return true;
